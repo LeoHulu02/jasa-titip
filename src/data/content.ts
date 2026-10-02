@@ -24,7 +24,9 @@ export interface FAQItem {
   answer: string;
 }
 
-const WA_NUMBER = import.meta.env.PUBLIC_WA_NUMBER || '6281299887766';
+export const PHONE_NUMBER = '081320009935';
+export const PHONE_DISPLAY = '0813-2000-9935';
+export const WA_NUMBER = '6281320009935';
 
 export function getWhatsAppUrl(message: string): string {
   return `https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(message)}`;
@@ -33,6 +35,9 @@ export function getWhatsAppUrl(message: string): string {
 export const siteConfig = {
   name: 'PT Mitra Belanja Jakarta',
   shortName: 'Mitra Belanja',
+  phoneNumber: PHONE_NUMBER,
+  phoneDisplay: PHONE_DISPLAY,
+  waNumber: WA_NUMBER,
   tagline: 'Jasa Belanja & Jastip Terpercaya Pasar Tanah Abang',
   description: 'Bantu carikan, belikan, dan kirimkan barang tekstil & fashion dari Pasar Tanah Abang langsung ke kota Anda di seluruh Indonesia. Transparan, amanah, tanpa harus ke Jakarta.',
   url: 'https://mitrabelanja.co.id',

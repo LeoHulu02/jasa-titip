@@ -55,6 +55,12 @@ const waUrl = getWhatsAppUrl(siteConfig.defaultWaMessage);
             <MapPin class="w-4 h-4 text-slate-400 shrink-0 mt-0.5" />
             <span>{siteConfig.baseLocation}</span>
           </div>
+          <div class="flex items-center gap-2.5">
+            <WhatsAppIcon class="w-4 h-4 text-emerald-400 shrink-0" />
+            <a href={waUrl} target="_blank" rel="noopener noreferrer" class="hover:text-white transition-colors">
+              {siteConfig.phoneDisplay} (WhatsApp)
+            </a>
+          </div>
         </div>
       </div>
 
