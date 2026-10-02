@@ -1,78 +1,178 @@
 ---
+import { Phone } from '@lucide/astro';
 import WhatsAppIcon from './WhatsAppIcon.astro';
 import { desktopNavLinks, siteConfig, getWhatsAppUrl } from '../data/content';
 
 const waUrl = getWhatsAppUrl(siteConfig.defaultWaMessage);
 ---
 
-
-<header class="sticky top-0 z-40 w-full bg-white/95 backdrop-blur-xs border-b border-slate-200 transition-shadow duration-200" id="top-navbar">
-  <div class="max-w-6xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
-    <!-- Brand / Logo -->
-    <a href="#hero" class="flex items-center gap-2.5 sm:gap-3 group" aria-label="Mitra Belanja Jakarta - Home">
-      <img 
-        src="/logo.png" 
-        alt="Logo PT Mitra Belanja Jakarta" 
-        class="h-10 w-10 sm:h-11 sm:w-11 object-contain transition-transform group-hover:scale-105 shrink-0"
-        width="44"
-        height="44"
-        loading="eager"
-      />
+<header 
+  class="sticky top-0 z-40 w-full bg-white/90 backdrop-blur-md border-b border-slate-200/80 transition-all duration-200 select-none" 
+  id="top-navbar"
+>
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 md:h-18 lg:h-20 flex items-center justify-between gap-3 md:gap-4 lg:gap-8">
+    
+    <!-- Brand / Corporate Identity -->
+    <a 
+      href="#hero" 
+      class="flex items-center gap-2.5 sm:gap-3.5 group shrink-0" 
+      aria-label="PT Mitra Belanja Jakarta - Beranda"
+    >
+      <div class="relative shrink-0 flex items-center justify-center">
+        <img 
+          src="/logo.png" 
+          alt="Logo PT Mitra Belanja Jakarta" 
+          class="h-9 w-9 sm:h-10 sm:w-10 md:h-11 md:w-11 object-contain transition-transform duration-200 group-hover:scale-105"
+          width="44"
+          height="44"
+          loading="eager"
+        />
+      </div>
       <div class="flex flex-col">
-        <span class="text-xs sm:text-sm font-bold tracking-tight text-slate-900 group-hover:text-blue-600 transition-colors leading-tight">
-          MITRA BELANJA
-        </span>
-        <span class="text-[9px] sm:text-[10px] uppercase tracking-wider text-slate-500 font-semibold leading-tight">
+        <div class="flex items-center gap-2">
+          <span class="text-sm sm:text-base md:text-lg font-black tracking-tight text-slate-900 group-hover:text-blue-600 transition-colors leading-none">
+            MITRA BELANJA
+          </span>
+          <span class="hidden 2xl:inline-flex items-center px-1.5 py-0.5 rounded text-[9px] font-bold uppercase tracking-wider bg-blue-50 text-blue-700 border border-blue-200/60">
+            PT Resmi
+          </span>
+        </div>
+        <span class="text-[9.5px] sm:text-[10.5px] md:text-[11px] font-semibold text-slate-500 tracking-wider uppercase leading-snug mt-0.5">
           Pusat Grosir Jakarta
         </span>
       </div>
     </a>
 
-    <!-- Desktop Navigation Links -->
-    <nav class="hidden md:flex items-center gap-8" aria-label="Navigasi Utama">
+    <!-- Desktop & Tablet Navigation: Modern Tactile Pill (No Dempet-Dempetan) -->
+    <nav 
+      id="desktop-nav"
+      class="hidden md:flex items-center p-1 rounded-full bg-slate-100/75 border border-slate-200/70 shadow-2xs backdrop-blur-xs" 
+      aria-label="Navigasi Utama"
+    >
       {desktopNavLinks.map((link) => (
         <a 
           href={link.href} 
-          class="text-sm font-medium text-slate-600 hover:text-blue-600 transition-colors py-2 relative after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-blue-600 hover:after:w-full after:transition-all"
+          class="desktop-nav-link px-2.5 lg:px-3.5 py-1.5 rounded-full text-xs lg:text-[13px] font-semibold text-slate-600 hover:text-slate-950 hover:bg-white hover:shadow-2xs transition-all duration-150 whitespace-nowrap"
         >
           {link.label}
         </a>
       ))}
     </nav>
 
-    <!-- Desktop WhatsApp CTA Action Button -->
-    <div class="hidden md:flex items-center">
+    <!-- Right Side Actions: Trust Badges & Contact Buttons -->
+    <div class="flex items-center gap-2 sm:gap-3 shrink-0">
+      
+      <!-- Direct Hotline / Phone (Large Screens) -->
+      <a 
+        href={`tel:${siteConfig.phoneNumber}`}
+        class="hidden xl:inline-flex items-center gap-1.5 text-xs font-semibold text-slate-600 hover:text-blue-600 transition-colors px-2.5 py-1.5 rounded-lg hover:bg-slate-100/80"
+        title="Telepon Admin Lapangan"
+      >
+        <Phone class="w-3.5 h-3.5 text-slate-400 group-hover:text-blue-600" />
+        <span>{siteConfig.phoneDisplay}</span>
+      </a>
+
+      <!-- Subtle Vertical Divider -->
+      <div class="hidden xl:block h-4 w-px bg-slate-200"></div>
+
+      <!-- Live Online Status (Tablet & Desktop) -->
+      <div class="hidden lg:inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[11px] font-semibold bg-emerald-50 text-emerald-700 border border-emerald-200/80">
+        <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
+        <span>Online</span>
+      </div>
+
+      <!-- Main WhatsApp CTA Button (Tablet & Desktop) -->
       <a 
         href={waUrl}
         target="_blank"
         rel="noopener noreferrer"
-        class="inline-flex items-center gap-2 bg-[#25D366] hover:bg-[#1EBE5D] text-white px-4 py-2 rounded text-sm font-semibold shadow-xs hover:shadow transition-all active:scale-95"
+        class="hidden md:inline-flex items-center gap-2 bg-[#25D366] hover:bg-[#1EBE5D] text-white px-3.5 lg:px-4 py-2 rounded-full text-xs lg:text-sm font-bold shadow-xs hover:shadow transition-all active:scale-95 wa-pulse-subtle"
+        aria-label="Konsultasi Belanja via WhatsApp"
       >
         <WhatsAppIcon class="w-4 h-4 text-white" />
-        <span>Chat WhatsApp</span>
+        <span class="whitespace-nowrap">Chat WhatsApp</span>
       </a>
+
+      <!-- Mobile Right Status Pill (< 768px) -->
+      <div class="md:hidden flex items-center gap-2">
+        <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[11px] font-semibold bg-emerald-50 text-emerald-700 border border-emerald-200/80">
+          <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
+          Buka
+        </span>
+        <a 
+          href={waUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="inline-flex items-center justify-center w-8 h-8 rounded-full bg-[#25D366] text-white shadow-xs active:scale-90"
+          aria-label="Chat WhatsApp"
+        >
+          <WhatsAppIcon class="w-4 h-4 text-white" />
+        </a>
+      </div>
+
     </div>
 
-    <!-- Mobile Top Header Info (No Hamburger!) -->
-    <div class="md:hidden flex items-center">
-      <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[11px] font-medium bg-emerald-50 text-emerald-700 border border-emerald-200">
-        <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
-        Buka Hari Ini
-      </span>
-    </div>
   </div>
 </header>
 
 <script>
-  // Add subtle shadow on scroll
+  // Add subtle shadow and elevated border on scroll
   const nav = document.getElementById('top-navbar');
   if (nav) {
-    window.addEventListener('scroll', () => {
-      if (window.scrollY > 20) {
-        nav.classList.add('shadow-xs');
+    const handleScroll = () => {
+      if (window.scrollY > 15) {
+        nav.classList.add('shadow-xs', 'border-slate-300/80', 'bg-white/95');
+        nav.classList.remove('bg-white/90');
       } else {
-        nav.classList.remove('shadow-xs');
+        nav.classList.remove('shadow-xs', 'border-slate-300/80', 'bg-white/95');
+        nav.classList.add('bg-white/90');
       }
-    }, { passive: true });
+    };
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    handleScroll();
+  }
+
+  // Active link scroll spy for desktop nav pill
+  function setupDesktopSpy() {
+    const navLinks = document.querySelectorAll<HTMLAnchorElement>('.desktop-nav-link');
+    if (!navLinks.length) return;
+    const sections = ['layanan', 'dokumentasi', 'cara-kerja', 'kategori', 'faq'];
+
+    function updateActive() {
+      const scrollPos = window.scrollY + 120;
+      let currentSection = '';
+
+      for (const id of sections) {
+        const el = document.getElementById(id);
+        if (el) {
+          const top = el.offsetTop;
+          const height = el.offsetHeight;
+          if (scrollPos >= top && scrollPos < top + height) {
+            currentSection = id;
+            break;
+          }
+        }
+      }
+
+      navLinks.forEach((link) => {
+        const href = link.getAttribute('href');
+        if (href === `#${currentSection}`) {
+          link.classList.add('bg-white', 'text-blue-600', 'shadow-2xs');
+          link.classList.remove('text-slate-600');
+        } else {
+          link.classList.remove('bg-white', 'text-blue-600', 'shadow-2xs');
+          link.classList.add('text-slate-600');
+        }
+      });
+    }
+
+    window.addEventListener('scroll', updateActive, { passive: true });
+    updateActive();
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', setupDesktopSpy);
+  } else {
+    setupDesktopSpy();
   }
 </script>
