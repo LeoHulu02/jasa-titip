@@ -24,6 +24,18 @@ export interface FAQItem {
   answer: string;
 }
 
+export interface MarketPhoto {
+  id: string;
+  src: string;
+  title: string;
+  location: string;
+  tag: string;
+  description: string;
+  width: number;
+  height: number;
+  aspectRatio: string;
+}
+
 export const PHONE_NUMBER = '081320009935';
 export const PHONE_DISPLAY = '0813-2000-9935';
 export const WA_NUMBER = '6281320009935';
@@ -41,16 +53,98 @@ export const siteConfig = {
   tagline: 'Jasa Belanja & Jastip Pasar Grosir Jakarta',
   description: 'Jasa belanja dan jasa titip terpercaya di pasar grosir Jakarta. Kami bantu carikan barang, cek harga modal toko, belikan, dan kirimkan langsung ke kota Anda di seluruh Indonesia.',
   url: 'https://www.belanjakarta.com',
+  address: 'Jl. Kebon Kacang V No. 46, Tanah Abang, Jakarta Pusat',
   operatingHours: 'Senin – Sabtu: 08.00 – 17.00 WIB (Minggu Libur)',
-  baseLocation: 'DKI Jakarta (Menjangkau Seluruh Pasar Grosir Jakarta)',
+  baseLocation: 'Jl. Kebon Kacang V No. 46, Tanah Abang, Jakarta Pusat',
   defaultWaMessage: 'Halo Mitra Belanja, saya mau tanya-tanya seputar jasa belanja di pasar grosir Jakarta.',
   heroWaMessage: 'Halo Mitra Belanja, saya butuh bantuan belanja barang grosir dari Jakarta. Bisa bantu info ketentuannya?',
   howItWorksWaMessage: 'Halo Mitra Belanja, saya ingin tahu alur pemesanan dan estimasi tarif jasa belanja di Jakarta.',
   closingWaMessage: 'Halo Mitra Belanja, saya ada rencana belanja kebutuhan dagang di pasar grosir Jakarta. Bagaimana langkah awalnya ya?',
 };
 
+export const marketPhotos: MarketPhoto[] = [
+  {
+    id: 'tanah-abang-blok-a',
+    src: '/image-1.jpeg',
+    title: 'Sentra Grosir Blok A Tanah Abang',
+    location: 'Tanah Abang, Jakarta Pusat',
+    tag: 'Sentra Busana & Tekstil',
+    description: 'Pusat grosir pakaian muslim, gamis, busana pria/wanita, dan tekstil terbesar di Asia Tenggara.',
+    width: 768,
+    height: 1024,
+    aspectRatio: '3/4',
+  },
+  {
+    id: 'kios-baju-grosir',
+    src: '/image-2.jpeg',
+    title: 'Kios & Stok Seri Grosir Busana',
+    location: 'Kios Grosir Pakaian Jakarta',
+    tag: 'Pengecekan Fisik & Stok',
+    description: 'Pengecekan langsung tumpukan stok seri, mutu bahan kain, jahitan, dan negosiasi harga modal di kios.',
+    width: 1000,
+    height: 667,
+    aspectRatio: '3/2',
+  },
+  {
+    id: 'suasana-atrium-pasar',
+    src: '/image-3.jpeg',
+    title: 'Suasana Hunting & Transaksi Grosir',
+    location: 'Atrium Niaga Grosir Jakarta',
+    tag: 'Aktivitas Belanja Nyata',
+    description: 'Tim kami menyusuri setiap lorong pasar grosir untuk menemukan supplier tangan pertama dengan harga terbaik.',
+    width: 1000,
+    height: 667,
+    aspectRatio: '3/2',
+  },
+  {
+    id: 'koridor-toko-bertingkat',
+    src: '/image-4.jpeg',
+    title: 'Pertokoan Grosir Bertingkat',
+    location: 'Pusat Niaga Grosir Jakarta',
+    tag: 'Ribuan Distributor Toko',
+    description: 'Menjangkau distributor tekstil, pakaian jadi, seragam partai besar, hingga perlengkapan busana daerah.',
+    width: 1200,
+    height: 800,
+    aspectRatio: '3/2',
+  },
+  {
+    id: 'pasar-cipulir',
+    src: '/image-5.jpeg',
+    title: 'Sentra Grosir Pasar Cipulir',
+    location: 'Cipulir, Jakarta Selatan',
+    tag: 'Sentra Busana & Konveksi Murah',
+    description: 'Pusat grosir celana, kaos, daster, dan pakaian harian dengan harga modal konveksi langsung dari produsen.',
+    width: 800,
+    height: 600,
+    aspectRatio: '4/3',
+  },
+  {
+    id: 'gedung-grosir-termurah',
+    src: '/image-6.jpeg',
+    title: 'Pusat Grosir Termurah Jakarta',
+    location: 'Sentra Perdagangan Grosir Jakarta',
+    tag: 'Bisa Grosir & Eceran Partai',
+    description: 'Akses ke supplier termurah yang melayani pembelian grosir partai kodi maupun eceran partai untuk toko daerah.',
+    width: 479,
+    height: 640,
+    aspectRatio: '3/4',
+  },
+  {
+    id: 'trade-center-regional',
+    src: '/image-7.jpeg',
+    title: 'Blok F Trade Center Pasar Grosir',
+    location: 'Kawasan Niaga Sentra Grosir',
+    tag: 'Aneka Komoditas Dagang',
+    description: 'Pengadaan aneka produk dagang, tas, aksesoris, sepatu, dan barang pesanan khusus mitra seluruh Indonesia.',
+    width: 500,
+    height: 500,
+    aspectRatio: '1/1',
+  },
+];
+
 export const desktopNavLinks: NavItem[] = [
   { label: 'Layanan', href: '#layanan' },
+  { label: 'Dokumentasi', href: '#dokumentasi' },
   { label: 'Cara Kerja', href: '#cara-kerja' },
   { label: 'Kategori', href: '#kategori' },
   { label: 'FAQ', href: '#faq' },
@@ -78,9 +172,9 @@ export const services: ServiceItem[] = [
   },
   {
     id: 'price-check',
-    title: 'Pengecekan Harga Modal & Stok Nyata Toko',
-    description: 'Kami cek langsung ketersediaan stok seri, warna, ukuran, dan harga modal grosir di pedagang. Anda mendapatkan foto aktual barang dan konfirmasi harga sebelum transaksi.',
-    tag: 'Harga Modal Asli',
+    title: 'Cek Modal, Foto Stok & Live Video Call di Kios',
+    description: 'Kami cek langsung ketersediaan stok seri, warna, ukuran, dan harga modal grosir di pedagang. Anda bisa meminta tim lapangan kami untuk Video Call via WhatsApp langsung dari kios untuk melihat fisik barang secara real-time.',
+    tag: 'Cek Fisik & Video Call',
   },
   {
     id: 'consolidation',
@@ -117,9 +211,9 @@ export const steps: StepItem[] = [
   },
   {
     number: '02',
-    badge: 'Cek Lapangan',
-    title: 'Tim Kami Meninjau Kios Grosir & Fotokan Stok Nyata',
-    description: 'Kami datangi sentra grosir terkait di Jakarta, mengambil foto stok nyata, dan menginformasikan harga modal toko secara terbuka beserta biaya jasa.',
+    badge: 'Cek & Video Call',
+    title: 'Tim Tinjau Kios, Fotokan Stok & Live Video Call',
+    description: 'Kami datangi sentra grosir terkait di Jakarta, fotokan stok nyata, dan bisa langsung Video Call jika Anda ingin melihat fisik barang, warna, atau motif langsung dari kios.',
   },
   {
     number: '03',
@@ -158,6 +252,10 @@ export const faqs: FAQItem[] = [
   {
     question: 'Pasar grosir apa saja di Jakarta yang bisa dibantu belanjakan?',
     answer: 'Kami melayani pembelanjaan di berbagai pasar dan sentra grosir di seluruh wilayah Jakarta. Anda cukup konsultasikan barang atau toko yang ingin Anda beli via WhatsApp, dan tim lapangan kami siap mendatangi lokasi untuk mengecek stok serta membelanjakannya.',
+  },
+  {
+    question: 'Apakah saya bisa minta video call untuk melihat barang secara langsung di kios pasar?',
+    answer: 'Sangat bisa! Tim lapangan kami siap melakukan WhatsApp Video Call langsung dari kios pedagang di pasar grosir. Anda bisa melihat langsung detail bahan, kecerahan warna asli, kerapian jahitan, dan tumpukan stok seri sebelum memutuskan transaksi belanja.',
   },
   {
     question: 'Apakah bisa belanja dari beberapa toko sekaligus dalam satu pengiriman?',

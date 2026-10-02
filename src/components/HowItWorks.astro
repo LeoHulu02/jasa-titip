@@ -11,7 +11,7 @@ const waUrl = getWhatsAppUrl(siteConfig.howItWorksWaMessage);
   <div class="max-w-4xl mx-auto px-4 sm:px-6">
     
     <!-- Section Header -->
-    <div class="text-center max-w-2xl mx-auto mb-14 sm:mb-18">
+    <div class="text-center max-w-2xl mx-auto mb-14 sm:mb-18 reveal-on-scroll">
       <span class="text-xs uppercase font-bold tracking-wider text-blue-600 bg-blue-50 border border-blue-100 px-3 py-1 rounded inline-block mb-3">
         Alur Praktis
       </span>
@@ -29,8 +29,8 @@ const waUrl = getWhatsAppUrl(siteConfig.howItWorksWaMessage);
       <div class="hidden sm:block absolute left-8 top-6 bottom-6 w-0.5 bg-slate-200 -z-0"></div>
 
       <div class="space-y-8 sm:space-y-10 relative z-10">
-        {steps.map((step) => (
-          <div class="flex flex-col sm:flex-row items-start gap-4 sm:gap-6 bg-white sm:bg-transparent p-5 sm:p-0 rounded-lg sm:rounded-none border sm:border-0 border-slate-200 shadow-xs sm:shadow-none">
+        {steps.map((step, index) => (
+          <div class={`flex flex-col sm:flex-row items-start gap-4 sm:gap-6 bg-white sm:bg-transparent p-5 sm:p-0 rounded-lg sm:rounded-none border sm:border-0 border-slate-200 shadow-xs sm:shadow-none reveal-on-scroll stagger-${index + 1}`}>
             
             <!-- Number badge -->
             <div class="w-14 h-14 sm:w-16 sm:h-16 rounded-lg bg-blue-600 text-white flex flex-col items-center justify-center shrink-0 shadow-xs">
@@ -39,7 +39,7 @@ const waUrl = getWhatsAppUrl(siteConfig.howItWorksWaMessage);
             </div>
 
             <!-- Content Card -->
-            <div class="flex-1 bg-white sm:p-6 sm:rounded-lg sm:border sm:border-slate-200 sm:shadow-xs">
+            <div class="flex-1 bg-white sm:p-6 sm:rounded-lg sm:border sm:border-slate-200 sm:shadow-xs card-hover-lift">
               <div class="flex items-center gap-2 mb-1.5">
                 <span class="text-xs font-bold text-blue-600 uppercase tracking-wide">
                   {step.badge}
@@ -59,7 +59,7 @@ const waUrl = getWhatsAppUrl(siteConfig.howItWorksWaMessage);
     </div>
 
     <!-- Inline Action Box at Timeline End -->
-    <div class="mt-12 sm:mt-16 bg-white rounded-lg border border-slate-200 p-6 sm:p-8 flex flex-col sm:flex-row items-center justify-between gap-6 shadow-xs">
+    <div class="mt-12 sm:mt-16 bg-white rounded-lg border border-slate-200 p-6 sm:p-8 flex flex-col sm:flex-row items-center justify-between gap-6 shadow-xs reveal-on-scroll card-hover-lift">
       <div>
         <h4 class="text-lg font-bold text-slate-900 mb-1">
           Punya daftar barang yang ingin dibeli hari ini?
@@ -73,7 +73,7 @@ const waUrl = getWhatsAppUrl(siteConfig.howItWorksWaMessage);
         href={waUrl}
         target="_blank"
         rel="noopener noreferrer"
-        class="inline-flex items-center gap-2 bg-[#25D366] hover:bg-[#1EBE5D] text-white px-5 py-3 rounded text-sm font-bold shadow-xs hover:shadow transition-all shrink-0 active:scale-95"
+        class="inline-flex items-center gap-2 bg-[#25D366] hover:bg-[#1EBE5D] text-white px-5 py-3 rounded text-sm font-bold shadow-xs hover:shadow transition-all shrink-0 active:scale-95 wa-pulse-subtle"
       >
         <WhatsAppIcon class="w-4 h-4 text-white" />
         <span>Konsultasi Belanja via WhatsApp</span>

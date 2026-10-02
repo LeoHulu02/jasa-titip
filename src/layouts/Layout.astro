@@ -25,8 +25,8 @@ const jsonLd = {
   "telephone": "+6281320009935",
   "address": {
     "@type": "PostalAddress",
-    "streetAddress": "Kawasan Sentra Grosir DKI Jakarta",
-    "addressLocality": "Jakarta",
+    "streetAddress": "Jl. Kebon Kacang V No. 46, Tanah Abang",
+    "addressLocality": "Jakarta Pusat",
     "addressRegion": "DKI Jakarta",
     "addressCountry": "ID"
   },
@@ -58,7 +58,7 @@ const jsonLd = {
     <meta property="og:type" content="website" />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
-    <meta property="og:image" content="/images/tanah-abang-hero.jpg" />
+    <meta property="og:image" content="/image-1.jpeg" />
     <meta property="og:url" content={siteConfig.url} />
 
     <!-- Google Fonts: Plus Jakarta Sans -->
@@ -97,5 +97,37 @@ const jsonLd = {
 
     <!-- Mobile Persistent Bottom Navigation Bar (hidden on desktop) -->
     <BottomNav />
+
+    <!-- Smooth Scroll-Reveal Animation Engine -->
+    <script>
+      function initScrollReveal() {
+        if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+          document.querySelectorAll('.reveal-on-scroll').forEach(el => el.classList.add('is-revealed'));
+          return;
+        }
+
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('is-revealed');
+              observer.unobserve(entry.target);
+            }
+          });
+        }, {
+          threshold: 0.1,
+          rootMargin: '0px 0px -30px 0px'
+        });
+
+        document.querySelectorAll('.reveal-on-scroll').forEach(el => {
+          observer.observe(el);
+        });
+      }
+
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initScrollReveal);
+      } else {
+        initScrollReveal();
+      }
+    </script>
   </body>
 </html>
