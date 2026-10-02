@@ -1,0 +1,54 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --color-brand-blue: #2563EB;
+    --color-brand-blue-hover: #1D4ED8;
+    --color-brand-orange: #F97316;
+    --color-whatsapp: #25D366;
+    --color-whatsapp-hover: #1EBE5D;
+    --color-surface-light: #F8FAFC;
+    --color-surface-dark: #0F172A;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    font-family: 'Plus Jakarta Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    color: #0F172A;
+    background-color: #FFFFFF;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  /* Safe area padding for mobile screens */
+  .safe-area-bottom {
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+  }
+
+  /* Prevent bottom nav from covering content */
+  .main-content-wrapper {
+    padding-bottom: calc(4.75rem + env(safe-area-inset-bottom, 0px));
+  }
+
+  @media (min-width: 768px) {
+    .main-content-wrapper {
+      padding-bottom: 0px;
+    }
+  }
+}
+
+/* Custom focus indicator */
+a:focus-visible, button:focus-visible {
+  outline: 2px solid #2563EB;
+  outline-offset: 2px;
+}
+
+/* Scroll margin for fixed header */
+section[id] {
+  scroll-margin-top: 5rem;
+}
+
+@media (max-width: 767px) {
+  section[id] {
+    scroll-margin-top: 3.5rem;
+  }
+}

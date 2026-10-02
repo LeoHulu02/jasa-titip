@@ -1,0 +1,125 @@
+---
+import { Home, ShoppingBag, ClipboardList, HelpCircle, MessageCircle } from '@lucide/astro';
+import { siteConfig, getWhatsAppUrl } from '../data/content';
+
+const waUrl = getWhatsAppUrl(siteConfig.defaultWaMessage);
+---
+
+<nav 
+  class="md:hidden fixed bottom-0 left-0 right-0 z-50 bg-white border-t border-slate-200 shadow-[0_-2px_10px_rgba(0,0,0,0.05)] safe-area-bottom"
+  aria-label="Navigasi Bawah Mobile"
+  id="mobile-bottom-nav"
+>
+  <div class="grid grid-cols-5 items-stretch h-14 max-w-lg mx-auto">
+    <!-- 1. Home -->
+    <a 
+      href="#hero" 
+      class="nav-tab flex flex-col items-center justify-center gap-1 text-slate-500 hover:text-blue-600 transition-colors py-1 group focus-visible:outline-none focus-visible:bg-slate-50 relative"
+      data-section="hero"
+      aria-label="Menuju Beranda"
+    >
+      <span class="active-indicator absolute top-0 left-1/2 -translate-x-1/2 w-8 h-0.5 bg-blue-600 rounded-full opacity-0 transition-opacity"></span>
+      <Home class="w-5 h-5 transition-transform group-active:scale-90" />
+      <span class="text-[10px] font-medium leading-none">Home</span>
+    </a>
+
+    <!-- 2. Layanan -->
+    <a 
+      href="#layanan" 
+      class="nav-tab flex flex-col items-center justify-center gap-1 text-slate-500 hover:text-blue-600 transition-colors py-1 group focus-visible:outline-none focus-visible:bg-slate-50 relative"
+      data-section="layanan"
+      aria-label="Menuju Layanan"
+    >
+      <span class="active-indicator absolute top-0 left-1/2 -translate-x-1/2 w-8 h-0.5 bg-blue-600 rounded-full opacity-0 transition-opacity"></span>
+      <ShoppingBag class="w-5 h-5 transition-transform group-active:scale-90" />
+      <span class="text-[10px] font-medium leading-none">Layanan</span>
+    </a>
+
+    <!-- 3. Cara Kerja -->
+    <a 
+      href="#cara-kerja" 
+      class="nav-tab flex flex-col items-center justify-center gap-1 text-slate-500 hover:text-blue-600 transition-colors py-1 group focus-visible:outline-none focus-visible:bg-slate-50 relative"
+      data-section="cara-kerja"
+      aria-label="Menuju Alur Belanja"
+    >
+      <span class="active-indicator absolute top-0 left-1/2 -translate-x-1/2 w-8 h-0.5 bg-blue-600 rounded-full opacity-0 transition-opacity"></span>
+      <ClipboardList class="w-5 h-5 transition-transform group-active:scale-90" />
+      <span class="text-[10px] font-medium leading-none">Alur</span>
+    </a>
+
+    <!-- 4. FAQ -->
+    <a 
+      href="#faq" 
+      class="nav-tab flex flex-col items-center justify-center gap-1 text-slate-500 hover:text-blue-600 transition-colors py-1 group focus-visible:outline-none focus-visible:bg-slate-50 relative"
+      data-section="faq"
+      aria-label="Menuju Pertanyaan FAQ"
+    >
+      <span class="active-indicator absolute top-0 left-1/2 -translate-x-1/2 w-8 h-0.5 bg-blue-600 rounded-full opacity-0 transition-opacity"></span>
+      <HelpCircle class="w-5 h-5 transition-transform group-active:scale-90" />
+      <span class="text-[10px] font-medium leading-none">FAQ</span>
+    </a>
+
+    <!-- 5. WhatsApp (Emphasized Conversion Action) -->
+    <a 
+      href={waUrl}
+      target="_blank"
+      rel="noopener noreferrer"
+      class="flex flex-col items-center justify-center gap-1 py-1 group focus-visible:outline-none focus-visible:bg-emerald-50 text-emerald-700 bg-emerald-50/70 border-l border-slate-100 transition-colors active:bg-emerald-100"
+      aria-label="Hubungi WhatsApp Mitra Belanja"
+    >
+      <div class="w-6 h-6 rounded-full bg-[#25D366] text-white flex items-center justify-center shadow-xs group-hover:scale-105 group-active:scale-95 transition-transform">
+        <MessageCircle class="w-3.5 h-3.5 fill-current" />
+      </div>
+      <span class="text-[10px] font-bold text-emerald-800 leading-none">WhatsApp</span>
+    </a>
+  </div>
+</nav>
+
+<script>
+  // Scroll-spy active state handler
+  function setupScrollSpy() {
+    const tabs = document.querySelectorAll<HTMLAnchorElement>('.nav-tab');
+    const sections = ['hero', 'layanan', 'cara-kerja', 'faq'];
+    
+    function updateActiveTab() {
+      const scrollPosition = window.scrollY + 200;
+      let currentSection = 'hero';
+
+      for (const sectionId of sections) {
+        const el = document.getElementById(sectionId);
+        if (el) {
+          const top = el.offsetTop;
+          const height = el.offsetHeight;
+          if (scrollPosition >= top && scrollPosition < top + height) {
+            currentSection = sectionId;
+            break;
+          }
+        }
+      }
+
+      tabs.forEach((tab) => {
+        const target = tab.getAttribute('data-section');
+        const indicator = tab.querySelector('.active-indicator');
+        if (target === currentSection) {
+          tab.classList.remove('text-slate-500');
+          tab.classList.add('text-blue-600', 'font-semibold');
+          if (indicator) indicator.classList.remove('opacity-0');
+        } else {
+          tab.classList.add('text-slate-500');
+          tab.classList.remove('text-blue-600', 'font-semibold');
+          if (indicator) indicator.classList.add('opacity-0');
+        }
+      });
+    }
+
+    window.addEventListener('scroll', updateActiveTab, { passive: true });
+    updateActiveTab();
+  }
+
+  // Run on page load
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', setupScrollSpy);
+  } else {
+    setupScrollSpy();
+  }
+</script>

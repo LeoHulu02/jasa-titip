@@ -1,0 +1,70 @@
+---
+import { Search, Tag, CheckCheck, Truck, Users } from '@lucide/astro';
+import { services } from '../data/content';
+
+const iconMap = [
+  Search,
+  Tag,
+  CheckCheck,
+  Truck,
+  Users
+];
+---
+
+<section id="layanan" class="py-16 sm:py-20 md:py-24 bg-white border-b border-slate-100">
+  <div class="max-w-5xl mx-auto px-4 sm:px-6">
+    
+    <!-- Section Header -->
+    <div class="max-w-2xl mb-12 sm:mb-16">
+      <span class="text-xs uppercase font-bold tracking-wider text-blue-600 bg-blue-50 px-2.5 py-1 rounded inline-block mb-3">
+        Layanan Kami
+      </span>
+      <h2 class="text-2xl sm:text-3xl md:text-4xl font-extrabold text-slate-900 tracking-tight leading-tight mb-4">
+        Apa yang Bisa Kami Bantu di Tanah Abang?
+      </h2>
+      <p class="text-slate-600 text-base sm:text-lg leading-relaxed">
+        Solusi belanja menyeluruh dari penyusuran lorong pasar hingga barang tiba di gudang atau toko Anda.
+      </p>
+    </div>
+
+    <!-- Services List: Accent-border list layout (Anti-Slop) -->
+    <div class="divide-y divide-slate-200 border-y border-slate-200">
+      {services.map((item, index) => {
+        const IconComponent = iconMap[index] || Search;
+        return (
+          <div class="py-6 sm:py-8 group hover:bg-slate-50/70 transition-colors px-3 sm:px-5 -mx-3 sm:-mx-5 rounded-sm">
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-4 md:gap-6 items-start">
+              
+              <!-- Tag & Icon (3 cols) -->
+              <div class="md:col-span-3 flex md:flex-col items-center md:items-start justify-between md:justify-start gap-2">
+                <div class="flex items-center gap-2.5">
+                  <div class="w-9 h-9 rounded bg-blue-50 text-blue-600 flex items-center justify-center shrink-0 group-hover:bg-blue-600 group-hover:text-white transition-colors">
+                    <IconComponent class="w-4 h-4" />
+                  </div>
+                  <span class="text-xs font-bold text-slate-400 font-mono">
+                    0{index + 1}
+                  </span>
+                </div>
+                <span class="text-xs font-semibold text-blue-700 bg-blue-50/80 px-2 py-0.5 rounded border border-blue-100">
+                  {item.tag}
+                </span>
+              </div>
+
+              <!-- Title & Description (9 cols) -->
+              <div class="md:col-span-9">
+                <h3 class="text-lg sm:text-xl font-bold text-slate-900 mb-2 group-hover:text-blue-600 transition-colors">
+                  {item.title}
+                </h3>
+                <p class="text-sm sm:text-base text-slate-600 leading-relaxed">
+                  {item.description}
+                </p>
+              </div>
+
+            </div>
+          </div>
+        );
+      })}
+    </div>
+
+  </div>
+</section>

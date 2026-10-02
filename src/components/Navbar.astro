@@ -1,0 +1,77 @@
+---
+import { MessageCircle, ArrowRight } from '@lucide/astro';
+import { desktopNavLinks, siteConfig, getWhatsAppUrl } from '../data/content';
+
+const waUrl = getWhatsAppUrl(siteConfig.defaultWaMessage);
+---
+
+<header class="sticky top-0 z-40 w-full bg-white/95 backdrop-blur-xs border-b border-slate-200 transition-shadow duration-200" id="top-navbar">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
+    <!-- Brand / Logo -->
+    <a href="#hero" class="flex items-center gap-3 group" aria-label="Mitra Belanja Jakarta - Home">
+      <img 
+        src="/logo.png" 
+        alt="Logo PT Mitra Belanja Jakarta" 
+        class="h-9 w-auto object-contain transition-transform group-hover:scale-105"
+        width="140"
+        height="36"
+        loading="eager"
+      />
+      <div class="hidden sm:flex flex-col">
+        <span class="text-sm font-bold tracking-tight text-slate-900 group-hover:text-blue-600 transition-colors">
+          MITRA BELANJA
+        </span>
+        <span class="text-[10px] uppercase tracking-wider text-slate-500 font-semibold">
+          Tanah Abang - Jakarta
+        </span>
+      </div>
+    </a>
+
+    <!-- Desktop Navigation Links -->
+    <nav class="hidden md:flex items-center gap-8" aria-label="Navigasi Utama">
+      {desktopNavLinks.map((link) => (
+        <a 
+          href={link.href} 
+          class="text-sm font-medium text-slate-600 hover:text-blue-600 transition-colors py-2 relative after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-blue-600 hover:after:w-full after:transition-all"
+        >
+          {link.label}
+        </a>
+      ))}
+    </nav>
+
+    <!-- Desktop WhatsApp CTA Action Button -->
+    <div class="hidden md:flex items-center">
+      <a 
+        href={waUrl}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="inline-flex items-center gap-2 bg-[#25D366] hover:bg-[#1EBE5D] text-white px-4 py-2 rounded text-sm font-semibold shadow-xs hover:shadow transition-all active:scale-95"
+      >
+        <MessageCircle class="w-4 h-4 text-white" />
+        <span>Chat WhatsApp</span>
+      </a>
+    </div>
+
+    <!-- Mobile Top Header Info (No Hamburger!) -->
+    <div class="md:hidden flex items-center">
+      <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[11px] font-medium bg-emerald-50 text-emerald-700 border border-emerald-200">
+        <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
+        Buka Hari Ini
+      </span>
+    </div>
+  </div>
+</header>
+
+<script>
+  // Add subtle shadow on scroll
+  const nav = document.getElementById('top-navbar');
+  if (nav) {
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 20) {
+        nav.classList.add('shadow-xs');
+      } else {
+        nav.classList.remove('shadow-xs');
+      }
+    }, { passive: true });
+  }
+</script>

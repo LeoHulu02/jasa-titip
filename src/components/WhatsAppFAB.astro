@@ -1,0 +1,49 @@
+---
+import { MessageCircle } from '@lucide/astro';
+import { siteConfig, getWhatsAppUrl } from '../data/content';
+
+const waUrl = getWhatsAppUrl(siteConfig.defaultWaMessage);
+---
+
+<a 
+  href={waUrl}
+  target="_blank"
+  rel="noopener noreferrer"
+  id="desktop-whatsapp-fab"
+  class="hidden md:flex fixed bottom-6 right-6 z-40 items-center gap-2.5 bg-[#25D366] hover:bg-[#1EBE5D] text-white px-4 py-3 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 opacity-0 translate-y-4 pointer-events-none hover:scale-103 active:scale-95 group font-bold text-sm"
+  aria-label="Chat via WhatsApp"
+>
+  <div class="relative">
+    <MessageCircle class="w-5 h-5 text-white" />
+    <span class="absolute -top-1 -right-1 w-2.5 h-2.5 bg-emerald-300 rounded-full animate-ping"></span>
+    <span class="absolute -top-1 -right-1 w-2.5 h-2.5 bg-emerald-300 rounded-full"></span>
+  </div>
+  <span>Chat WhatsApp</span>
+</a>
+
+<script>
+  function setupDesktopFAB() {
+    const fab = document.getElementById('desktop-whatsapp-fab');
+    if (!fab) return;
+
+    function handleScroll() {
+      // Show FAB after scrolling 300px
+      if (window.scrollY > 300) {
+        fab.classList.remove('opacity-0', 'translate-y-4', 'pointer-events-none');
+        fab.classList.add('opacity-100', 'translate-y-0');
+      } else {
+        fab.classList.add('opacity-0', 'translate-y-4', 'pointer-events-none');
+        fab.classList.remove('opacity-100', 'translate-y-0');
+      }
+    }
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    handleScroll();
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', setupDesktopFAB);
+  } else {
+    setupDesktopFAB();
+  }
+</script>

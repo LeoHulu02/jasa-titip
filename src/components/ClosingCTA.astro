@@ -1,0 +1,54 @@
+---
+import { MessageCircle, CheckCircle2, ShieldCheck, Clock } from '@lucide/astro';
+import { siteConfig, getWhatsAppUrl } from '../data/content';
+
+const waUrl = getWhatsAppUrl(siteConfig.closingWaMessage);
+---
+
+<section id="kontak" class="py-16 sm:py-20 md:py-24 bg-blue-600 text-white relative overflow-hidden">
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 relative z-10 text-center">
+    
+    <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/15 text-blue-100 text-xs font-semibold uppercase tracking-wider mb-6">
+      <Clock class="w-3.5 h-3.5" />
+      <span>Layanan Aktif Hari Ini</span>
+    </span>
+
+    <h2 class="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight mb-5 leading-tight">
+      Siap Belanja dari Tanah Abang?
+    </h2>
+
+    <p class="text-base sm:text-xl text-blue-100 max-w-2xl mx-auto mb-9 leading-relaxed font-normal">
+      Hubungi admin kami sekarang via WhatsApp. Cukup kirimkan foto atau daftar kebutuhan barang Anda, dan biarkan tim kami yang mengurus sisanya di pasar.
+    </p>
+
+    <!-- Main WhatsApp Action Button -->
+    <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mb-8">
+      <a 
+        href={waUrl}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="inline-flex items-center justify-center gap-3 bg-[#25D366] hover:bg-[#1EBE5D] text-white px-8 py-4 rounded font-bold text-base sm:text-lg shadow-md hover:shadow-lg transition-all active:scale-98 w-full sm:w-auto"
+      >
+        <MessageCircle class="w-6 h-6" />
+        <span>Mulai Chat WhatsApp Sekarang</span>
+      </a>
+    </div>
+
+    <!-- Assurance Points -->
+    <div class="flex flex-wrap items-center justify-center gap-y-2 gap-x-6 text-xs sm:text-sm text-blue-100 font-medium">
+      <div class="flex items-center gap-1.5">
+        <CheckCircle2 class="w-4 h-4 text-emerald-300" />
+        <span>Tanpa Biaya Pendaftaran</span>
+      </div>
+      <div class="flex items-center gap-1.5">
+        <CheckCircle2 class="w-4 h-4 text-emerald-300" />
+        <span>Estimasi Biaya Jelas di Awal</span>
+      </div>
+      <div class="flex items-center gap-1.5">
+        <CheckCircle2 class="w-4 h-4 text-emerald-300" />
+        <span>Nota Asli Langsung dari Kios</span>
+      </div>
+    </div>
+
+  </div>
+</section>

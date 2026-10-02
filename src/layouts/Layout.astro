@@ -1,0 +1,101 @@
+---
+import '../styles/global.css';
+import Navbar from '../components/Navbar.astro';
+import Footer from '../components/Footer.astro';
+import BottomNav from '../components/BottomNav.astro';
+import WhatsAppFAB from '../components/WhatsAppFAB.astro';
+import { siteConfig } from '../data/content';
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const { 
+  title = `${siteConfig.name} – Jasa Belanja & Jastip Pasar Tanah Abang`,
+  description = siteConfig.description 
+} = Astro.props;
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": siteConfig.name,
+  "description": siteConfig.description,
+  "url": siteConfig.url,
+  "telephone": "+6281299887766",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Kawasan Pasar Grosir Tanah Abang",
+    "addressLocality": "Jakarta Pusat",
+    "addressRegion": "DKI Jakarta",
+    "addressCountry": "ID"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": -6.1887,
+    "longitude": 106.8149
+  },
+  "openingHours": "Mo-Sa 08:00-16:00",
+  "priceRange": "$$"
+};
+---
+
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <link rel="icon" type="image/png" href="/logo.png" />
+    <meta name="generator" content={Astro.generator} />
+
+    <!-- SEO Meta Tags -->
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta name="keywords" content="jasa belanja Tanah Abang, jastip Tanah Abang, jastip baju Tanah Abang, grosir busana muslim Tanah Abang, belanja tekstil Jakarta, belanja tanpa ke Jakarta" />
+    <meta name="robots" content="index, follow" />
+
+    <!-- Open Graph / WhatsApp Sharing -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content="/images/tanah-abang-hero.jpg" />
+    <meta property="og:url" content={siteConfig.url} />
+
+    <!-- Google Fonts: Plus Jakarta Sans -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link 
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" 
+      rel="stylesheet" 
+    />
+
+    <!-- Structured Data (JSON-LD) -->
+    <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+  </head>
+  <body class="min-h-screen bg-white text-slate-900 flex flex-col antialiased selection:bg-blue-100 selection:text-blue-900">
+    <!-- Accessibility Skip Link -->
+    <a 
+      href="#main-content" 
+      class="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-50 focus:px-4 focus:py-2 focus:bg-blue-600 focus:text-white focus:rounded focus:shadow-md"
+    >
+      Loncat ke Konten Utama
+    </a>
+
+    <!-- Top Navigation (Desktop top nav + mobile header) -->
+    <Navbar />
+
+    <!-- Main Page Content Wrapper (with mobile bottom padding for BottomNav) -->
+    <main id="main-content" class="flex-1 main-content-wrapper">
+      <slot />
+    </main>
+
+    <!-- Footer -->
+    <Footer />
+
+    <!-- Desktop WhatsApp Floating Action Button (hidden on mobile) -->
+    <WhatsAppFAB />
+
+    <!-- Mobile Persistent Bottom Navigation Bar (hidden on desktop) -->
+    <BottomNav />
+  </body>
+</html>
