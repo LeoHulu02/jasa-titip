@@ -1,10 +1,12 @@
 ---
-import { MapPin, Clock, MessageCircle, ArrowUp } from '@lucide/astro';
+import { MapPin, Clock, ArrowUp } from '@lucide/astro';
+import WhatsAppIcon from './WhatsAppIcon.astro';
 import { siteConfig, desktopNavLinks, getWhatsAppUrl } from '../data/content';
 
 const currentYear = new Date().getFullYear();
 const waUrl = getWhatsAppUrl(siteConfig.defaultWaMessage);
 ---
+
 
 <footer class="bg-slate-900 text-slate-400 py-12 sm:py-16 border-t border-slate-800">
   <div class="max-w-6xl mx-auto px-4 sm:px-6">
@@ -34,7 +36,7 @@ const waUrl = getWhatsAppUrl(siteConfig.defaultWaMessage);
           rel="noopener noreferrer"
           class="inline-flex items-center gap-2 text-sm text-emerald-400 hover:text-emerald-300 transition-colors font-medium"
         >
-          <MessageCircle class="w-4 h-4" />
+          <WhatsAppIcon class="w-4 h-4" />
           <span>Hubungi Tim Admin via WhatsApp</span>
         </a>
       </div>

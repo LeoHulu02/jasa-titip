@@ -1,5 +1,5 @@
 ---
-import { MessageCircle } from '@lucide/astro';
+import WhatsAppIcon from './WhatsAppIcon.astro';
 import { siteConfig, getWhatsAppUrl } from '../data/content';
 
 const waUrl = getWhatsAppUrl(siteConfig.defaultWaMessage);
@@ -14,7 +14,7 @@ const waUrl = getWhatsAppUrl(siteConfig.defaultWaMessage);
   aria-label="Chat via WhatsApp"
 >
   <div class="relative">
-    <MessageCircle class="w-5 h-5 text-white" />
+    <WhatsAppIcon class="w-5 h-5 text-white" />
     <span class="absolute -top-1 -right-1 w-2.5 h-2.5 bg-emerald-300 rounded-full animate-ping"></span>
     <span class="absolute -top-1 -right-1 w-2.5 h-2.5 bg-emerald-300 rounded-full"></span>
   </div>

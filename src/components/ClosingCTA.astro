@@ -1,9 +1,11 @@
 ---
-import { MessageCircle, CheckCircle2, ShieldCheck, Clock } from '@lucide/astro';
+import { CheckCircle2, ShieldCheck, Clock } from '@lucide/astro';
+import WhatsAppIcon from './WhatsAppIcon.astro';
 import { siteConfig, getWhatsAppUrl } from '../data/content';
 
 const waUrl = getWhatsAppUrl(siteConfig.closingWaMessage);
 ---
+
 
 <section id="kontak" class="py-16 sm:py-20 md:py-24 bg-blue-600 text-white relative overflow-hidden">
   <div class="max-w-4xl mx-auto px-4 sm:px-6 relative z-10 text-center">
@@ -29,7 +31,7 @@ const waUrl = getWhatsAppUrl(siteConfig.closingWaMessage);
         rel="noopener noreferrer"
         class="inline-flex items-center justify-center gap-3 bg-[#25D366] hover:bg-[#1EBE5D] text-white px-8 py-4 rounded font-bold text-base sm:text-lg shadow-md hover:shadow-lg transition-all active:scale-98 w-full sm:w-auto"
       >
-        <MessageCircle class="w-6 h-6" />
+        <WhatsAppIcon class="w-6 h-6 text-white" />
         <span>Mulai Chat WhatsApp Sekarang</span>
       </a>
     </div>

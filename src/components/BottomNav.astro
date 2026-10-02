@@ -1,9 +1,11 @@
 ---
-import { Home, ShoppingBag, ClipboardList, HelpCircle, MessageCircle } from '@lucide/astro';
+import { Home, ShoppingBag, ClipboardList, HelpCircle } from '@lucide/astro';
+import WhatsAppIcon from './WhatsAppIcon.astro';
 import { siteConfig, getWhatsAppUrl } from '../data/content';
 
 const waUrl = getWhatsAppUrl(siteConfig.defaultWaMessage);
 ---
+
 
 <nav 
   class="md:hidden fixed bottom-0 left-0 right-0 z-50 bg-white border-t border-slate-200 shadow-[0_-2px_10px_rgba(0,0,0,0.05)] safe-area-bottom"
@@ -68,7 +70,7 @@ const waUrl = getWhatsAppUrl(siteConfig.defaultWaMessage);
       aria-label="Hubungi WhatsApp Mitra Belanja"
     >
       <div class="w-6 h-6 rounded-full bg-[#25D366] text-white flex items-center justify-center shadow-xs group-hover:scale-105 group-active:scale-95 transition-transform">
-        <MessageCircle class="w-3.5 h-3.5 fill-current" />
+        <WhatsAppIcon class="w-3.5 h-3.5 text-white" />
       </div>
       <span class="text-[10px] font-bold text-emerald-800 leading-none">WhatsApp</span>
     </a>
