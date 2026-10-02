@@ -75,12 +75,12 @@ export const marketPhotos: MarketPhoto[] = [
     aspectRatio: '3/4',
   },
   {
-    id: 'kios-baju-grosir',
+    id: 'toko-gudang-baju-grosir',
     src: '/image-2.jpeg',
-    title: 'Kios & Stok Seri Grosir Busana',
-    location: 'Kios Grosir Pakaian Jakarta',
+    title: 'Toko & Gudang Grosir Busana',
+    location: 'Toko & Gudang Grosir Pakaian Jakarta',
     tag: 'Pengecekan Fisik & Stok',
-    description: 'Pengecekan langsung tumpukan stok seri, mutu bahan kain, jahitan, dan negosiasi harga modal di kios.',
+    description: 'Pengecekan langsung tumpukan stok seri, mutu bahan kain, jahitan, dan negosiasi harga modal di toko atau gudang grosir.',
     width: 1000,
     height: 667,
     aspectRatio: '3/2',
@@ -167,13 +167,13 @@ export const services: ServiceItem[] = [
   {
     id: 'sourcing',
     title: 'Pencarian Barang di Pasar Grosir Jakarta',
-    description: 'Kirimkan foto, spesifikasi, atau merk barang yang Anda butuhkan. Tim kami siap menelusuri kios-kios grosir terbaik di Jakarta untuk menemukan produk yang paling sesuai.',
+    description: 'Kirimkan foto, spesifikasi, atau merk barang yang Anda butuhkan. Tim kami siap menelusuri toko atau gudang grosir terbaik di Jakarta untuk menemukan produk yang paling sesuai.',
     tag: 'Sourcing Grosir',
   },
   {
     id: 'price-check',
-    title: 'Cek Modal, Foto Stok & Live Video Call di Kios',
-    description: 'Kami cek langsung ketersediaan stok seri, warna, ukuran, dan harga modal grosir di pedagang. Anda bisa meminta tim lapangan kami untuk Video Call via WhatsApp langsung dari kios untuk melihat fisik barang secara real-time.',
+    title: 'Cek Modal, Foto Stok & Live Video Call di Toko/Gudang',
+    description: 'Kami cek langsung ketersediaan stok seri, warna, ukuran, dan harga modal grosir di pedagang. Anda bisa meminta tim lapangan kami untuk Video Call via WhatsApp langsung dari toko atau gudang grosir untuk melihat fisik barang secara real-time.',
     tag: 'Cek Fisik & Video Call',
   },
   {
@@ -211,9 +211,9 @@ export const steps: StepItem[] = [
   },
   {
     number: '02',
-    badge: 'Cek & Video Call',
-    title: 'Tim Tinjau Kios, Fotokan Stok & Live Video Call',
-    description: 'Kami datangi sentra grosir terkait di Jakarta, fotokan stok nyata, dan bisa langsung Video Call jika Anda ingin melihat fisik barang, warna, atau motif langsung dari kios.',
+    badge: 'Tinjau Toko/Gudang',
+    title: 'Tim Tinjau Toko atau Gudang Grosir & Live Video Call',
+    description: 'Kami datangi toko atau gudang grosir terkait di sentra perdagangan, fotokan stok nyata, dan bisa langsung Video Call jika Anda ingin melihat fisik barang, warna, atau motif langsung dari lokasi.',
   },
   {
     number: '03',
@@ -255,8 +255,8 @@ export const faqs: FAQItem[] = [
     answer: 'Kami melayani pembelanjaan di berbagai pasar dan sentra grosir di seluruh wilayah Jakarta. Anda cukup konsultasikan barang atau toko yang ingin Anda beli via WhatsApp, dan tim lapangan kami siap mendatangi lokasi untuk mengecek stok serta membelanjakannya.',
   },
   {
-    question: 'Apakah saya bisa minta video call untuk melihat barang secara langsung di kios pasar?',
-    answer: 'Sangat bisa! Tim lapangan kami siap melakukan WhatsApp Video Call langsung dari kios pedagang di pasar grosir. Anda bisa melihat langsung detail bahan, kecerahan warna asli, kerapian jahitan, dan tumpukan stok seri sebelum memutuskan transaksi belanja.',
+    question: 'Apakah saya bisa minta video call untuk melihat barang secara langsung di toko atau gudang grosir?',
+    answer: 'Sangat bisa! Tim lapangan kami siap melakukan WhatsApp Video Call langsung dari toko atau gudang grosir di sentra perdagangan. Anda bisa melihat langsung detail bahan, kecerahan warna asli, kerapian jahitan, dan tumpukan stok seri sebelum memutuskan transaksi belanja.',
   },
   {
     question: 'Apakah bisa belanja dari beberapa toko sekaligus dalam satu pengiriman?',
@@ -280,10 +280,10 @@ export const faqs: FAQItem[] = [
   },
   {
     question: 'Bagaimana jika barang pesanan ternyata habis di pasar?',
-    answer: 'Jika stok atau motif persis sedang kosong, tim kami akan memfotokan alternatif model terbaik langsung dari kios saat itu juga. Apabila Anda tidak berkenan dengan alternatif tersebut, dana untuk item tersebut kami kembalikan utuh 100% tanpa potongan.',
+    answer: 'Jika stok atau motif persis sedang kosong, tim kami akan memfotokan alternatif model terbaik langsung dari toko atau gudang grosir saat itu juga. Apabila Anda tidak berkenan dengan alternatif tersebut, dana untuk item tersebut kami kembalikan utuh 100% tanpa potongan.',
   },
   {
     question: 'Bisa bantu belikan dari toko langganan saya sendiri di pasar Jakarta?',
-    answer: 'Sangat bisa! Jika Anda sudah memiliki toko atau langganan tertentu di sentra grosir Jakarta, cukup berikan nama kios dan nomor kontaknya. Kami yang akan ambil barang, bayar, dan urus packing serta pengirimannya.',
+    answer: 'Sangat bisa! Jika Anda sudah memiliki toko atau langganan tertentu di sentra grosir Jakarta, cukup berikan nama toko/gudang dan nomor kontaknya. Kami yang akan ambil barang, bayar, dan urus packing serta pengirimannya.',
   },
 ];
