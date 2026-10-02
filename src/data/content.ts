@@ -43,10 +43,10 @@ export const siteConfig = {
   url: 'https://www.belanjakarta.com',
   operatingHours: 'Senin – Sabtu: 08.00 – 17.00 WIB (Minggu Libur)',
   baseLocation: 'DKI Jakarta (Menjangkau Seluruh Pasar Grosir Jakarta)',
-  defaultWaMessage: 'Halo Mitra Belanja, saya ingin konsultasi belanja dari pasar grosir Jakarta.',
-  heroWaMessage: 'Halo Mitra Belanja, saya ingin belanja dari pasar grosir Jakarta. Bisa bantu carikan barang?',
-  howItWorksWaMessage: 'Halo Mitra Belanja, saya ingin tahu cara pesan dan estimasi biaya jasa belanja di Jakarta.',
-  closingWaMessage: 'Halo Mitra Belanja, saya siap belanja dari pasar grosir Jakarta. Mohon info nomor rekening & alurnya.',
+  defaultWaMessage: 'Halo Mitra Belanja, saya mau tanya-tanya seputar jasa belanja di pasar grosir Jakarta.',
+  heroWaMessage: 'Halo Mitra Belanja, saya butuh bantuan belanja barang grosir dari Jakarta. Bisa bantu info ketentuannya?',
+  howItWorksWaMessage: 'Halo Mitra Belanja, saya ingin tahu alur pemesanan dan estimasi tarif jasa belanja di Jakarta.',
+  closingWaMessage: 'Halo Mitra Belanja, saya ada rencana belanja kebutuhan dagang di pasar grosir Jakarta. Bagaimana langkah awalnya ya?',
 };
 
 export const desktopNavLinks: NavItem[] = [
