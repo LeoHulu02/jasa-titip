@@ -12,7 +12,7 @@ interface Props {
 }
 
 const { 
-  title = `${siteConfig.name} – Jasa Belanja & Jastip Pasar Grosir Jakarta`,
+  title = `${siteConfig.name} | Jasa Belanja & Jastip Pasar Grosir Jakarta`,
   description = siteConfig.description 
 } = Astro.props;
 
@@ -101,8 +101,11 @@ const jsonLd = {
     <!-- Smooth Scroll-Reveal Animation Engine -->
     <script>
       function initScrollReveal() {
+        const elements = document.querySelectorAll('.reveal-on-scroll');
+        if (!elements.length) return;
+
         if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-          document.querySelectorAll('.reveal-on-scroll').forEach(el => el.classList.add('is-revealed'));
+          elements.forEach(el => el.classList.add('is-revealed'));
           return;
         }
 
@@ -114,13 +117,18 @@ const jsonLd = {
             }
           });
         }, {
-          threshold: 0.1,
-          rootMargin: '0px 0px -30px 0px'
+          threshold: 0.05,
+          rootMargin: '100px 0px 40px 0px'
         });
 
-        document.querySelectorAll('.reveal-on-scroll').forEach(el => {
+        elements.forEach(el => {
           observer.observe(el);
         });
+
+        // Fail-safe: ensure everything reveals even if scrolled rapidly or in full page capture
+        setTimeout(() => {
+          elements.forEach(el => el.classList.add('is-revealed'));
+        }, 800);
       }
 
       if (document.readyState === 'loading') {

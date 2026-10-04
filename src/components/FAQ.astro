@@ -1,44 +1,67 @@
 ---
-import { ChevronDown, HelpCircle } from '@lucide/astro';
-import { faqs } from '../data/content';
+import { ChevronDown, HelpCircle, MessageSquare } from '@lucide/astro';
+import WhatsAppIcon from './WhatsAppIcon.astro';
+import { faqs, siteConfig, getWhatsAppUrl } from '../data/content';
+
+const waUrl = getWhatsAppUrl('Halo Admin Mitra Belanja, saya ingin menanyakan perihal layanan belanja di pasar grosir Jakarta.');
 ---
 
-<section id="faq" class="py-16 sm:py-20 md:py-24 bg-slate-50 border-b border-slate-200">
-  <div class="max-w-3xl mx-auto px-4 sm:px-6">
+<section id="faq" class="py-14 sm:py-18 md:py-22 bg-slate-50/70 border-b border-slate-200/80 relative overflow-hidden">
+  <div class="max-w-3xl mx-auto px-4 sm:px-6 relative z-10">
     
     <!-- Section Header -->
-    <div class="text-center max-w-xl mx-auto mb-12 sm:mb-16 reveal-on-scroll">
-      <span class="text-xs uppercase font-bold tracking-wider text-blue-600 bg-blue-50 border border-blue-100 px-3 py-1 rounded inline-block mb-3">
-        Tanya Jawab
-      </span>
-      <h2 class="text-2xl sm:text-3xl md:text-4xl font-extrabold text-slate-900 tracking-tight leading-tight mb-4">
+    <div class="text-center max-w-xl mx-auto mb-10 sm:mb-12 md:mb-14 reveal-on-scroll">
+      <p class="text-xs font-bold uppercase tracking-wider text-blue-700 mb-2.5">
+        Tanya Jawab Lengkap
+      </p>
+      <h2 class="text-2xl sm:text-3xl md:text-[32px] lg:text-[34px] font-extrabold text-slate-900 tracking-[-0.025em] leading-[1.25] mb-3">
         Pertanyaan yang Sering Ditanyakan
       </h2>
-      <p class="text-slate-600 text-base leading-relaxed">
-        Penjelasan lengkap seputar alur kerja, tarif, dan jaminan keamanan belanja Anda.
+      <p class="text-sm sm:text-base md:text-[16.5px] text-slate-600 leading-[1.65] font-normal max-w-xl mx-auto">
+        Penjelasan lengkap seputar alur kerja, tarif belanja, live video call, dan jaminan keamanan pengiriman kargo Anda.
       </p>
     </div>
 
-    <!-- Accordion List (Semantic HTML details/summary) -->
-    <div class="space-y-3.5">
+    <!-- Accordion List with Clean Editorial States -->
+    <div class="space-y-3 sm:space-y-3.5">
       {faqs.map((faq, index) => (
         <details 
-          class={`group bg-white rounded-lg border border-slate-200 overflow-hidden transition-all duration-200 open:shadow-xs reveal-on-scroll stagger-${(index % 4) + 1} card-hover-lift`}
+          class={`group bg-white rounded-xl border border-slate-200/90 overflow-hidden transition-all duration-200 open:border-blue-500 open:shadow-xs reveal-on-scroll stagger-${(index % 4) + 1}`}
         >
           <summary 
-            class="flex items-center justify-between p-4 sm:p-5 cursor-pointer list-none select-none text-left font-bold text-slate-900 group-hover:text-blue-600 transition-colors text-base sm:text-lg focus-visible:outline-none focus-visible:bg-slate-50"
+            class="flex items-center justify-between p-4 sm:p-5 md:p-6 cursor-pointer list-none select-none text-left font-bold text-slate-900 group-hover:text-blue-600 transition-colors text-sm sm:text-base focus-visible:outline-none"
           >
-            <span class="flex items-center gap-3 pr-4">
-              <span class="text-xs font-mono font-bold text-slate-400">0{index + 1}</span>
-              <span>{faq.question}</span>
+            <span class="flex items-center gap-3 sm:gap-3.5 pr-3">
+              <span class="w-7 h-7 rounded-lg bg-slate-100 group-open:bg-blue-600 group-open:text-white text-slate-500 flex items-center justify-center text-xs font-bold shrink-0 transition-colors">
+                0{index + 1}
+              </span>
+              <span class="tracking-[-0.015em]">{faq.question}</span>
             </span>
-            <ChevronDown class="w-5 h-5 text-slate-400 group-hover:text-blue-600 transition-transform duration-200 group-open:rotate-180 shrink-0" />
+            <div class="w-8 h-8 rounded-full bg-slate-100 group-open:bg-blue-50 text-slate-500 group-open:text-blue-600 flex items-center justify-center shrink-0 transition-colors">
+              <ChevronDown class="w-4 h-4 transition-transform duration-300 group-open:rotate-180" />
+            </div>
           </summary>
-          <div class="px-4 pb-5 sm:px-5 sm:pb-6 pt-1 text-slate-600 text-sm sm:text-base leading-relaxed border-t border-slate-100">
-            <p>{faq.answer}</p>
+          <div class="px-5 pb-6 sm:px-6 sm:pb-7 pt-1 text-slate-600 text-sm sm:text-base leading-relaxed border-t border-slate-100/80">
+            <p class="pl-10">{faq.answer}</p>
           </div>
         </details>
       ))}
+    </div>
+
+    <!-- Still have questions footer prompt -->
+    <div class="mt-10 text-center reveal-on-scroll">
+      <p class="text-sm text-slate-500 mb-3">
+        Punya pertanyaan khusus yang belum tercantum di atas?
+      </p>
+      <a 
+        href={waUrl}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="inline-flex items-center gap-2 text-sm font-bold text-blue-600 hover:text-blue-800 transition-colors group"
+      >
+        <span>Tanyakan langsung ke Admin Lapangan via WhatsApp</span>
+        <span class="group-hover:translate-x-1 transition-transform">&rarr;</span>
+      </a>
     </div>
 
   </div>

@@ -1,358 +1,167 @@
 ---
-import { ArrowRight, CheckCircle2, MapPin, ShieldCheck, ChevronDown, ChevronLeft, ChevronRight, Video } from '@lucide/astro';
+import { ArrowRight, CheckCircle2, MapPin, ShieldCheck, Video } from '@lucide/astro';
 import WhatsAppIcon from './WhatsAppIcon.astro';
-import { marketPhotos, siteConfig, getWhatsAppUrl } from '../data/content';
+import { siteConfig, getWhatsAppUrl } from '../data/content';
 
 const waUrl = getWhatsAppUrl(siteConfig.heroWaMessage);
-
-const carouselSlides = [
-  {
-    src: '/image-hero.jpeg',
-    alt: `${siteConfig.name} - Layanan Belanja & Jastip Pasar Grosir Jakarta`,
-    width: 942,
-    height: 914
-  },
-  ...marketPhotos.map((photo) => ({
-    src: photo.src,
-    alt: photo.title,
-    width: photo.width,
-    height: photo.height
-  }))
-];
 ---
 
 <section id="hero" class="relative">
-  <!-- 1. Full Hero Carousel (Slide 1: image-hero.jpeg, Slide 2-8: Foto Nyata Pasar Grosir) -->
+  <!-- 1. Dedicated Official Brand Banner (Single Banner) -->
   <div 
-    id="hero-carousel" 
-    class="relative w-full h-[calc(100dvh-3.5rem)] sm:h-[100dvh] min-h-[460px] overflow-hidden select-none bg-slate-950"
-    aria-label="Carousel Brand & Dokumentasi Sentra Pasar Grosir Jakarta"
+    id="hero-banner" 
+    class="relative w-full bg-gradient-to-r from-blue-50/40 via-white to-amber-50/30 border-b border-slate-200/70 overflow-hidden flex items-center justify-center select-none"
   >
-    <!-- Slides Container (Murni Foto Tanpa Teks Penghalang) -->
-    <div class="relative w-full h-full">
-      {carouselSlides.map((slide, index) => (
-        <div 
-          class={`carousel-slide absolute inset-0 transition-opacity duration-700 ease-in-out ${index === 0 ? 'opacity-100 z-10' : 'opacity-0 z-0'} bg-slate-950 overflow-hidden flex items-center justify-center`}
-          data-slide-index={index}
-        >
-          {index === 0 ? (
-            <div class="relative w-full h-full flex items-center justify-center bg-[#f7f5f0] overflow-hidden">
-              <img 
-                src={slide.src} 
-                alt="" 
-                aria-hidden="true" 
-                class="absolute inset-0 w-full h-full object-cover blur-2xl opacity-45 scale-125 pointer-events-none select-none"
-              />
-              <img 
-                src={slide.src} 
-                alt={slide.alt}
-                class="relative z-10 w-full h-full max-h-[80dvh] sm:max-h-[88dvh] object-contain object-center drop-shadow-md p-3 sm:p-6 select-none"
-                width={slide.width}
-                height={slide.height}
-                loading="eager"
-              />
-            </div>
-          ) : (
-            <div class="relative w-full h-full flex items-center justify-center bg-slate-950 overflow-hidden">
-              <img 
-                src={slide.src} 
-                alt="" 
-                aria-hidden="true" 
-                class="absolute inset-0 w-full h-full object-cover blur-xl opacity-35 scale-110 pointer-events-none select-none sm:hidden"
-              />
-              <img 
-                src={slide.src} 
-                alt={slide.alt}
-                class="relative z-10 w-full h-full object-contain sm:object-cover object-center select-none"
-                width={slide.width}
-                height={slide.height}
-                loading="lazy"
-              />
-            </div>
-          )}
-        </div>
-      ))}
-    </div>
-
-    <!-- Navigation Arrows (Left & Right - Minimalist Glassmorphism) -->
-    <button 
-      id="carousel-prev"
-      type="button"
-      class="absolute left-2 sm:left-6 top-1/2 -translate-y-1/2 z-20 w-9 h-9 sm:w-12 sm:h-12 rounded-full bg-slate-950/60 hover:bg-slate-950/85 text-white backdrop-blur-md border border-white/20 flex items-center justify-center transition-all cursor-pointer active:scale-95 shadow-md focus:outline-none focus:ring-2 focus:ring-white/50"
-      aria-label="Foto Sebelumnya"
-    >
-      <ChevronLeft class="w-5 h-5 sm:w-6 sm:h-6 text-white" />
-    </button>
-
-    <button 
-      id="carousel-next"
-      type="button"
-      class="absolute right-2 sm:right-6 top-1/2 -translate-y-1/2 z-20 w-9 h-9 sm:w-12 sm:h-12 rounded-full bg-slate-950/60 hover:bg-slate-950/85 text-white backdrop-blur-md border border-white/20 flex items-center justify-center transition-all cursor-pointer active:scale-95 shadow-md focus:outline-none focus:ring-2 focus:ring-white/50"
-      aria-label="Foto Selanjutnya"
-    >
-      <ChevronRight class="w-5 h-5 sm:w-6 sm:h-6 text-white" />
-    </button>
-
-    <!-- Bottom Controls Bar: Dots Indicators & Scroll Prompt -->
-    <div class="absolute bottom-4 sm:bottom-6 inset-x-0 z-20 flex flex-col items-center gap-3 sm:gap-4 pointer-events-none">
-      
-      <!-- Dots Pagination Indicator (Supports 8 Slides) -->
-      <div class="flex items-center gap-1.5 sm:gap-2 bg-slate-950/60 backdrop-blur-md px-3.5 py-1.5 rounded-full border border-white/20 pointer-events-auto shadow-sm">
-        {carouselSlides.map((_, idx) => (
-          <button
-            type="button"
-            data-carousel-dot={idx}
-            class={`rounded-full transition-all duration-300 cursor-pointer ${idx === 0 ? 'w-5 sm:w-6 h-2 bg-white' : 'w-2 h-2 bg-white/50 hover:bg-white/80'}`}
-            aria-label={`Pindah ke slide ${idx + 1}`}
-          />
-        ))}
-      </div>
-
-      <!-- Subtle Scroll Down Indicator -->
-      <a 
-        href="#hero-penjelasan" 
-        class="pointer-events-auto p-1 text-white/90 hover:text-white transition-all active:scale-95 group focus:outline-none"
-        aria-label="Gulir ke bawah untuk penjelasan layanan"
-      >
-        <div class="w-9 h-9 rounded-full bg-slate-950/60 hover:bg-slate-950/85 backdrop-blur-md border border-white/20 flex items-center justify-center shadow-lg transition-transform group-hover:translate-y-0.5 animate-bounce">
-          <ChevronDown class="w-5 h-5 text-white" />
-        </div>
-      </a>
-
+    <div class="w-full max-w-7xl mx-auto flex items-center justify-center">
+      <img 
+        src="/banner-hero.png" 
+        alt={`${siteConfig.name} - Layanan Belanja & Jastip Pasar Grosir Jakarta`}
+        class="w-full h-auto max-h-[380px] md:max-h-[440px] object-contain object-center block select-none drop-shadow-xs"
+        width="2172"
+        height="724"
+        loading="eager"
+        fetchpriority="high"
+      />
     </div>
   </div>
 
-  <!-- 2. Content & Explanation Section (Tepat di Bawah Carousel 100vh) -->
-  <div id="hero-penjelasan" class="py-14 sm:py-20 md:py-24 bg-gradient-to-b from-slate-50 via-white to-white border-b border-slate-100">
-    <div class="max-w-4xl mx-auto px-4 sm:px-6 text-center flex flex-col items-center">
+  <!-- 2. Content & Explanation Section (Tepat di Bawah Banner) -->
+  <div id="hero-penjelasan" class="relative py-12 sm:py-16 md:py-20 bg-slate-50/50 border-b border-slate-200/70 overflow-hidden">
+    <div class="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 text-center flex flex-col items-center">
       
-      <!-- Context Badge & Headline Block -->
-      <div class="reveal-on-scroll flex flex-col items-center">
-        <!-- Context Badge with Live Video Call Callout -->
-        <div class="inline-flex flex-wrap items-center justify-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-50 border border-blue-200/80 text-blue-700 text-xs font-semibold mb-6">
-          <MapPin class="w-3.5 h-3.5 text-blue-600" />
+      <!-- Context Kicker & Headline Block -->
+      <div class="reveal-on-scroll flex flex-col items-center max-w-3xl">
+        <!-- Editorial Service Scope Kicker (No capsule slop) -->
+        <div class="flex items-center justify-center gap-2 text-xs sm:text-[13px] font-bold text-blue-700 uppercase tracking-wider mb-4">
+          <MapPin class="w-4 h-4 text-blue-600 shrink-0" />
           <span>Jasa Belanja & Jastip Pasar Grosir Jakarta</span>
-          <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
-          <span class="text-emerald-700 font-bold">Bisa Live Video Call dari Toko/Gudang Grosir</span>
         </div>
 
-        <!-- Main Headline -->
-        <h1 class="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-slate-900 leading-[1.18] mb-5">
+        <!-- Main Headline with Solid Authoritative Deep Blue (No gradient text) -->
+        <h1 class="text-2xl sm:text-3xl md:text-4xl lg:text-[42px] font-extrabold tracking-[-0.03em] text-slate-900 leading-[1.2] mb-4 sm:mb-5">
           Belanja dari Pasar Grosir Jakarta, <br class="hidden sm:inline" />
-          <span class="text-blue-600">Tanpa Harus ke Ibu Kota.</span>
+          <span class="text-blue-700">
+            Tanpa Harus ke Ibu Kota.
+          </span>
         </h1>
 
-        <!-- Detailed Explanation / Description -->
-        <p class="text-base sm:text-lg text-slate-600 leading-relaxed mb-8 max-w-2xl font-normal">
-          Mitra Belanja bantu carikan barang dagangan, cek harga modal toko, belikan, dan kirimkan langsung ke kota Anda dari berbagai sentra pasar grosir Jakarta. Cukup konsultasikan kebutuhan Anda via WhatsApp.
+        <!-- Balanced Lead Description -->
+        <p class="text-sm sm:text-base md:text-[17px] text-slate-600 leading-[1.65] font-normal mb-8 sm:mb-10 max-w-2xl mx-auto">
+          Mitra Belanja carikan stok dagangan, cek harga modal asli toko, belikan, dan kirimkan kargo langsung ke kota Anda dari sentra grosir Jakarta. Cukup kirim list kebutuhan via WhatsApp.
         </p>
       </div>
 
-      <!-- 3 Key Value Cards (Featuring Live Video Call) -->
-      <div class="grid grid-cols-1 sm:grid-cols-3 gap-3.5 w-full mb-10 text-left">
-        <!-- Card 1: Video Call Feature (Prominent USP) -->
-        <div class="reveal-on-scroll stagger-1 card-hover-lift p-4 rounded-xl bg-white border border-blue-200/90 shadow-xs flex items-start gap-3 relative overflow-hidden">
-          <div class="absolute top-0 right-0 w-16 h-16 bg-blue-50/70 rounded-bl-full pointer-events-none"></div>
-          <div class="w-8 h-8 rounded-lg bg-blue-50 text-blue-600 flex items-center justify-center shrink-0 mt-0.5">
-            <Video class="w-4 h-4 text-blue-600" />
-          </div>
+      <!-- 3 Dynamic Value Cards with Standardized Rhythm -->
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 lg:gap-5 w-full mb-10 sm:mb-12 text-left">
+        <!-- Card 1: Video Call Feature -->
+        <div class="reveal-on-scroll stagger-1 card-hover-lift p-5 sm:p-6 rounded-2xl bg-white border border-slate-200/90 shadow-2xs hover:shadow-md flex flex-col justify-between group">
           <div>
-            <h3 class="text-xs sm:text-sm font-bold text-slate-900 mb-1">
-              Bisa Live Video Call di Toko atau Gudang Grosir
+            <div class="flex items-center justify-between mb-4">
+              <div class="w-10 h-10 rounded-xl bg-blue-600 text-white flex items-center justify-center shrink-0 shadow-sm shadow-blue-500/20 group-hover:scale-105 transition-transform">
+                <Video class="w-5 h-5 text-white" />
+              </div>
+              <span class="text-[10px] font-bold uppercase tracking-wider text-blue-700 bg-blue-50 px-2 py-0.5 rounded-full border border-blue-200/60">
+                Fitur Unggulan
+              </span>
+            </div>
+            <h3 class="text-sm sm:text-[15px] font-bold text-slate-900 tracking-[-0.015em] mb-1.5 group-hover:text-blue-600 transition-colors leading-snug">
+              Live Video Call Toko & Gudang
             </h3>
-            <p class="text-xs text-slate-600 leading-snug">
-              Ingin lihat barang langsung? Tim lapangan kami siap Video Call WhatsApp langsung dari toko atau gudang grosir agar Anda bisa mengecek warna, motif, dan stok seri secara live.
+            <p class="text-xs sm:text-[13px] text-slate-600 leading-[1.6]">
+              Lihat barang secara langsung. Tim lapangan siap Video Call WhatsApp dari toko grosir agar Anda bisa memastikan warna, motif, dan mutu fisik secara live.
             </p>
+          </div>
+          <div class="mt-4 pt-3 border-t border-slate-100 flex items-center text-xs font-semibold text-blue-700">
+            <span>Real-time cek fisik barang</span>
           </div>
         </div>
 
         <!-- Card 2: Consolidation -->
-        <div class="reveal-on-scroll stagger-2 card-hover-lift p-4 rounded-xl bg-white border border-slate-200 shadow-xs flex items-start gap-3">
-          <div class="w-8 h-8 rounded-lg bg-emerald-50 text-emerald-600 flex items-center justify-center shrink-0 mt-0.5">
-            <CheckCircle2 class="w-4 h-4 text-emerald-600" />
-          </div>
+        <div class="reveal-on-scroll stagger-2 card-hover-lift p-5 sm:p-6 rounded-2xl bg-white border border-slate-200/90 shadow-2xs hover:shadow-md flex flex-col justify-between group">
           <div>
-            <h3 class="text-xs sm:text-sm font-bold text-slate-900 mb-1">
+            <div class="flex items-center justify-between mb-4">
+              <div class="w-10 h-10 rounded-xl bg-emerald-600 text-white flex items-center justify-center shrink-0 shadow-sm shadow-emerald-500/20 group-hover:scale-105 transition-transform">
+                <CheckCircle2 class="w-5 h-5 text-white" />
+              </div>
+              <span class="text-[10px] font-bold uppercase tracking-wider text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded-full border border-emerald-200/60">
+                Hemat Ongkir
+              </span>
+            </div>
+            <h3 class="text-sm sm:text-[15px] font-bold text-slate-900 tracking-[-0.015em] mb-1.5 group-hover:text-emerald-600 transition-colors leading-snug">
               1 Kargo Hemat Aneka Toko
             </h3>
-            <p class="text-xs text-slate-600 leading-snug">
-              Bebas belanja aneka barang dari berbagai toko atau sentra pasar grosir berbeda di Jakarta dalam 1 paket kargo terpadu.
+            <p class="text-xs sm:text-[13px] text-slate-600 leading-[1.6]">
+              Bebas belanja dari puluhan toko atau sentra pasar berbeda di Jakarta. Semua barang disatukan dalam satu kargo terpadu agar biaya kirim jauh lebih hemat.
             </p>
+          </div>
+          <div class="mt-4 pt-3 border-t border-slate-100 flex items-center text-xs font-semibold text-emerald-700">
+            <span>Packing gabungan rapi</span>
           </div>
         </div>
 
         <!-- Card 3: Direct Price & Shipping -->
-        <div class="reveal-on-scroll stagger-3 card-hover-lift p-4 rounded-xl bg-white border border-slate-200 shadow-xs flex items-start gap-3">
-          <div class="w-8 h-8 rounded-lg bg-emerald-50 text-emerald-600 flex items-center justify-center shrink-0 mt-0.5">
-            <CheckCircle2 class="w-4 h-4 text-emerald-600" />
-          </div>
+        <div class="reveal-on-scroll stagger-3 card-hover-lift p-5 sm:p-6 rounded-2xl bg-white border border-slate-200/90 shadow-2xs hover:shadow-md flex flex-col justify-between group">
           <div>
-            <h3 class="text-xs sm:text-sm font-bold text-slate-900 mb-1">
+            <div class="flex items-center justify-between mb-4">
+              <div class="w-10 h-10 rounded-xl bg-amber-500 text-white flex items-center justify-center shrink-0 shadow-sm shadow-amber-500/20 group-hover:scale-105 transition-transform">
+                <ShieldCheck class="w-5 h-5 text-white" />
+              </div>
+              <span class="text-[10px] font-bold uppercase tracking-wider text-amber-800 bg-amber-50 px-2 py-0.5 rounded-full border border-amber-200/60">
+                100% Transparan
+              </span>
+            </div>
+            <h3 class="text-sm sm:text-[15px] font-bold text-slate-900 tracking-[-0.015em] mb-1.5 group-hover:text-amber-700 transition-colors leading-snug">
               Nota Asli & Kirim Se-Indonesia
             </h3>
-            <p class="text-xs text-slate-600 leading-snug">
-              Cek harga modal asli toko tanpa markup tersembunyi, nota fisik disertakan, dan diantar ke ekspedisi kargo langganan Anda.
+            <p class="text-xs sm:text-[13px] text-slate-600 leading-[1.6]">
+              Dapatkan harga modal asli tanpa markup tersembunyi. Nota fisik toko disertakan utuh di dalam kardus belanjaan Anda dan diantar ke ekspedisi kargo pilihan.
             </p>
+          </div>
+          <div class="mt-4 pt-3 border-t border-slate-100 flex items-center text-xs font-semibold text-amber-800">
+            <span>Resi kargo langsung diinfokan</span>
           </div>
         </div>
       </div>
 
-      <!-- Action Buttons -->
-      <div class="reveal-on-scroll stagger-2 flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-3.5 w-full sm:w-auto">
+      <!-- Action Buttons with Refined Heights & Typography -->
+      <div class="reveal-on-scroll stagger-2 flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-3 sm:gap-3.5 w-full sm:w-auto">
         <a 
           href={waUrl}
           target="_blank"
           rel="noopener noreferrer"
-          class="inline-flex items-center justify-center gap-2.5 bg-[#25D366] hover:bg-[#1EBE5D] text-white px-7 py-3.5 rounded-xl font-bold text-base shadow-sm hover:shadow-md transition-all active:scale-98 text-center wa-pulse-subtle"
+          class="inline-flex items-center justify-center gap-2.5 bg-[#25D366] hover:bg-[#1EBE5D] text-white px-7 sm:px-8 py-3.5 rounded-xl font-bold text-[15px] sm:text-base shadow-sm hover:shadow-md transition-all duration-200 active:scale-95 text-center group"
         >
-          <WhatsAppIcon class="w-5 h-5 text-white" />
+          <WhatsAppIcon class="w-5 h-5 text-white group-hover:rotate-6 transition-transform" />
           <span>Konsultasi Belanja Sekarang</span>
         </a>
 
         <a 
           href="#cara-kerja"
-          class="inline-flex items-center justify-center gap-2 bg-white hover:bg-slate-50 text-slate-700 hover:text-slate-900 border border-slate-300 px-6 py-3.5 rounded-xl font-semibold text-base transition-colors text-center"
+          class="inline-flex items-center justify-center gap-2 bg-white hover:bg-slate-50 text-slate-700 hover:text-blue-600 border border-slate-300 hover:border-blue-300 px-6 py-3.5 rounded-xl font-semibold text-[15px] sm:text-base shadow-2xs hover:shadow transition-all text-center group"
         >
           <span>Lihat Alur Belanja</span>
-          <ArrowRight class="w-4 h-4 text-slate-400" />
+          <ArrowRight class="w-4 h-4 text-slate-400 group-hover:text-blue-600 group-hover:translate-x-1 transition-all" />
         </a>
       </div>
 
-      <!-- Trust Badges -->
-      <div class="reveal-on-scroll stagger-3 mt-10 pt-6 border-t border-slate-200/80 w-full flex flex-wrap items-center justify-center gap-y-2 gap-x-6 text-xs text-slate-500">
-        <div class="flex items-center gap-1.5 font-medium">
-          <ShieldCheck class="w-4 h-4 text-blue-600" />
+      <!-- Trust Indicators: Clean Text Separation -->
+      <div class="reveal-on-scroll stagger-3 mt-8 sm:mt-10 pt-6 border-t border-slate-200/80 w-full flex flex-wrap items-center justify-center gap-x-6 gap-y-2.5 text-xs sm:text-[13px] text-slate-600 font-medium">
+        <div class="flex items-center gap-1.5">
+          <ShieldCheck class="w-4 h-4 text-blue-600 shrink-0" />
           <span>Nota Asli dari Toko</span>
         </div>
-        <div class="flex items-center gap-1.5 font-medium">
-          <span class="w-1.5 h-1.5 rounded-full bg-slate-300"></span>
-          <span>Update Foto & Video Call Nyata</span>
+        <span class="hidden sm:inline text-slate-300">&bull;</span>
+        <div class="flex items-center gap-1.5">
+          <Video class="w-4 h-4 text-emerald-600 shrink-0" />
+          <span>Update Foto & Live Video Call</span>
         </div>
-        <div class="flex items-center gap-1.5 font-medium">
-          <span class="w-1.5 h-1.5 rounded-full bg-slate-300"></span>
-          <span>Konsolidasi Paket Hemat</span>
+        <span class="hidden sm:inline text-slate-300">&bull;</span>
+        <div class="flex items-center gap-1.5">
+          <CheckCircle2 class="w-4 h-4 text-amber-600 shrink-0" />
+          <span>Konsolidasi Paket Kargo Aman</span>
         </div>
       </div>
 
     </div>
   </div>
 </section>
-
-<script>
-  // Hero Carousel Logic with Variable Timing (Slide 1: 5.5s, Others: 4.5s) & Mobile Touch Swipe
-  const carousel = document.getElementById('hero-carousel');
-  const slides = document.querySelectorAll<HTMLElement>('.carousel-slide');
-  const dots = document.querySelectorAll<HTMLElement>('[data-carousel-dot]');
-  const prevBtn = document.getElementById('carousel-prev');
-  const nextBtn = document.getElementById('carousel-next');
-
-  let currentIdx = 0;
-  const totalSlides = slides.length;
-  let autoTimer: any = null;
-
-  // Slide 0 gets 5500ms (1 second longer), other slides get 4500ms
-  function getSlideDuration(index: number): number {
-    return index === 0 ? 5500 : 4500;
-  }
-
-  function showSlide(index: number) {
-    currentIdx = (index + totalSlides) % totalSlides;
-
-    slides.forEach((slide, i) => {
-      if (i === currentIdx) {
-        slide.classList.remove('opacity-0', 'z-0');
-        slide.classList.add('opacity-100', 'z-10');
-      } else {
-        slide.classList.remove('opacity-100', 'z-10');
-        slide.classList.add('opacity-0', 'z-0');
-      }
-    });
-
-    dots.forEach((dot, i) => {
-      if (i === currentIdx) {
-        dot.className = 'w-5 sm:w-6 h-2 bg-white rounded-full transition-all duration-300 cursor-pointer';
-      } else {
-        dot.className = 'w-2 h-2 bg-white/50 hover:bg-white/80 rounded-full transition-all duration-300 cursor-pointer';
-      }
-    });
-  }
-
-  function nextSlide() {
-    showSlide(currentIdx + 1);
-  }
-
-  function prevSlide() {
-    showSlide(currentIdx - 1);
-  }
-
-  function startAutoPlay() {
-    stopAutoPlay();
-    const delay = getSlideDuration(currentIdx);
-    autoTimer = setTimeout(() => {
-      nextSlide();
-      startAutoPlay();
-    }, delay);
-  }
-
-  function stopAutoPlay() {
-    if (autoTimer) {
-      clearTimeout(autoTimer);
-      autoTimer = null;
-    }
-  }
-
-  // Prev / Next Listeners
-  if (prevBtn) {
-    prevBtn.addEventListener('click', () => {
-      prevSlide();
-      startAutoPlay();
-    });
-  }
-
-  if (nextBtn) {
-    nextBtn.addEventListener('click', () => {
-      nextSlide();
-      startAutoPlay();
-    });
-  }
-
-  // Dots Listeners
-  dots.forEach((dot) => {
-    dot.addEventListener('click', () => {
-      const idx = Number(dot.getAttribute('data-carousel-dot'));
-      showSlide(idx);
-      startAutoPlay();
-    });
-  });
-
-  // Mobile Touch Swipe Handling
-  let touchStartX = 0;
-  let touchEndX = 0;
-
-  if (carousel) {
-    carousel.addEventListener('touchstart', (e) => {
-      touchStartX = e.changedTouches[0].screenX;
-      stopAutoPlay();
-    }, { passive: true });
-
-    carousel.addEventListener('touchend', (e) => {
-      touchEndX = e.changedTouches[0].screenX;
-      const diff = touchStartX - touchEndX;
-      if (Math.abs(diff) > 40) {
-        if (diff > 0) {
-          nextSlide(); // Swiped left -> next
-        } else {
-          prevSlide(); // Swiped right -> prev
-        }
-      }
-      startAutoPlay();
-    }, { passive: true });
-
-    // Pause on mouse hover (Desktop)
-    carousel.addEventListener('mouseenter', stopAutoPlay);
-    carousel.addEventListener('mouseleave', startAutoPlay);
-  }
-
-  // Start initial auto-play
-  startAutoPlay();
-</script>

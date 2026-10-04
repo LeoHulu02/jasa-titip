@@ -54,7 +54,7 @@ export const siteConfig = {
   description: 'Jasa belanja dan jasa titip terpercaya di pasar grosir Jakarta. Kami bantu carikan barang, cek harga modal toko, belikan, dan kirimkan langsung ke kota Anda di seluruh Indonesia.',
   url: 'https://www.belanjakarta.com',
   address: 'Jl. Kebon Kacang V No. 46, Tanah Abang, Jakarta Pusat',
-  operatingHours: 'Senin – Sabtu: 08.00 – 17.00 WIB (Minggu Libur)',
+  operatingHours: 'Senin - Sabtu: 08.00 - 17.00 WIB (Minggu Libur)',
   baseLocation: 'Jl. Kebon Kacang V No. 46, Tanah Abang, Jakarta Pusat',
   defaultWaMessage: 'Halo Mitra Belanja, saya mau tanya-tanya seputar jasa belanja di pasar grosir Jakarta.',
   heroWaMessage: 'Halo Mitra Belanja, saya butuh bantuan belanja barang grosir dari Jakarta. Bisa bantu info ketentuannya?',
@@ -229,25 +229,53 @@ export const steps: StepItem[] = [
   },
 ];
 
-export const categories: string[] = [
-  'Gamis & Busana Muslim Grosir',
-  'Hijab, Khimar & Pashmina',
-  'Sepatu, Sandal & Selop Grosir (Sentra Bogor)',
-  'Fashion Trendi, Tas & Aksesoris Butik',
-  'Mainan Anak & Edukatif Grosir',
-  'Souvenir Pernikahan & Perlengkapan Acara',
-  'Kemasan Toples, Botol & Plastik Grosir',
-  'Batik Pria & Wanita (Serian/Kodi)',
-  'Pakaian Anak & Perlengkapan Bayi',
-  'Kaos Polos, Distro & Seragam Konveksi',
-  'Celana Jeans & Pakaian Harian Grosir',
-  'Bahan Kain Rol & Tekstil Kiloan',
-  'Sprei, Bedcover & Perlengkapan Kamar',
-  'Alat Tulis Kantor & Kebutuhan Sekolah',
-  'Elektronik, Alat Listrik & Perkakas Teknik',
-  'Aksesoris Fashion, Dompet & Gesper',
-  'Kosmetik & Produk Perawatan Grosir',
+export interface CategoryItem {
+  id: string;
+  name: string;
+  items: string;
+  sentra: string;
+}
+
+export const productCategories: CategoryItem[] = [
+  {
+    id: 'fashion-tekstil',
+    name: 'Fashion & Tekstil',
+    items: 'Gamis, busana muslim, hijab, pakaian anak & harian, celana jeans, kain rol & tekstil kiloan.',
+    sentra: 'Tanah Abang & Cipulir',
+  },
+  {
+    id: 'sepatu-aksesoris',
+    name: 'Sepatu & Aksesoris',
+    items: 'Sepatu pria/wanita, sandal grosir serian/kodi, selop, tas fashion, dompet, dan ikat pinggang.',
+    sentra: 'Pasar Kebon Kembang & Mangga Dua',
+  },
+  {
+    id: 'mainan-souvenir',
+    name: 'Mainan & Souvenir',
+    items: 'Mainan anak & edukatif, boneka, souvenir pernikahan, perlengkapan pesta, dan kemasan hampers.',
+    sentra: 'Pasar Asemka & Perniagaan',
+  },
+  {
+    id: 'kemasan-kebutuhan-toko',
+    name: 'Kemasan & Kebutuhan Toko',
+    items: 'Toples kue, botol plastik/kaca, kardus box, bubble wrap, lakban, dan plastik packing grosir.',
+    sentra: 'Pasar Pagi & Jatinegara',
+  },
+  {
+    id: 'elektronik-perkakas',
+    name: 'Elektronik & Perkakas',
+    items: 'Alat teknik, kelistrikan, perlengkapan pertukangan, sparepart, lampu LED, dan aksesoris gadget.',
+    sentra: 'Glodok & LTC Hayam Wuruk',
+  },
+  {
+    id: 'produk-grosir-lainnya',
+    name: 'Dan Berbagai Produk Grosir Lainnya',
+    items: 'Kosmetik & skincare, alat tulis kantor/sekolah, perlengkapan kamar, hingga komoditas pesanan khusus.',
+    sentra: 'Sentra Niaga Se-DKI Jakarta',
+  },
 ];
+
+export const categories: string[] = productCategories.map((c) => c.name);
 
 export const faqs: FAQItem[] = [
   {
@@ -276,7 +304,7 @@ export const faqs: FAQItem[] = [
   },
   {
     question: 'Kargo apa saja yang bisa digunakan untuk pengiriman?',
-    answer: 'Kami bekerja sama dan dapat mengantar ke berbagai pilihan kargo darat, laut, maupun udara sesuai permintaan Anda — seperti Indah Logistik Kargo, Dakota Cargo, Baraka, J&T Cargo, Sentral Cargo, ekspedisi kapal pulau, atau jasa kirim reguler.',
+    answer: 'Kami bekerja sama dan dapat mengantar ke berbagai pilihan kargo darat, laut, maupun udara sesuai permintaan Anda, antara lain Indah Logistik Kargo, Dakota Cargo, Baraka, J&T Cargo, Sentral Cargo, ekspedisi kapal pulau, atau jasa kirim reguler.',
   },
   {
     question: 'Bagaimana jika barang pesanan ternyata habis di pasar?',

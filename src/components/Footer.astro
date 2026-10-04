@@ -9,7 +9,7 @@ const waUrl = getWhatsAppUrl(siteConfig.defaultWaMessage);
 
 
 <footer class="bg-slate-900 text-slate-400 py-12 sm:py-16 border-t border-slate-800">
-  <div class="max-w-6xl mx-auto px-4 sm:px-6">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-12 mb-12">
       
       <!-- Brand & Description (5 cols) -->
@@ -18,28 +18,28 @@ const waUrl = getWhatsAppUrl(siteConfig.defaultWaMessage);
           <img 
             src="/logo.png" 
             alt="Logo PT Mitra Belanja Jakarta" 
-            class="h-11 w-11 object-contain brightness-110 shrink-0"
+            class="h-10 w-10 sm:h-11 sm:w-11 object-contain brightness-110 shrink-0"
             width="44"
             height="44"
             loading="lazy"
           />
           <div class="flex flex-col">
-            <span class="text-white font-bold text-sm sm:text-base tracking-tight leading-tight">
+            <span class="text-white font-black text-sm sm:text-base tracking-tight leading-tight">
               PT MITRA BELANJA JAKARTA
             </span>
-            <span class="text-[10px] uppercase tracking-wider text-slate-400 font-semibold leading-tight">
+            <span class="text-[10px] sm:text-[10.5px] uppercase tracking-wider text-slate-400 font-semibold leading-tight mt-0.5">
               Sentra Grosir DKI Jakarta
             </span>
           </div>
         </div>
-        <p class="text-sm text-slate-400 leading-relaxed mb-6">
-          Jasa belanja terpercaya dan pendampingan personal di seluruh sentra grosir Jakarta (Tanah Abang, Mangga Dua, Asemka, Jatinegara, Senen, Glodok, Cipulir). Kami menjembatani pasokan pedagang dari Sabang sampai Merauke.
+        <p class="text-xs sm:text-[13.5px] text-slate-400 leading-[1.65] mb-5">
+          Jasa belanja terpercaya dan pendampingan personal di seluruh sentra grosir Jakarta (Tanah Abang, Mangga Dua, Asemka, Jatinegara, Senen, Glodok, Cipulir). Menghubungkan pasokan pedagang dari Sabang sampai Merauke.
         </p>
         <a 
           href={waUrl}
           target="_blank"
           rel="noopener noreferrer"
-          class="inline-flex items-center gap-2 text-sm text-emerald-400 hover:text-emerald-300 transition-colors font-medium"
+          class="inline-flex items-center gap-2 text-xs sm:text-sm text-emerald-400 hover:text-emerald-300 transition-colors font-semibold"
         >
           <WhatsAppIcon class="w-4 h-4" />
           <span>Hubungi Tim Admin via WhatsApp</span>
@@ -48,10 +48,10 @@ const waUrl = getWhatsAppUrl(siteConfig.defaultWaMessage);
 
       <!-- Operational Info (4 cols) -->
       <div class="md:col-span-4">
-        <h4 class="text-white font-semibold text-sm uppercase tracking-wider mb-4">
+        <h4 class="text-white font-bold text-xs sm:text-[13px] uppercase tracking-[0.06em] mb-4">
           Operasional & Lokasi
         </h4>
-        <div class="space-y-3 text-sm">
+        <div class="space-y-3 text-xs sm:text-[13.5px]">
           <div class="flex items-start gap-2.5">
             <Clock class="w-4 h-4 text-slate-400 shrink-0 mt-0.5" />
             <span>{siteConfig.operatingHours}</span>
