@@ -6,63 +6,113 @@ import { faqs, siteConfig, getWhatsAppUrl } from '../data/content';
 const waUrl = getWhatsAppUrl('Halo Admin Mitra Belanja, saya ingin menanyakan perihal layanan belanja di pasar grosir Jakarta.');
 ---
 
-<section id="faq" class="py-14 sm:py-18 md:py-22 bg-slate-50/70 border-b border-slate-200/80 relative overflow-hidden">
-  <div class="max-w-3xl mx-auto px-4 sm:px-6 relative z-10">
+<section id="faq" class="pt-14 sm:pt-18 md:pt-22 pb-0 bg-white relative">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
     
-    <!-- Section Header -->
-    <div class="text-center max-w-xl mx-auto mb-10 sm:mb-12 md:mb-14 reveal-on-scroll">
-      <p class="text-xs font-bold uppercase tracking-wider text-blue-700 mb-2.5">
-        Tanya Jawab Lengkap
-      </p>
-      <h2 class="text-2xl sm:text-3xl md:text-[32px] lg:text-[34px] font-extrabold text-slate-900 tracking-[-0.025em] leading-[1.25] mb-3">
-        Pertanyaan yang Sering Ditanyakan
-      </h2>
-      <p class="text-sm sm:text-base md:text-[16.5px] text-slate-600 leading-[1.65] font-normal max-w-xl mx-auto">
-        Penjelasan lengkap seputar alur kerja, tarif belanja, live video call, dan jaminan keamanan pengiriman kargo Anda.
-      </p>
-    </div>
+    <!-- 2-Column Split FAQ Layout -->
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start mb-14 sm:mb-20">
+      
+      <!-- Left Column: Sticky Support Info (4 cols) -->
+      <div class="lg:col-span-4 lg:sticky lg:top-24 reveal-on-scroll">
+        <p class="text-xs font-bold uppercase tracking-wider text-blue-700 mb-2.5">
+          Tanya Jawab Lengkap
+        </p>
+        <h2 class="font-heading text-2xl sm:text-3xl lg:text-[34px] font-extrabold text-slate-900 tracking-[-0.025em] leading-[1.2] mb-3">
+          Pertanyaan yang Sering Ditanyakan
+        </h2>
+        <p class="text-sm sm:text-base text-slate-600 leading-[1.65] font-normal mb-6">
+          Penjelasan transparan seputar alur kerja, tarif belanja, live video call, dan pengiriman kargo ke seluruh Indonesia.
+        </p>
 
-    <!-- Accordion List with Clean Editorial States -->
-    <div class="space-y-3 sm:space-y-3.5">
-      {faqs.map((faq, index) => (
-        <details 
-          class={`group bg-white rounded-xl border border-slate-200/90 overflow-hidden transition-all duration-200 open:border-blue-500 open:shadow-xs reveal-on-scroll stagger-${(index % 4) + 1}`}
-        >
-          <summary 
-            class="flex items-center justify-between p-4 sm:p-5 md:p-6 cursor-pointer list-none select-none text-left font-bold text-slate-900 group-hover:text-blue-600 transition-colors text-sm sm:text-base focus-visible:outline-none"
-          >
-            <span class="flex items-center gap-3 sm:gap-3.5 pr-3">
-              <span class="w-7 h-7 rounded-lg bg-slate-100 group-open:bg-blue-600 group-open:text-white text-slate-500 flex items-center justify-center text-xs font-bold shrink-0 transition-colors">
-                0{index + 1}
-              </span>
-              <span class="tracking-[-0.015em]">{faq.question}</span>
-            </span>
-            <div class="w-8 h-8 rounded-full bg-slate-100 group-open:bg-blue-50 text-slate-500 group-open:text-blue-600 flex items-center justify-center shrink-0 transition-colors">
-              <ChevronDown class="w-4 h-4 transition-transform duration-300 group-open:rotate-180" />
-            </div>
-          </summary>
-          <div class="px-5 pb-6 sm:px-6 sm:pb-7 pt-1 text-slate-600 text-sm sm:text-base leading-relaxed border-t border-slate-100/80">
-            <p class="pl-10">{faq.answer}</p>
+        <!-- Direct Support Box -->
+        <div class="p-5 sm:p-6 rounded-2xl bg-slate-50 border border-slate-200 shadow-2xs">
+          <div class="flex items-center gap-2 text-xs font-bold text-slate-900 mb-2">
+            <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
+            <span>Admin Lapangan Siaga</span>
           </div>
-        </details>
-      ))}
+          <p class="text-xs text-slate-600 leading-relaxed mb-4">
+            Punya pertanyaan seputar toko langganan atau estimasi tarif kargo ke kota Anda?
+          </p>
+          <a 
+            href={waUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex items-center justify-center gap-2 w-full bg-[#25D366] hover:bg-[#1EBE5D] text-white px-5 py-3 rounded-xl text-xs sm:text-sm font-bold shadow-xs hover:shadow transition-all group active:scale-95 text-center"
+          >
+            <WhatsAppIcon class="w-4 h-4 text-white group-hover:rotate-6 transition-transform" />
+            <span>Tanya Langsung via WhatsApp</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Right Column: 9 Accordion Items (8 cols) -->
+      <div class="lg:col-span-8 space-y-3 sm:space-y-3.5">
+        {faqs.map((faq, index) => (
+          <details 
+            class={`group bg-slate-50/70 hover:bg-white rounded-2xl border border-slate-200/90 overflow-hidden transition-all duration-200 open:border-blue-500 open:bg-white open:shadow-xs reveal-on-scroll stagger-${(index % 4) + 1}`}
+          >
+            <summary 
+              class="flex items-center justify-between p-4 sm:p-5 cursor-pointer list-none select-none text-left font-bold text-slate-900 group-hover:text-blue-600 transition-colors text-sm sm:text-base focus-visible:outline-none"
+            >
+              <span class="flex items-center gap-3 pr-3">
+                <span class="w-7 h-7 rounded-lg bg-slate-200/80 group-open:bg-blue-600 group-open:text-white text-slate-600 flex items-center justify-center text-xs font-bold shrink-0 transition-colors">
+                  0{index + 1}
+                </span>
+                <span class="font-heading font-bold tracking-[-0.015em]">{faq.question}</span>
+              </span>
+              <div class="w-8 h-8 rounded-full bg-white group-open:bg-blue-50 text-slate-500 group-open:text-blue-600 flex items-center justify-center shrink-0 border border-slate-200/60 shadow-2xs transition-colors">
+                <ChevronDown class="w-4 h-4 transition-transform duration-300 group-open:rotate-180" />
+              </div>
+            </summary>
+            <div class="px-5 pb-5 sm:px-6 sm:pb-6 pt-1 text-slate-600 text-xs sm:text-sm md:text-[14.5px] leading-relaxed border-t border-slate-100">
+              <p class="pl-10">{faq.answer}</p>
+            </div>
+          </details>
+        ))}
+      </div>
+
     </div>
 
-    <!-- Still have questions footer prompt -->
-    <div class="mt-10 text-center reveal-on-scroll">
-      <p class="text-sm text-slate-500 mb-3">
-        Punya pertanyaan khusus yang belum tercantum di atas?
-      </p>
-      <a 
-        href={waUrl}
-        target="_blank"
-        rel="noopener noreferrer"
-        class="inline-flex items-center gap-2 text-sm font-bold text-blue-600 hover:text-blue-800 transition-colors group"
-      >
-        <span>Tanyakan langsung ke Admin Lapangan via WhatsApp</span>
-        <span class="group-hover:translate-x-1 transition-transform">&rarr;</span>
-      </a>
-    </div>
+  </div>
 
+  <!-- Divider 6: Deep Cosmic Horizon Arc with Glowing Cyan Laser Sweep into (#kontak) -->
+  <div class="relative w-full overflow-hidden leading-none pt-4 sm:pt-8 -mb-px">
+    <svg 
+      class="relative block w-full h-14 sm:h-18 md:h-22" 
+      viewBox="0 0 1200 120" 
+      preserveAspectRatio="none"
+      aria-hidden="true"
+    >
+      <!-- Layer 1: Translucent deep cyan cosmic underlay -->
+      <path 
+        d="M0,10 Q600,105 1200,10 L1200,120 L0,120 Z" 
+        fill="rgba(56, 189, 248, 0.15)"
+      ></path>
+
+      <!-- Layer 2: Main deep slate-900 fill merging into Section 7 (#kontak) -->
+      <path 
+        d="M0,25 Q600,120 1200,25 L1200,120 L0,120 Z" 
+        fill="#0F172A"
+      ></path>
+
+      <!-- Layer 3: High-visibility glowing cyan laser contour line -->
+      <path 
+        d="M0,25 Q600,120 1200,25" 
+        fill="none" 
+        stroke="#38BDF8" 
+        stroke-width="3" 
+        stroke-linecap="round"
+      ></path>
+
+      <!-- Layer 4: Cyan laser halo glow line -->
+      <path 
+        d="M0,12 Q600,107 1200,12" 
+        fill="none" 
+        stroke="#7DD3FC" 
+        stroke-width="1.5" 
+        stroke-dasharray="10 8" 
+        stroke-opacity="0.7"
+      ></path>
+    </svg>
   </div>
 </section>

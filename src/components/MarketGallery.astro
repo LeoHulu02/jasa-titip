@@ -8,16 +8,16 @@ import { marketPhotos, siteConfig, getWhatsAppUrl } from '../data/content';
   <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
 
     <!-- Section Header -->
-    <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-10 sm:mb-12 md:mb-14 reveal-on-scroll">
+    <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-10 sm:mb-14 reveal-on-scroll">
       <div class="max-w-2xl">
         <p class="text-xs font-bold uppercase tracking-wider text-blue-700 mb-2.5">
           Dokumentasi Lapangan Nyata
         </p>
-        <h2 class="text-2xl sm:text-3xl md:text-[32px] lg:text-[34px] font-extrabold text-slate-900 tracking-[-0.025em] leading-[1.25] mb-2.5">
-          Sentra Pasar Grosir yang Kami Jelajahi
+        <h2 class="font-heading text-2xl sm:text-3xl md:text-[34px] font-extrabold text-slate-900 tracking-[-0.025em] leading-[1.25] mb-2.5">
+          Dokumentasi Asli di Sentra Grosir Jakarta
         </h2>
         <p class="text-sm sm:text-base text-slate-600 leading-[1.65] font-normal">
-          100% foto dokumentasi autentik dari pusat-pusat perdagangan grosir Jakarta. Kami hadir langsung di toko dan gudang grosir, memastikan kualitas fisik, dan menegosiasikan harga modal terbaik untuk Anda.
+          Foto autentik aktivitas tim kami di lorong toko dan gudang grosir Tanah Abang, Cipulir, Asemka, hingga Kebon Kembang.
         </p>
       </div>
 
@@ -289,24 +289,65 @@ import { marketPhotos, siteConfig, getWhatsAppUrl } from '../data/content';
         </div>
         <div>
           <h4 class="text-sm sm:text-base font-bold text-slate-900">
-            Perlu Tinjau Toko atau Gudang Grosir Spesifik Hari Ini?
+            Punya Toko Langganan Sendiri di Jakarta?
           </h4>
           <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
-            Kirimkan foto barang, nama toko, atau info gudang grosir ke WhatsApp kami, tim lapangan kami siap meninjau langsung ke lokasi.
+            Cukup berikan kontak atau alamat tokonya. Kami yang akan datang, ambil barang, dan urus packing kirimannya.
           </p>
         </div>
       </div>
       <a 
-        href={getWhatsAppUrl('Halo Mitra Belanja, saya ingin tim lapangan meninjau toko atau gudang grosir di sentra pasar grosir.')}
+        href={getWhatsAppUrl('Halo Mitra Belanja, saya punya toko langganan di Jakarta dan ingin dibantu ambil barang serta pengiriman kargonya.')}
         target="_blank"
         rel="noopener noreferrer"
         class="inline-flex items-center justify-center gap-2 bg-[#25D366] hover:bg-[#1EBE5D] text-white px-6 py-3 rounded-xl text-xs sm:text-sm font-bold shadow-sm hover:shadow-md transition-all shrink-0 w-full sm:w-auto text-center group active:scale-95"
       >
         <WhatsAppIcon class="w-4 h-4 text-white group-hover:rotate-6 transition-transform" />
-        <span>Konsultasi Tinjau Lokasi Grosir</span>
+        <span>Konsultasikan Toko Anda via WhatsApp</span>
       </a>
     </div>
 
+  </div>
+
+  <!-- Divider 5: Asymmetric Stepped Multi-Level Terraces into Section 6 (#faq) -->
+  <div class="relative w-full overflow-hidden leading-none pt-4 sm:pt-8 -mb-px">
+    <svg 
+      class="relative block w-full h-14 sm:h-18 md:h-22" 
+      viewBox="0 0 1200 120" 
+      preserveAspectRatio="none"
+      aria-hidden="true"
+    >
+      <!-- Layer 1: Soft translucent indigo stepped underlay -->
+      <path 
+        d="M0,70 Q220,70 380,30 T820,12 Q1040,12 1200,50 L1200,120 L0,120 Z" 
+        fill="rgba(99, 102, 241, 0.08)"
+      ></path>
+
+      <!-- Layer 2: Main white fill merging into Section 6 (#faq) -->
+      <path 
+        d="M0,85 Q220,85 380,45 T820,22 Q1040,22 1200,65 L1200,120 L0,120 Z" 
+        fill="#FFFFFF"
+      ></path>
+
+      <!-- Layer 3: Stylized indigo terrace contour line -->
+      <path 
+        d="M0,85 Q220,85 380,45 T820,22 Q1040,22 1200,65" 
+        fill="none" 
+        stroke="#4F46E5" 
+        stroke-width="3" 
+        stroke-linecap="round"
+      ></path>
+
+      <!-- Layer 4: Secondary floating dashed ridge contour -->
+      <path 
+        d="M0,72 Q220,72 380,32 T820,10 Q1040,10 1200,52" 
+        fill="none" 
+        stroke="#818CF8" 
+        stroke-width="1.5" 
+        stroke-dasharray="8 6" 
+        stroke-opacity="0.6"
+      ></path>
+    </svg>
   </div>
 </section>
 

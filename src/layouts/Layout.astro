@@ -61,18 +61,18 @@ const jsonLd = {
     <meta property="og:image" content="/image-1.jpeg" />
     <meta property="og:url" content={siteConfig.url} />
 
-    <!-- Google Fonts: Plus Jakarta Sans -->
+    <!-- Google Fonts: Outfit (Headings) & Plus Jakarta Sans (Body) -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link 
-      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" 
+      href="https://fonts.googleapis.com/css2?family=Outfit:wght@500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" 
       rel="stylesheet" 
     />
 
     <!-- Structured Data (JSON-LD) -->
     <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
   </head>
-  <body class="min-h-screen bg-white text-slate-900 flex flex-col antialiased selection:bg-blue-100 selection:text-blue-900">
+  <body class="min-h-screen bg-white text-slate-900 flex flex-col antialiased selection:bg-blue-100 selection:text-blue-900 font-body">
     <!-- Accessibility Skip Link -->
     <a 
       href="#main-content" 
@@ -98,7 +98,7 @@ const jsonLd = {
     <!-- Mobile Persistent Bottom Navigation Bar (hidden on desktop) -->
     <BottomNav />
 
-    <!-- Smooth Scroll-Reveal Animation Engine -->
+    <!-- Smooth Scroll-Reveal Animation Engine (Re-triggers smoothly on every scroll) -->
     <script>
       function initScrollReveal() {
         const elements = document.querySelectorAll('.reveal-on-scroll');
@@ -109,26 +109,28 @@ const jsonLd = {
           return;
         }
 
+        if (!('IntersectionObserver' in window)) {
+          elements.forEach(el => el.classList.add('is-revealed'));
+          return;
+        }
+
         const observer = new IntersectionObserver((entries) => {
           entries.forEach(entry => {
             if (entry.isIntersecting) {
               entry.target.classList.add('is-revealed');
-              observer.unobserve(entry.target);
+            } else {
+              // Re-trigger: Reset when element leaves viewport so it animates again on next scroll
+              entry.target.classList.remove('is-revealed');
             }
           });
         }, {
-          threshold: 0.05,
-          rootMargin: '100px 0px 40px 0px'
+          threshold: 0.08,
+          rootMargin: '0px 0px -40px 0px'
         });
 
         elements.forEach(el => {
           observer.observe(el);
         });
-
-        // Fail-safe: ensure everything reveals even if scrolled rapidly or in full page capture
-        setTimeout(() => {
-          elements.forEach(el => el.classList.add('is-revealed'));
-        }, 800);
       }
 
       if (document.readyState === 'loading') {

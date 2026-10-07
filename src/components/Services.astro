@@ -1,108 +1,266 @@
 ---
-import { Search, Tag, Layers, CheckCheck, Truck, Users, ArrowUpRight } from '@lucide/astro';
-import { services } from '../data/content';
+import { Search, Tag, Layers, CheckCheck, Truck, Users, CheckCircle2, ShieldCheck, Video, Package } from '@lucide/astro';
+import WhatsAppIcon from './WhatsAppIcon.astro';
+import { services, getWhatsAppUrl } from '../data/content';
 
 const serviceVisuals = [
   {
     icon: Search,
     bgBadge: 'bg-blue-50 text-blue-700 border-blue-200',
     iconBg: 'bg-blue-600 text-white shadow-blue-500/20',
-    hoverBorder: 'group-hover:border-blue-300'
+    hoverBorder: 'group-hover:border-blue-400'
   },
   {
     icon: Tag,
     bgBadge: 'bg-emerald-50 text-emerald-700 border-emerald-200',
     iconBg: 'bg-emerald-600 text-white shadow-emerald-500/20',
-    hoverBorder: 'group-hover:border-emerald-300'
+    hoverBorder: 'group-hover:border-emerald-400'
   },
   {
     icon: Layers,
     bgBadge: 'bg-blue-50 text-blue-700 border-blue-200',
     iconBg: 'bg-blue-700 text-white shadow-blue-600/20',
-    hoverBorder: 'group-hover:border-blue-300'
+    hoverBorder: 'group-hover:border-blue-400'
   },
   {
     icon: CheckCheck,
     bgBadge: 'bg-slate-100 text-slate-700 border-slate-200',
     iconBg: 'bg-slate-800 text-white shadow-slate-700/20',
-    hoverBorder: 'group-hover:border-slate-400'
+    hoverBorder: 'group-hover:border-slate-500'
   },
   {
     icon: Truck,
     bgBadge: 'bg-amber-50 text-amber-800 border-amber-200',
     iconBg: 'bg-amber-500 text-white shadow-amber-500/20',
-    hoverBorder: 'group-hover:border-amber-300'
+    hoverBorder: 'group-hover:border-amber-400'
   },
   {
     icon: Users,
     bgBadge: 'bg-blue-50 text-blue-700 border-blue-200',
     iconBg: 'bg-blue-600 text-white shadow-blue-500/20',
-    hoverBorder: 'group-hover:border-blue-300'
+    hoverBorder: 'group-hover:border-blue-400'
   }
 ];
+
+const waLayananUrl = getWhatsAppUrl('Halo Tim Lapangan Mitra Belanja, saya ingin konsultasi layanan belanja dan pengurusan kargo grosir di Jakarta.');
 ---
 
-<section id="layanan" class="py-14 sm:py-18 md:py-22 bg-white border-b border-slate-100 relative">
-  <div class="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+<section id="layanan" class="pt-14 sm:pt-18 md:pt-22 pb-0 bg-slate-50/80 relative">
+  <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     
     <!-- Section Header -->
-    <div class="max-w-2xl mx-auto text-center mb-10 sm:mb-12 md:mb-14 reveal-on-scroll">
+    <div class="max-w-2xl mx-auto text-center mb-12 sm:mb-16 reveal-on-scroll">
       <p class="text-xs font-bold uppercase tracking-wider text-blue-700 mb-2.5">
         Layanan Lapangan Terpadu
       </p>
-      <h2 class="text-2xl sm:text-3xl md:text-[32px] lg:text-[34px] font-extrabold text-slate-900 tracking-[-0.025em] leading-[1.25] mb-3">
-        Apa yang Bisa Kami Bantu di Pasar Grosir Jakarta?
+      <h2 class="font-heading text-2xl sm:text-3xl md:text-[34px] font-extrabold text-slate-900 tracking-[-0.025em] leading-[1.25] mb-3">
+        Layanan Belanja & Logistik Lapangan Kami
       </h2>
       <p class="text-sm sm:text-base md:text-[16.5px] text-slate-600 leading-[1.65] font-normal max-w-xl sm:max-w-2xl mx-auto">
-        Solusi belanja menyeluruh dari penyusuran sentra grosir, negosiasi harga modal, hingga kargo tiba di toko Anda.
+        Pendampingan lengkap dari penyusuran lorong toko, tawar harga modal, hingga kargo meluncur ke kota Anda.
       </p>
     </div>
 
-    <!-- Lively 6-Card Interactive Grid (1 col mobile, 2 col tablet, 3 col desktop) -->
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5 lg:gap-6">
-      {services.map((item, index) => {
-        const visual = serviceVisuals[index] || serviceVisuals[0];
-        const IconComponent = visual.icon;
-        const staggerClass = `stagger-${(index % 4) + 1}`;
+    <!-- Asymmetric Split: Team Showcase (Left) vs 6 Services (Right) -->
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-start mb-14 sm:mb-20">
+      
+      <!-- Left Column: Team Image Showcase Card (5 cols) (Sculpted Diagonal Silhouette) -->
+      <div class="lg:col-span-5 lg:sticky lg:top-24 reveal-on-scroll">
+        <div class="rounded-tl-[3.5rem] rounded-br-[3.5rem] rounded-tr-xl rounded-bl-xl bg-white border border-slate-200/90 shadow-md p-6 sm:p-7 overflow-hidden relative group">
+          
+          <!-- Subtle Accent Pattern -->
+          <div class="absolute -right-12 -top-12 w-48 h-48 bg-blue-50 rounded-full blur-2xl pointer-events-none"></div>
 
-        return (
-          <div 
-            class={`p-5 sm:p-6 lg:p-7 rounded-2xl bg-white border border-slate-200/90 shadow-2xs hover:shadow-md transition-all duration-300 card-hover-lift flex flex-col justify-between group ${visual.hoverBorder} reveal-on-scroll ${staggerClass}`}
-          >
-            <div>
-              <!-- Top Row: Icon + Number & Tag -->
-              <div class="flex items-center justify-between mb-4 sm:mb-5">
-                <div class={`w-11 h-11 sm:w-12 sm:h-12 rounded-xl flex items-center justify-center shadow-xs ${visual.iconBg} group-hover:scale-105 transition-transform duration-300`}>
-                  <IconComponent class="w-5 h-5 sm:w-6 sm:h-6" />
-                </div>
-                <div class="flex items-center gap-2">
-                  <span class={`text-[10.5px] sm:text-[11px] font-bold px-2.5 py-0.5 rounded-md border ${visual.bgBadge}`}>
-                    {item.tag}
-                  </span>
-                  <span class="text-xs font-semibold text-slate-400 group-hover:text-slate-600 transition-colors">
-                    0{index + 1}
-                  </span>
-                </div>
-              </div>
+          <!-- Status Pill -->
+          <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-emerald-50 border border-emerald-200 text-emerald-800 text-xs font-bold mb-4 shadow-2xs">
+            <span class="inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+            <span>Tim Ekspedisi & Belanja Lapangan</span>
+          </div>
 
-              <!-- Title & Description -->
-              <h3 class="text-base sm:text-lg font-bold text-slate-900 tracking-[-0.015em] mb-2 group-hover:text-blue-600 transition-colors leading-snug">
-                {item.title}
-              </h3>
-              <p class="text-xs sm:text-[13.5px] text-slate-600 leading-[1.6] font-normal">
-                {item.description}
-              </p>
+          <h3 class="font-heading text-xl sm:text-2xl font-bold text-slate-900 leading-snug mb-2">
+            Hadir Langsung di Lokasi Toko & Gudang
+          </h3>
+          <p class="text-xs sm:text-sm text-slate-600 leading-relaxed mb-6">
+            Tim kami hadir langsung di lorong pasar. Kami cek stok, angkat barang, bungkus karung packing, hingga antar ke kargo pilihan Anda.
+          </p>
+
+          <!-- Transparent Team Stage Showcase (Open, Heroic, Crisp & Prominent) -->
+          <div class="relative w-full flex flex-col items-center justify-center pt-2 pb-6 my-2">
+            <!-- Soft Ambient Backlight Halo -->
+            <div class="absolute w-64 h-64 sm:w-72 sm:h-72 rounded-full bg-gradient-to-tr from-emerald-100/60 via-blue-100/50 to-amber-100/30 blur-2xl pointer-events-none"></div>
+            
+            <!-- Soft Floor Shadow for Grounded Realism -->
+            <div class="absolute bottom-6 w-52 sm:w-64 h-4 rounded-full bg-slate-900/10 blur-md pointer-events-none"></div>
+
+            <!-- Transparent Cutout Team (Scaled to Full Heroic Prominence) -->
+            <div class="relative z-10 flex items-center justify-center group-hover:scale-102 transition-transform duration-500">
+              <img 
+                src="/image-team.png" 
+                alt="Tim Ekspedisi dan Personal Shopper Mitra Belanja Jakarta"
+                class="w-auto h-[260px] sm:h-[300px] md:h-[320px] max-w-full object-contain drop-shadow-[0_16px_28px_rgba(15,23,42,0.18)] select-none pointer-events-none"
+                width="556"
+                height="536"
+                loading="eager"
+              />
             </div>
 
-            <!-- Bottom Interactive Detail Pill -->
-            <div class="mt-5 pt-3.5 border-t border-slate-100 flex items-center justify-between text-xs font-semibold text-slate-500 group-hover:text-blue-600 transition-colors">
-              <span>Siap ditangani tim lapangan</span>
-              <ArrowUpRight class="w-4 h-4 opacity-40 group-hover:opacity-100 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all" />
+            <!-- Floating Micro-Badge Left -->
+            <div class="absolute top-4 -left-2 sm:-left-3 z-20">
+              <div class="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white/95 backdrop-blur-md text-slate-800 shadow-md border border-slate-200/80 text-[11px] font-bold">
+                <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
+                <span>Siaga di 5 Pasar Grosir</span>
+              </div>
+            </div>
+
+            <!-- Floating Micro-Badge Right -->
+            <div class="absolute bottom-8 -right-2 sm:-right-3 z-20">
+              <div class="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white/95 backdrop-blur-md text-slate-800 shadow-md border border-slate-200/80 text-[11px] font-bold">
+                <Package class="w-3.5 h-3.5 text-blue-600" />
+                <span>Packing & Kargo</span>
+              </div>
             </div>
           </div>
-        );
-      })}
+
+          <!-- Proof Checklist -->
+          <div class="space-y-2.5 text-xs sm:text-sm font-medium text-slate-700 mb-6">
+            <div class="flex items-center gap-2">
+              <CheckCircle2 class="w-4 h-4 text-emerald-600 shrink-0" />
+              <span>Gabung belanjaan dari aneka toko jadi 1 paket kargo</span>
+            </div>
+            <div class="flex items-center gap-2">
+              <CheckCircle2 class="w-4 h-4 text-emerald-600 shrink-0" />
+              <span>Nota fisik toko asli disertakan utuh tanpa markup modal</span>
+            </div>
+            <div class="flex items-center gap-2">
+              <CheckCircle2 class="w-4 h-4 text-emerald-600 shrink-0" />
+              <span>Konfirmasi foto dan video call sebelum barang dibungkus</span>
+            </div>
+          </div>
+
+          <a 
+            href={waLayananUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="w-full inline-flex items-center justify-center gap-2 bg-[#25D366] hover:bg-[#1EBE5D] text-white px-6 py-3.5 rounded-xl text-sm font-bold shadow-xs hover:shadow-md transition-all active:scale-95 group"
+          >
+            <WhatsAppIcon class="w-4 h-4 text-white group-hover:rotate-6 transition-transform" />
+            <span>Hubungi Tim Lapangan Sekarang</span>
+          </a>
+
+        </div>
+      </div>
+
+      <!-- Right Column: 6 Field Operational Spec Cards (7 cols) with Distinct Tabbed Corner Silhouettes -->
+      <div class="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-5">
+        {services.map((item, index) => {
+          const visual = serviceVisuals[index] || serviceVisuals[0];
+          const IconComponent = visual.icon;
+          const staggerClass = `stagger-${(index % 4) + 1}`;
+          
+          // Industrial tabbed corner silhouettes
+          const serviceShapes = [
+            'rounded-tr-[3rem] rounded-tl-xl rounded-b-xl',  // Ops 1: Top-Right tab
+            'rounded-tl-[3rem] rounded-tr-xl rounded-b-xl',  // Ops 2: Top-Left tab
+            'rounded-br-[3rem] rounded-t-xl rounded-bl-xl',  // Ops 3: Bottom-Right notch
+            'rounded-bl-[3rem] rounded-t-xl rounded-br-xl',  // Ops 4: Bottom-Left notch
+            'rounded-tr-[3rem] rounded-tl-xl rounded-b-xl',  // Ops 5: Top-Right tab
+            'rounded-tl-[3rem] rounded-tr-xl rounded-b-xl',  // Ops 6: Top-Left tab
+          ];
+          const shapeClass = serviceShapes[index] || 'rounded-2xl';
+
+          const protocols = [
+            { code: 'OPS #01', guarantee: 'Sourcing Toko Fisik Termurah' },
+            { code: 'OPS #02', guarantee: 'Live Video Call Cek Mutu' },
+            { code: 'OPS #03', guarantee: '1 Kargo Hemat Multi Toko' },
+            { code: 'OPS #04', guarantee: 'QC Jahitan, Seri & Jumlah' },
+            { code: 'OPS #05', guarantee: 'Packing Segel & Antar Kargo' },
+            { code: 'OPS #06', guarantee: 'Pendamping Belanja Pasar' },
+          ];
+          const proto = protocols[index] || protocols[0];
+
+          return (
+            <div 
+              class={`p-5 sm:p-6 ${shapeClass} bg-white border border-slate-200/90 shadow-2xs hover:shadow-md transition-all duration-300 card-hover-lift flex flex-col justify-between group ${visual.hoverBorder} reveal-on-scroll ${staggerClass} relative overflow-hidden`}
+            >
+              <div>
+                <!-- Top Row: Icon + OPS Code & Tag -->
+                <div class="flex items-center justify-between mb-3.5">
+                  <div class="flex items-center gap-2">
+                    <div class={`w-9 h-9 rounded-xl flex items-center justify-center shadow-xs ${visual.iconBg} group-hover:scale-105 transition-transform duration-300`}>
+                      <IconComponent class="w-4 h-4" />
+                    </div>
+                    <span class={`text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-md border ${visual.bgBadge}`}>
+                      {proto.code}
+                    </span>
+                  </div>
+                  <span class="text-[11px] font-semibold text-slate-400 group-hover:text-slate-600 transition-colors">
+                    {item.tag}
+                  </span>
+                </div>
+
+                <!-- Title & Description -->
+                <h3 class="font-heading text-base sm:text-lg font-bold text-slate-900 tracking-[-0.015em] mb-2 group-hover:text-blue-600 transition-colors leading-snug">
+                  {item.title}
+                </h3>
+                <p class="text-xs sm:text-[13px] text-slate-600 leading-[1.6] font-normal mb-4">
+                  {item.description}
+                </p>
+              </div>
+
+              <!-- Bottom Field Guarantee Spec Tag -->
+              <div class="mt-2 pt-3 border-t border-slate-100 flex items-center justify-between text-xs font-semibold text-slate-600 group-hover:text-blue-700 transition-colors">
+                <span class="text-[11px] font-medium text-slate-700 truncate">
+                  {proto.guarantee}
+                </span>
+                <span class="text-[10px] font-bold text-slate-400 group-hover:text-blue-600 transition-colors shrink-0 ml-1.5">SOP</span>
+              </div>
+            </div>
+          );
+        })}
+      </div>
+
     </div>
 
+  </div>
+
+  <!-- Divider 3: Architectural Apex Canopy Peak with Rising Emerald Contour -->
+  <div class="relative w-full overflow-hidden leading-none pt-4 sm:pt-8 -mb-px">
+    <svg 
+      class="relative block w-full h-14 sm:h-18 md:h-22" 
+      viewBox="0 0 1200 120" 
+      preserveAspectRatio="none"
+      aria-hidden="true"
+    >
+      <!-- Layer 1: Soft emerald accent canopy underlay -->
+      <path 
+        d="M0,90 Q600,-30 1200,90 L1200,120 L0,120 Z" 
+        fill="rgba(16, 185, 129, 0.08)"
+      ></path>
+
+      <!-- Layer 2: Main white fill merging into Section 4 (#cara-kerja) -->
+      <path 
+        d="M0,105 Q600,-15 1200,105 L1200,120 L0,120 Z" 
+        fill="#FFFFFF"
+      ></path>
+
+      <!-- Layer 3: Rising architectural apex contour line -->
+      <path 
+        d="M0,105 Q600,-15 1200,105" 
+        fill="none" 
+        stroke="#059669" 
+        stroke-width="3" 
+        stroke-linecap="round"
+      ></path>
+
+      <!-- Layer 4: Floating secondary canopy ring -->
+      <path 
+        d="M0,90 Q600,-30 1200,90" 
+        fill="none" 
+        stroke="#34D399" 
+        stroke-width="1.5" 
+        stroke-dasharray="8 6" 
+        stroke-opacity="0.6"
+      ></path>
+    </svg>
   </div>
 </section>

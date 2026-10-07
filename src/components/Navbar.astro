@@ -1,5 +1,8 @@
 ---
-import { desktopNavLinks, siteConfig } from '../data/content';
+import { desktopNavLinks, siteConfig, getWhatsAppUrl } from '../data/content';
+import WhatsAppIcon from './WhatsAppIcon.astro';
+
+const waNavUrl = getWhatsAppUrl('Halo Admin PT Mitra Belanja Jakarta, saya ingin konsultasi layanan belanja & pengiriman kargo.');
 ---
 
 <header 
@@ -8,7 +11,7 @@ import { desktopNavLinks, siteConfig } from '../data/content';
 >
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 md:h-18 flex items-center justify-between gap-4 md:gap-8">
     
-    <!-- Brand / Corporate Identity -->
+    <!-- Brand / Corporate Identity (Shares the exact same unified background) -->
     <a 
       href="#hero" 
       class="flex items-center gap-2.5 sm:gap-3 group shrink-0" 
@@ -39,23 +42,49 @@ import { desktopNavLinks, siteConfig } from '../data/content';
       </div>
     </a>
 
-    <!-- Desktop & Tablet Navigation: Modern, Spacious, Clean -->
+    <!-- Desktop & Tablet Navigation: Unified with Header (Boxed with Left Accent & Fading Blur) -->
     <nav 
       id="desktop-nav"
-      class="hidden md:flex items-center gap-1 lg:gap-1.5 p-1 rounded-2xl bg-slate-50/90 border border-slate-200/80" 
+      class="hidden md:flex items-center gap-1.5 lg:gap-2" 
       aria-label="Navigasi Utama"
     >
       {desktopNavLinks.map((link) => (
         <a 
           href={link.href} 
-          class="desktop-nav-link px-3 md:px-3.5 lg:px-4 py-2 rounded-xl text-xs md:text-[13.5px] lg:text-sm font-semibold text-slate-600 hover:text-slate-950 hover:bg-white/80 border border-transparent transition-all duration-200 whitespace-nowrap"
+          class="desktop-nav-link relative px-3.5 md:px-4 py-2 rounded-r-lg rounded-l-xs text-xs md:text-[13px] lg:text-sm font-semibold border-l-[3.5px] border-l-transparent text-slate-600 hover:text-slate-950 hover:bg-slate-100/70 transition-all duration-200 whitespace-nowrap"
         >
           {link.label}
         </a>
       ))}
     </nav>
+
+    <!-- Desktop Quick Contact CTA (Balances the navbar) -->
+    <div class="hidden lg:flex items-center">
+      <a 
+        href={waNavUrl}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="inline-flex items-center gap-2 bg-[#25D366] hover:bg-[#1EBE5D] text-white px-4 py-2 rounded-full text-xs font-bold shadow-xs hover:shadow-md transition-all active:scale-95 group"
+      >
+        <WhatsAppIcon class="w-3.5 h-3.5 text-white group-hover:rotate-6 transition-transform" />
+        <span>Konsultasi WA</span>
+      </a>
+    </div>
+
   </div>
 </header>
+
+<style>
+  /* Kotak aktif dengan garis kiri biru dan background gradien memudar + blur ke ujung */
+  :global(.nav-link-active) {
+    border-left-color: #2563eb !important;
+    background-image: linear-gradient(to right, rgba(37, 99, 235, 0.18), rgba(37, 99, 235, 0.05), transparent) !important;
+    backdrop-filter: blur(8px) !important;
+    -webkit-backdrop-filter: blur(8px) !important;
+    color: #1d4ed8 !important;
+    font-weight: 700 !important;
+  }
+</style>
 
 <script>
   // Add subtle shadow and elevated border on scroll
@@ -74,7 +103,7 @@ import { desktopNavLinks, siteConfig } from '../data/content';
     handleScroll();
   }
 
-  // Active link scroll spy with bespoke, modern styling (Anti-AI-Slop)
+  // Active link scroll spy with bespoke boxed & fading blur styling
   function setupDesktopSpy() {
     const navLinks = document.querySelectorAll<HTMLAnchorElement>('.desktop-nav-link');
     if (!navLinks.length) return;
@@ -99,12 +128,9 @@ import { desktopNavLinks, siteConfig } from '../data/content';
       navLinks.forEach((link) => {
         const href = link.getAttribute('href');
         if (href === `#${currentSection}`) {
-          // Bespoke active state: clean blue tint + crisp border + font-bold
-          link.classList.add('bg-white', 'text-blue-600', 'border-blue-200/80', 'shadow-2xs');
-          link.classList.remove('text-slate-600', 'border-transparent');
+          link.classList.add('nav-link-active');
         } else {
-          link.classList.remove('bg-white', 'text-blue-600', 'border-blue-200/80', 'shadow-2xs');
-          link.classList.add('text-slate-600', 'border-transparent');
+          link.classList.remove('nav-link-active');
         }
       });
     }

@@ -1,5 +1,5 @@
 ---
-import { ArrowRight, CheckCircle2, MapPin, ShieldCheck, Video } from '@lucide/astro';
+import { ArrowRight, CheckCircle2, ShieldCheck, Video } from '@lucide/astro';
 import WhatsAppIcon from './WhatsAppIcon.astro';
 import { siteConfig, getWhatsAppUrl } from '../data/content';
 
@@ -25,143 +25,281 @@ const waUrl = getWhatsAppUrl(siteConfig.heroWaMessage);
     </div>
   </div>
 
-  <!-- 2. Content & Explanation Section (Tepat di Bawah Banner) -->
-  <div id="hero-penjelasan" class="relative py-12 sm:py-16 md:py-20 bg-slate-50/50 border-b border-slate-200/70 overflow-hidden">
-    <div class="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 text-center flex flex-col items-center">
+  <!-- 2. Content & Human Showcase Section (Split Layout) -->
+  <div id="hero-penjelasan" class="relative pt-10 sm:pt-14 md:pt-18 pb-0 bg-gradient-to-b from-slate-100/70 via-slate-50 to-blue-50/40 overflow-hidden">
+    <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       
-      <!-- Context Kicker & Headline Block -->
-      <div class="reveal-on-scroll flex flex-col items-center max-w-3xl">
-        <!-- Editorial Service Scope Kicker (No capsule slop) -->
-        <div class="flex items-center justify-center gap-2 text-xs sm:text-[13px] font-bold text-blue-700 uppercase tracking-wider mb-4">
-          <MapPin class="w-4 h-4 text-blue-600 shrink-0" />
-          <span>Jasa Belanja & Jastip Pasar Grosir Jakarta</span>
+      <!-- Split Hero Grid: Content (Left) & Human Showcase (Right) -->
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center mb-12 sm:mb-16">
+        
+        <!-- Left Column: Copy & Actions (7 cols) -->
+        <div class="lg:col-span-7 flex flex-col items-center lg:items-start text-center lg:text-left reveal-on-scroll">
+          
+          <!-- Main Headline in Outfit font -->
+          <h1 class="font-heading text-3xl sm:text-4xl md:text-5xl lg:text-[46px] font-extrabold tracking-[-0.03em] text-slate-900 leading-[1.15] mb-4 sm:mb-5">
+            Belanja dari Pasar Grosir Jakarta, <br class="hidden sm:inline" />
+            <span class="text-blue-700">
+              Tanpa Keluar Ongkos ke Ibu Kota.
+            </span>
+          </h1>
+
+          <!-- Balanced Lead Description -->
+          <p class="text-sm sm:text-base md:text-[17px] text-slate-600 leading-[1.65] font-normal mb-7 sm:mb-8 max-w-2xl">
+            Kami carikan stok, cek fisik lewat video call, belikan dengan nota asli toko, dan satukan ke kargo kota Anda. Cukup kirim list belanja via WhatsApp.
+          </p>
+
+          <!-- Action Buttons -->
+          <div class="flex flex-col sm:flex-row items-stretch sm:items-center justify-center lg:justify-start gap-3 sm:gap-3.5 w-full sm:w-auto mb-8">
+            <a 
+              href={waUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="inline-flex items-center justify-center gap-2.5 bg-[#25D366] hover:bg-[#1EBE5D] text-white px-7 sm:px-8 py-3.5 rounded-xl font-bold text-[15px] sm:text-base shadow-sm hover:shadow-md transition-all duration-200 active:scale-95 text-center group"
+            >
+              <WhatsAppIcon class="w-5 h-5 text-white group-hover:rotate-6 transition-transform" />
+              <span>Kirim List Belanja via WhatsApp</span>
+            </a>
+
+            <a 
+              href="#cara-kerja"
+              class="inline-flex items-center justify-center gap-2 bg-white hover:bg-slate-50 text-slate-700 hover:text-blue-600 border border-slate-300 hover:border-blue-300 px-6 py-3.5 rounded-xl font-semibold text-[15px] sm:text-base shadow-2xs hover:shadow transition-all text-center group"
+            >
+              <span>Lihat Alur 4 Langkah</span>
+              <ArrowRight class="w-4 h-4 text-slate-400 group-hover:text-blue-600 group-hover:translate-x-1 transition-all" />
+            </a>
+          </div>
+
+          <!-- Trust Indicators -->
+          <div class="w-full flex flex-wrap items-center justify-center lg:justify-start gap-x-5 gap-y-2 text-xs sm:text-[13px] text-slate-600 font-medium pt-5 border-t border-slate-200/80">
+            <div class="flex items-center gap-1.5">
+              <ShieldCheck class="w-4 h-4 text-blue-600 shrink-0" />
+              <span>Nota Asli Toko (0% Markup)</span>
+            </div>
+            <span class="hidden sm:inline text-slate-300">&bull;</span>
+            <div class="flex items-center gap-1.5">
+              <Video class="w-4 h-4 text-emerald-600 shrink-0" />
+              <span>Live Video Call dari Toko</span>
+            </div>
+            <span class="hidden sm:inline text-slate-300">&bull;</span>
+            <div class="flex items-center gap-1.5">
+              <CheckCircle2 class="w-4 h-4 text-amber-600 shrink-0" />
+              <span>Gabung Banyak Toko Jadi 1 Kargo</span>
+            </div>
+          </div>
+
         </div>
 
-        <!-- Main Headline with Solid Authoritative Deep Blue (No gradient text) -->
-        <h1 class="text-2xl sm:text-3xl md:text-4xl lg:text-[42px] font-extrabold tracking-[-0.03em] text-slate-900 leading-[1.2] mb-4 sm:mb-5">
-          Belanja dari Pasar Grosir Jakarta, <br class="hidden sm:inline" />
-          <span class="text-blue-700">
-            Tanpa Harus ke Ibu Kota.
-          </span>
-        </h1>
+        <!-- Right Column: Interactive Transparent Human Shopper Showcase (5 cols) -->
+        <div class="lg:col-span-5 flex justify-center items-center reveal-on-scroll stagger-2">
+          <div class="relative w-full max-w-[380px] sm:max-w-[430px] flex flex-col items-center justify-center">
+            
+            <!-- Soft Ambient Backlight & Pedestal (Subtle & Clean) -->
+            <div class="absolute w-64 h-64 sm:w-80 sm:h-80 rounded-full bg-gradient-to-tr from-blue-200/40 via-indigo-100/30 to-amber-100/30 blur-2xl pointer-events-none -z-0"></div>
+            
+            <!-- Soft Floor Shadow for Grounded Realism -->
+            <div class="absolute bottom-3 w-52 sm:w-64 h-5 rounded-full bg-slate-900/10 blur-md pointer-events-none z-0"></div>
 
-        <!-- Balanced Lead Description -->
-        <p class="text-sm sm:text-base md:text-[17px] text-slate-600 leading-[1.65] font-normal mb-8 sm:mb-10 max-w-2xl mx-auto">
-          Mitra Belanja carikan stok dagangan, cek harga modal asli toko, belikan, dan kirimkan kargo langsung ke kota Anda dari sentra grosir Jakarta. Cukup kirim list kebutuhan via WhatsApp.
-        </p>
+            <!-- Top Indicator Pill -->
+            <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/95 backdrop-blur-md border border-slate-200/90 text-slate-800 text-xs font-bold shadow-xs mb-2 z-20">
+              <span class="inline-flex rounded-full h-2.5 w-2.5 bg-emerald-500"></span>
+              <span>Personal Shopper Siaga di Sentra Niaga</span>
+            </div>
+
+            <!-- Transparent Cutout Human Shopper with Silky Smooth Floating Animation -->
+            <div class="relative z-10 flex items-center justify-center animate-shopper-float my-2">
+              <img 
+                src="/image-manusia.png" 
+                alt="Personal Shopper PT Mitra Belanja Jakarta"
+                class="w-auto h-[330px] sm:h-[380px] md:h-[420px] object-contain drop-shadow-[0_16px_28px_rgba(15,23,42,0.18)] select-none pointer-events-none"
+                width="400"
+                height="450"
+                loading="eager"
+              />
+            </div>
+
+            <!-- Floating Tactile Badge 1: Live Video Call (Left) -->
+            <div class="absolute top-24 -left-2 sm:-left-6 z-20 animate-float-slow">
+              <div class="flex items-center gap-2.5 px-3.5 py-2.5 rounded-2xl bg-white/95 backdrop-blur-md text-slate-900 shadow-xl border border-slate-100/90 text-xs font-bold">
+                <div class="w-8 h-8 rounded-xl bg-emerald-500 text-white flex items-center justify-center shadow-xs">
+                  <Video class="w-4 h-4 text-white" />
+                </div>
+                <div class="text-left">
+                  <span class="block text-[10px] text-slate-400 font-semibold uppercase tracking-wider">Cek Langsung</span>
+                  <span class="text-xs text-slate-900 font-bold">Live Video Call Toko</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Floating Tactile Badge 2: Nota Asli Fisik (Right) -->
+            <div class="absolute bottom-16 -right-2 sm:-right-6 z-20">
+              <div class="flex items-center gap-2.5 px-3.5 py-2.5 rounded-2xl bg-white/95 backdrop-blur-md text-slate-900 shadow-xl border border-slate-100/90 text-xs font-bold">
+                <div class="w-8 h-8 rounded-xl bg-blue-600 text-white flex items-center justify-center shadow-xs">
+                  <ShieldCheck class="w-4 h-4 text-white" />
+                </div>
+                <div class="text-left">
+                  <span class="block text-[10px] text-slate-400 font-semibold uppercase tracking-wider">Harga Modal</span>
+                  <span class="text-xs text-slate-900 font-bold">Nota Asli Disertakan</span>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
       </div>
 
-      <!-- 3 Dynamic Value Cards with Standardized Rhythm -->
-      <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 lg:gap-5 w-full mb-10 sm:mb-12 text-left">
-        <!-- Card 1: Video Call Feature -->
-        <div class="reveal-on-scroll stagger-1 card-hover-lift p-5 sm:p-6 rounded-2xl bg-white border border-slate-200/90 shadow-2xs hover:shadow-md flex flex-col justify-between group">
+      <!-- 3 Distinct Quantitative Benefit Benchmark Cards (Architectural Triptych Sculpted Silhouettes) -->
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 lg:gap-5 w-full mb-12 sm:mb-16 text-left">
+        <!-- Card 1: Left Triptych Wing (Diagonal Opposing Radii Silhouette) -->
+        <div class="reveal-on-scroll stagger-1 card-hover-lift p-5 sm:p-6 rounded-tl-[2.75rem] rounded-br-[2.75rem] rounded-tr-xl rounded-bl-xl bg-white border border-blue-200/90 shadow-2xs hover:shadow-md flex flex-col justify-between group relative overflow-hidden">
+          <div class="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-blue-500 to-indigo-600"></div>
           <div>
             <div class="flex items-center justify-between mb-4">
-              <div class="w-10 h-10 rounded-xl bg-blue-600 text-white flex items-center justify-center shrink-0 shadow-sm shadow-blue-500/20 group-hover:scale-105 transition-transform">
-                <Video class="w-5 h-5 text-white" />
+              <div class="flex items-center gap-2.5">
+                <div class="w-10 h-10 rounded-xl bg-blue-600 text-white flex items-center justify-center shrink-0 shadow-xs shadow-blue-500/25 group-hover:scale-105 transition-transform duration-300">
+                  <Video class="w-5 h-5 text-white" />
+                </div>
+                <span class="text-[10px] font-bold uppercase tracking-wider text-blue-700 bg-blue-50 border border-blue-200/70 px-2 py-0.5 rounded-md">
+                  Real-Time Visual
+                </span>
               </div>
-              <span class="text-[10px] font-bold uppercase tracking-wider text-blue-700 bg-blue-50 px-2 py-0.5 rounded-full border border-blue-200/60">
-                Fitur Unggulan
+              <span class="text-[11px] font-extrabold text-blue-700 bg-blue-100/70 px-2 py-0.5 rounded-md">
+                100% Valid
               </span>
             </div>
-            <h3 class="text-sm sm:text-[15px] font-bold text-slate-900 tracking-[-0.015em] mb-1.5 group-hover:text-blue-600 transition-colors leading-snug">
-              Live Video Call Toko & Gudang
+            
+            <h3 class="font-heading text-base sm:text-lg font-bold text-slate-900 tracking-[-0.015em] mb-1.5 group-hover:text-blue-600 transition-colors leading-snug">
+              Live Video Call Toko
             </h3>
             <p class="text-xs sm:text-[13px] text-slate-600 leading-[1.6]">
-              Lihat barang secara langsung. Tim lapangan siap Video Call WhatsApp dari toko grosir agar Anda bisa memastikan warna, motif, dan mutu fisik secara live.
+              Cek serat kain, warna, dan fisik barang secara langsung via video call WhatsApp sebelum membayar.
             </p>
           </div>
-          <div class="mt-4 pt-3 border-t border-slate-100 flex items-center text-xs font-semibold text-blue-700">
-            <span>Real-time cek fisik barang</span>
+
+          <!-- Tactile Benchmark Indicator -->
+          <div class="mt-4 pt-3 border-t border-slate-100 flex items-center justify-between text-xs font-semibold text-blue-700">
+            <span class="flex items-center gap-1.5">
+              <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
+              <span>Cek fisik sebelum bayar</span>
+            </span>
+            <span class="text-[11px] font-mono text-slate-400">HD Live</span>
           </div>
         </div>
 
-        <!-- Card 2: Consolidation -->
-        <div class="reveal-on-scroll stagger-2 card-hover-lift p-5 sm:p-6 rounded-2xl bg-white border border-slate-200/90 shadow-2xs hover:shadow-md flex flex-col justify-between group">
+        <!-- Card 2: Center Triptych Arch (Cathedral Dome / Top Arch Silhouette) -->
+        <div class="reveal-on-scroll stagger-2 card-hover-lift p-5 sm:p-6 rounded-t-[2.75rem] rounded-b-xl bg-white border border-emerald-200/90 shadow-2xs hover:shadow-md flex flex-col justify-between group relative overflow-hidden">
+          <div class="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-emerald-500 to-teal-600"></div>
           <div>
             <div class="flex items-center justify-between mb-4">
-              <div class="w-10 h-10 rounded-xl bg-emerald-600 text-white flex items-center justify-center shrink-0 shadow-sm shadow-emerald-500/20 group-hover:scale-105 transition-transform">
-                <CheckCircle2 class="w-5 h-5 text-white" />
+              <div class="flex items-center gap-2.5">
+                <div class="w-10 h-10 rounded-xl bg-emerald-600 text-white flex items-center justify-center shrink-0 shadow-xs shadow-emerald-500/25 group-hover:scale-105 transition-transform duration-300">
+                  <CheckCircle2 class="w-5 h-5 text-white" />
+                </div>
+                <span class="text-[10px] font-bold uppercase tracking-wider text-emerald-800 bg-emerald-50 border border-emerald-200/70 px-2 py-0.5 rounded-md">
+                  Efisiensi Logistik
+                </span>
               </div>
-              <span class="text-[10px] font-bold uppercase tracking-wider text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded-full border border-emerald-200/60">
-                Hemat Ongkir
+              <span class="text-[11px] font-extrabold text-emerald-800 bg-emerald-100/70 px-2 py-0.5 rounded-md">
+                Hemat s.d 60%
               </span>
             </div>
-            <h3 class="text-sm sm:text-[15px] font-bold text-slate-900 tracking-[-0.015em] mb-1.5 group-hover:text-emerald-600 transition-colors leading-snug">
-              1 Kargo Hemat Aneka Toko
+            
+            <h3 class="font-heading text-base sm:text-lg font-bold text-slate-900 tracking-[-0.015em] mb-1.5 group-hover:text-emerald-700 transition-colors leading-snug">
+              1 Kargo Terpadu
             </h3>
             <p class="text-xs sm:text-[13px] text-slate-600 leading-[1.6]">
-              Bebas belanja dari puluhan toko atau sentra pasar berbeda di Jakarta. Semua barang disatukan dalam satu kargo terpadu agar biaya kirim jauh lebih hemat.
+              Belanja dari aneka pasar grosir disatukan dalam satu paket packing untuk menghemat biaya kirim.
             </p>
           </div>
-          <div class="mt-4 pt-3 border-t border-slate-100 flex items-center text-xs font-semibold text-emerald-700">
-            <span>Packing gabungan rapi</span>
+
+          <!-- Tactile Benchmark Indicator -->
+          <div class="mt-4 pt-3 border-t border-slate-100 flex items-center justify-between text-xs font-semibold text-emerald-700">
+            <span class="flex items-center gap-1.5">
+              <span class="w-1.5 h-1.5 rounded-full bg-emerald-600"></span>
+              <span>Banyak Toko ke 1 Kargo</span>
+            </span>
+            <span class="text-[11px] font-mono text-slate-400">1 Resi</span>
           </div>
         </div>
 
-        <!-- Card 3: Direct Price & Shipping -->
-        <div class="reveal-on-scroll stagger-3 card-hover-lift p-5 sm:p-6 rounded-2xl bg-white border border-slate-200/90 shadow-2xs hover:shadow-md flex flex-col justify-between group">
+        <!-- Card 3: Right Triptych Wing (Mirrored Diagonal Opposing Radii Silhouette) -->
+        <div class="reveal-on-scroll stagger-3 card-hover-lift p-5 sm:p-6 rounded-tr-[2.75rem] rounded-bl-[2.75rem] rounded-tl-xl rounded-br-xl bg-white border border-amber-200/90 shadow-2xs hover:shadow-md flex flex-col justify-between group relative overflow-hidden">
+          <div class="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-amber-400 to-amber-600"></div>
           <div>
             <div class="flex items-center justify-between mb-4">
-              <div class="w-10 h-10 rounded-xl bg-amber-500 text-white flex items-center justify-center shrink-0 shadow-sm shadow-amber-500/20 group-hover:scale-105 transition-transform">
-                <ShieldCheck class="w-5 h-5 text-white" />
+              <div class="flex items-center gap-2.5">
+                <div class="w-10 h-10 rounded-xl bg-amber-500 text-white flex items-center justify-center shrink-0 shadow-xs shadow-amber-500/25 group-hover:scale-105 transition-transform duration-300">
+                  <ShieldCheck class="w-5 h-5 text-white" />
+                </div>
+                <span class="text-[10px] font-bold uppercase tracking-wider text-amber-800 bg-amber-50 border border-amber-200/70 px-2 py-0.5 rounded-md">
+                  Transparansi Bon
+                </span>
               </div>
-              <span class="text-[10px] font-bold uppercase tracking-wider text-amber-800 bg-amber-50 px-2 py-0.5 rounded-full border border-amber-200/60">
-                100% Transparan
+              <span class="text-[11px] font-extrabold text-amber-900 bg-amber-100/80 px-2 py-0.5 rounded-md">
+                0% Markup
               </span>
             </div>
-            <h3 class="text-sm sm:text-[15px] font-bold text-slate-900 tracking-[-0.015em] mb-1.5 group-hover:text-amber-700 transition-colors leading-snug">
-              Nota Asli & Kirim Se-Indonesia
+            
+            <h3 class="font-heading text-base sm:text-lg font-bold text-slate-900 tracking-[-0.015em] mb-1.5 group-hover:text-amber-700 transition-colors leading-snug">
+              Nota Pembelian Asli
             </h3>
             <p class="text-xs sm:text-[13px] text-slate-600 leading-[1.6]">
-              Dapatkan harga modal asli tanpa markup tersembunyi. Nota fisik toko disertakan utuh di dalam kardus belanjaan Anda dan diantar ke ekspedisi kargo pilihan.
+              Tanpa biaya modal terselubung. Bon fisik asli dari toko disertakan langsung di dalam dus kiriman.
             </p>
           </div>
-          <div class="mt-4 pt-3 border-t border-slate-100 flex items-center text-xs font-semibold text-amber-800">
-            <span>Resi kargo langsung diinfokan</span>
+
+          <!-- Tactile Benchmark Indicator -->
+          <div class="mt-4 pt-3 border-t border-slate-100 flex items-center justify-between text-xs font-semibold text-amber-800">
+            <span class="flex items-center gap-1.5">
+              <span class="w-1.5 h-1.5 rounded-full bg-amber-600"></span>
+              <span>Nota fisik toko disertakan utuh</span>
+            </span>
+            <span class="text-[11px] font-mono text-slate-400">Resi Langsung</span>
           </div>
         </div>
       </div>
 
-      <!-- Action Buttons with Refined Heights & Typography -->
-      <div class="reveal-on-scroll stagger-2 flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-3 sm:gap-3.5 w-full sm:w-auto">
-        <a 
-          href={waUrl}
-          target="_blank"
-          rel="noopener noreferrer"
-          class="inline-flex items-center justify-center gap-2.5 bg-[#25D366] hover:bg-[#1EBE5D] text-white px-7 sm:px-8 py-3.5 rounded-xl font-bold text-[15px] sm:text-base shadow-sm hover:shadow-md transition-all duration-200 active:scale-95 text-center group"
-        >
-          <WhatsAppIcon class="w-5 h-5 text-white group-hover:rotate-6 transition-transform" />
-          <span>Konsultasi Belanja Sekarang</span>
-        </a>
+    </div>
 
-        <a 
-          href="#cara-kerja"
-          class="inline-flex items-center justify-center gap-2 bg-white hover:bg-slate-50 text-slate-700 hover:text-blue-600 border border-slate-300 hover:border-blue-300 px-6 py-3.5 rounded-xl font-semibold text-[15px] sm:text-base shadow-2xs hover:shadow transition-all text-center group"
-        >
-          <span>Lihat Alur Belanja</span>
-          <ArrowRight class="w-4 h-4 text-slate-400 group-hover:text-blue-600 group-hover:translate-x-1 transition-all" />
-        </a>
-      </div>
+    <!-- Divider 1: Dynamic Asymmetric Diagonal Slant with Speed Contour Lines -->
+    <div class="relative w-full overflow-hidden leading-none pt-6 sm:pt-10 -mb-px">
+      <svg 
+        class="relative block w-full h-14 sm:h-18 md:h-22" 
+        viewBox="0 0 1200 120" 
+        preserveAspectRatio="none"
+        aria-hidden="true"
+      >
+        <!-- Translucent speed underlay -->
+        <path 
+          d="M0,15 Q300,50 600,65 T1200,105 L1200,120 L0,120 Z" 
+          fill="rgba(37, 99, 235, 0.08)"
+        ></path>
 
-      <!-- Trust Indicators: Clean Text Separation -->
-      <div class="reveal-on-scroll stagger-3 mt-8 sm:mt-10 pt-6 border-t border-slate-200/80 w-full flex flex-wrap items-center justify-center gap-x-6 gap-y-2.5 text-xs sm:text-[13px] text-slate-600 font-medium">
-        <div class="flex items-center gap-1.5">
-          <ShieldCheck class="w-4 h-4 text-blue-600 shrink-0" />
-          <span>Nota Asli dari Toko</span>
-        </div>
-        <span class="hidden sm:inline text-slate-300">&bull;</span>
-        <div class="flex items-center gap-1.5">
-          <Video class="w-4 h-4 text-emerald-600 shrink-0" />
-          <span>Update Foto & Live Video Call</span>
-        </div>
-        <span class="hidden sm:inline text-slate-300">&bull;</span>
-        <div class="flex items-center gap-1.5">
-          <CheckCircle2 class="w-4 h-4 text-amber-600 shrink-0" />
-          <span>Konsolidasi Paket Kargo Aman</span>
-        </div>
-      </div>
+        <!-- Main white fill merging seamlessly into Section 2 -->
+        <path 
+          d="M0,35 Q300,70 600,82 T1200,115 L1200,120 L0,120 Z" 
+          fill="#FFFFFF"
+        ></path>
 
+        <!-- Primary velocity contour stroke -->
+        <path 
+          d="M0,35 Q300,70 600,82 T1200,115" 
+          fill="none" 
+          stroke="#2563EB" 
+          stroke-width="3" 
+          stroke-linecap="round"
+        ></path>
+
+        <!-- Secondary floating dashed speed line -->
+        <path 
+          d="M0,22 Q300,57 600,69 T1200,102" 
+          fill="none" 
+          stroke="#60A5FA" 
+          stroke-width="1.5" 
+          stroke-dasharray="8 6" 
+          stroke-opacity="0.6"
+        ></path>
+      </svg>
     </div>
   </div>
 </section>
