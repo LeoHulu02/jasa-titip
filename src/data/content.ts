@@ -66,9 +66,9 @@ export const marketPhotos: MarketPhoto[] = [
   {
     id: 'tanah-abang-blok-a',
     src: '/image-1.jpeg',
-    title: 'Sentra Grosir Blok A Tanah Abang',
+    title: 'Sentral Grosir Blok A Tanah Abang',
     location: 'Tanah Abang, Jakarta Pusat',
-    tag: 'Sentra Busana & Tekstil',
+    tag: 'Sentral Busana & Tekstil',
     description: 'Pusat grosir pakaian muslim, gamis, busana pria/wanita, dan tekstil terbesar di Asia Tenggara.',
     width: 768,
     height: 1024,
@@ -134,7 +134,7 @@ export const marketPhotos: MarketPhoto[] = [
     src: '/pasar-bogor.jpeg',
     title: 'Pasar Grosir Kebon Kembang Bogor',
     location: 'Pasar Kebon Kembang, Kota Bogor',
-    tag: 'Sentra Sepatu & Sandal Bogor',
+    tag: 'Sentral Sepatu & Sandal Bogor',
     description: 'Pusat belanja aneka sepatu pria/wanita, sandal, selop, dan alas kaki grosir langsung dari produsen lokal dan distributor tangan pertama di Bogor.',
     width: 1254,
     height: 1254,
@@ -191,13 +191,13 @@ export const services: ServiceItem[] = [
   {
     id: 'packaging-shipping',
     title: 'Packing Segel Kuat & Antar ke Kargo',
-    description: 'Barang dibungkus karung atau kardus tebal anti air, diantar ke kargo darat, laut, atau udara pilihan Anda.',
+    description: 'Barang yang di packing sudah sesuai dengan standar menggunakan karung berlapis, plastik dan atau dus tebal jika dibutuhkan, Sebelum di antar ke cargo ekspedisi laut dan udara pilihan anda.',
     tag: 'Kirim Se-Indonesia',
   },
   {
     id: 'personal-guide',
     title: 'Teman Belanja Langsung di Jakarta',
-    description: 'Datang langsung ke Jakarta? Tim kami siap mendampingi menyusuri lorong pasar dan membantu logistik barang.',
+    description: 'Jika anda datang berbelanja langsung di jakarta? Maka Team agency kami siap membantu mengawal atau mendampingi proses perbelanjaan sampai pengiriman barang selama anda di jakarta.',
     tag: 'Pemandu Lapangan',
   },
 ];
@@ -304,7 +304,7 @@ export const productCategories: CategoryItem[] = [
     id: 'produk-grosir-lainnya',
     name: 'Komoditas Grosir Lainnya',
     items: 'Kosmetik, alat tulis kantor, perabot, hingga barang pesanan khusus toko Anda.',
-    sentra: 'Sentra Niaga Se-DKI Jakarta',
+    sentra: 'Sentral Niaga Se-DKI Jakarta',
   },
 ];
 
@@ -313,7 +313,7 @@ export const categories: string[] = productCategories.map((c) => c.name);
 export const faqs: FAQItem[] = [
   {
     question: 'Pasar grosir apa saja di Jakarta yang bisa dibantu belanjakan?',
-    answer: 'Seluruh sentra grosir utama Jakarta: Tanah Abang, Cipulir, Mangga Dua, Asemka, Senen, Glodok, Jatinegara, hingga sentra sepatu Kebon Kembang. Tim lapangan kami siap mendatangi toko pilihan Anda.',
+    answer: 'Seluruh sentral grosir utama Jakarta: Tanah Abang, Cipulir, Mangga Dua, Asemka, Senen, Glodok, Jatinegara, hingga sentral sepatu Kebon Kembang. Tim lapangan kami siap mendatangi toko pilihan Anda.',
   },
   {
     question: 'Apakah saya bisa minta video call untuk melihat barang secara langsung di toko?',
@@ -321,7 +321,7 @@ export const faqs: FAQItem[] = [
   },
   {
     question: 'Apakah bisa belanja dari beberapa toko sekaligus dalam satu pengiriman?',
-    answer: 'Sangat bisa. Ini layanan unggulan kami. Anda bisa memesan dari aneka toko atau sentra pasar berbeda di Jakarta. Kami kumpulkan dan packing menjadi satu paket kargo hemat agar ongkir tidak terpisah.',
+    answer: 'Sangat bisa. Ini layanan unggulan kami. Anda bisa memesan dari aneka toko atau sentral pasar berbeda di Jakarta. Kami kumpulkan dan packing menjadi satu paket kargo hemat agar ongkir tidak terpisah.',
   },
   {
     question: 'Berapa tarif jasa belanja di PT Mitra Belanja Jakarta?',
