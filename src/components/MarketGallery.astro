@@ -4,18 +4,18 @@ import WhatsAppIcon from './WhatsAppIcon.astro';
 import { marketPhotos, siteConfig, getWhatsAppUrl } from '../data/content';
 ---
 
-<section id="dokumentasi" class="pt-14 sm:pt-18 md:pt-22 pb-0 bg-gradient-to-b from-amber-100/70 via-orange-50/40 to-amber-50/70 relative overflow-hidden">
-  <!-- Warm Amber Gallery Grid & Spotlights -->
+<section id="dokumentasi" class="pt-14 sm:pt-18 md:pt-22 pb-0 bg-gradient-to-b from-orange-100/90 via-orange-50/70 to-amber-100/80 relative overflow-hidden">
+  <!-- Warm Orange Gallery Grid & Spotlights -->
   <div 
     class="absolute inset-0 pointer-events-none opacity-[0.35]"
-    style="background-image: linear-gradient(to right, rgba(217, 119, 6, 0.09) 1px, transparent 1px), linear-gradient(to bottom, rgba(217, 119, 6, 0.09) 1px, transparent 1px); background-size: 38px 38px;"
+    style="background-image: linear-gradient(to right, rgba(234, 88, 12, 0.10) 1px, transparent 1px), linear-gradient(to bottom, rgba(234, 88, 12, 0.10) 1px, transparent 1px); background-size: 38px 38px;"
     aria-hidden="true"
   ></div>
 
-  <!-- Soft Warm Amber & Golden Studio Glows -->
-  <div class="absolute top-10 left-1/2 -translate-x-1/2 w-[720px] h-[360px] bg-gradient-to-b from-amber-200/35 via-orange-100/25 to-transparent rounded-full blur-[100px] pointer-events-none"></div>
-  <div class="absolute bottom-20 -left-20 w-80 h-80 rounded-full bg-amber-300/25 blur-[90px] pointer-events-none"></div>
-  <div class="absolute bottom-10 -right-20 w-80 h-80 rounded-full bg-orange-300/20 blur-[90px] pointer-events-none"></div>
+  <!-- Soft Warm Orange & Amber Studio Glows -->
+  <div class="absolute top-10 left-1/2 -translate-x-1/2 w-[720px] h-[360px] bg-gradient-to-b from-orange-200/35 via-amber-100/25 to-transparent rounded-full blur-[100px] pointer-events-none"></div>
+  <div class="absolute bottom-20 -left-20 w-80 h-80 rounded-full bg-orange-300/25 blur-[90px] pointer-events-none"></div>
+  <div class="absolute bottom-10 -right-20 w-80 h-80 rounded-full bg-amber-300/20 blur-[90px] pointer-events-none"></div>
 
   <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
 
@@ -28,7 +28,7 @@ import { marketPhotos, siteConfig, getWhatsAppUrl } from '../data/content';
         <h2 class="font-heading text-2xl sm:text-3xl md:text-[34px] font-extrabold text-slate-900 tracking-[-0.025em] leading-[1.25] mb-2.5">
           Dokumentasi Asli di Sentra Grosir Jakarta
         </h2>
-        <p class="text-sm sm:text-base text-slate-600 leading-[1.65] font-normal">
+        <p class="text-sm sm:text-base text-slate-700 leading-[1.65] font-medium">
           Foto autentik aktivitas tim kami di lorong toko dan gudang grosir Tanah Abang, Cipulir, Senen, Jatinegara, Asemka, hingga Kebon Kembang.
         </p>
       </div>
@@ -95,7 +95,7 @@ import { marketPhotos, siteConfig, getWhatsAppUrl } from '../data/content';
                 <h3 class="text-base font-bold text-slate-900 leading-snug mb-1.5">
                   {photo.title}
                 </h3>
-                <p class="text-xs text-slate-600 leading-relaxed line-clamp-2">
+                <p class="text-xs text-slate-700 font-medium leading-relaxed line-clamp-2">
                   {photo.description}
                 </p>
               </div>
@@ -155,7 +155,7 @@ import { marketPhotos, siteConfig, getWhatsAppUrl } from '../data/content';
             </div>
           </div>
           <div class="p-4 bg-white flex-1 flex flex-col justify-between">
-            <p class="text-xs text-slate-600 leading-relaxed mb-2">
+            <p class="text-xs text-slate-700 font-medium leading-relaxed mb-2">
               {marketPhotos[0].description}
             </p>
             <span class="text-xs text-blue-600 font-semibold inline-flex items-center gap-1 group-hover:gap-2 transition-all">
@@ -195,7 +195,7 @@ import { marketPhotos, siteConfig, getWhatsAppUrl } from '../data/content';
             </div>
           </div>
           <div class="p-4 bg-white flex-1 flex flex-col justify-between">
-            <p class="text-xs text-slate-600 leading-relaxed mb-2">
+            <p class="text-xs text-slate-700 font-medium leading-relaxed mb-2">
               {marketPhotos[1].description}
             </p>
             <span class="text-xs text-blue-600 font-semibold inline-flex items-center gap-1 group-hover:gap-2 transition-all">
@@ -235,7 +235,7 @@ import { marketPhotos, siteConfig, getWhatsAppUrl } from '../data/content';
             </div>
           </div>
           <div class="p-4 bg-white flex-1 flex flex-col justify-between">
-            <p class="text-xs text-slate-600 leading-relaxed mb-2">
+            <p class="text-xs text-slate-700 font-medium leading-relaxed mb-2">
               {marketPhotos[2].description}
             </p>
             <span class="text-xs text-blue-600 font-semibold inline-flex items-center gap-1 group-hover:gap-2 transition-all">
@@ -279,7 +279,7 @@ import { marketPhotos, siteConfig, getWhatsAppUrl } from '../data/content';
                 <span class="text-[10px] font-bold text-blue-700 bg-blue-50 px-1.5 py-0.5 rounded inline-block mb-1">
                   {photo.tag}
                 </span>
-                <p class="text-[11px] text-slate-600 line-clamp-2 leading-relaxed">
+                <p class="text-[11.5px] text-slate-700 font-medium line-clamp-2 leading-relaxed">
                   {photo.description}
                 </p>
               </div>
@@ -329,23 +329,23 @@ import { marketPhotos, siteConfig, getWhatsAppUrl } from '../data/content';
       preserveAspectRatio="none"
       aria-hidden="true"
     >
-      <!-- Layer 1: Soft translucent indigo stepped underlay -->
+      <!-- Layer 1: Soft orange stepped underlay -->
       <path 
         d="M0,70 Q220,70 380,30 T820,12 Q1040,12 1200,50 L1200,120 L0,120 Z" 
-        fill="rgba(99, 102, 241, 0.08)"
+        fill="rgba(249, 115, 22, 0.08)"
       ></path>
 
-      <!-- Layer 2: Main royal blue fill merging into Section 4 (#cara-kerja) -->
+      <!-- Layer 2: Main warm orange fill merging into Section 4 (#cara-kerja) -->
       <path 
         d="M0,85 Q220,85 380,45 T820,22 Q1040,22 1200,65 L1200,120 L0,120 Z" 
-        fill="#DBEAFE"
+        fill="#FFEDD5"
       ></path>
 
-      <!-- Layer 3: Stylized indigo terrace contour line -->
+      <!-- Layer 3: Stylized orange terrace contour line -->
       <path 
         d="M0,85 Q220,85 380,45 T820,22 Q1040,22 1200,65" 
         fill="none" 
-        stroke="#4F46E5" 
+        stroke="#EA580C" 
         stroke-width="3" 
         stroke-linecap="round"
       ></path>
@@ -354,7 +354,7 @@ import { marketPhotos, siteConfig, getWhatsAppUrl } from '../data/content';
       <path 
         d="M0,72 Q220,72 380,32 T820,10 Q1040,10 1200,52" 
         fill="none" 
-        stroke="#818CF8" 
+        stroke="#FB923C" 
         stroke-width="1.5" 
         stroke-dasharray="8 6" 
         stroke-opacity="0.6"
