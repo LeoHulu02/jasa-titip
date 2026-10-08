@@ -88,10 +88,10 @@ export const marketPhotos: MarketPhoto[] = [
   {
     id: 'suasana-atrium-pasar',
     src: '/image-3.jpeg',
-    title: 'Suasana Hunting & Transaksi Grosir',
-    location: 'Atrium Niaga Grosir Jakarta',
-    tag: 'Aktivitas Belanja Nyata',
-    description: 'Tim kami menyusuri setiap lorong pasar grosir untuk menemukan supplier tangan pertama dengan harga terbaik.',
+    title: 'Pasar Grosir Cipulir',
+    location: 'Cipulir, Jakarta Selatan',
+    tag: 'Pusat Pakaian Murah',
+    description: 'Pusat pakaian murah, busana harian, celana, daster, dan serian konveksi langsung dari produsen grosir.',
     width: 1000,
     height: 667,
     aspectRatio: '3/2',
@@ -99,10 +99,10 @@ export const marketPhotos: MarketPhoto[] = [
   {
     id: 'koridor-toko-bertingkat',
     src: '/image-4.jpeg',
-    title: 'Pertokoan Grosir Bertingkat',
-    location: 'Pusat Niaga Grosir Jakarta',
-    tag: 'Ribuan Distributor Toko',
-    description: 'Menjangkau distributor tekstil, pakaian jadi, seragam partai besar, hingga perlengkapan busana daerah.',
+    title: 'Pasar Grosir Cipulir',
+    location: 'Cipulir, Jakarta Selatan',
+    tag: 'Pusat Pakaian Murah',
+    description: 'Pertokoan grosir pakaian murah dengan ribuan toko konveksi dan distributor pakaian jadi siap kirim partai kodi.',
     width: 1200,
     height: 800,
     aspectRatio: '3/2',
@@ -121,10 +121,10 @@ export const marketPhotos: MarketPhoto[] = [
   {
     id: 'gedung-grosir-termurah',
     src: '/image-6.jpeg',
-    title: 'Pusat Grosir Termurah Jakarta',
-    location: 'Sentra Perdagangan Grosir Jakarta',
-    tag: 'Bisa Grosir & Eceran Partai',
-    description: 'Akses ke supplier termurah yang melayani pembelian grosir partai kodi maupun eceran partai untuk toko daerah.',
+    title: 'Pasar Grosir Asemka',
+    location: 'Asemka, Jakarta Barat',
+    tag: 'Pusat Aksesoris & Kosmetik Murah',
+    description: 'Pusat aksesoris, kosmetik murah, mainan, souvenir, dan pernak-pernik grosir dengan harga modal tangan pertama.',
     width: 479,
     height: 640,
     aspectRatio: '3/4',
@@ -132,10 +132,10 @@ export const marketPhotos: MarketPhoto[] = [
   {
     id: 'pasar-bogor-sepatu-sandal',
     src: '/image-7.jpeg',
-    title: 'Blok F Trade Center Pasar Kebon Kembang',
+    title: 'Pasar Grosir Kebon Kembang Bogor',
     location: 'Pasar Kebon Kembang, Kota Bogor',
-    tag: 'Sentra Sepatu & Sandal Termurah',
-    description: 'Pusat belanja aneka sepatu pria/wanita, sandal, selop, dan alas kaki grosir langsung dari produsen lokal dan distributor tangan pertama.',
+    tag: 'Sentra Sepatu & Sandal Bogor',
+    description: 'Pusat belanja aneka sepatu pria/wanita, sandal, selop, dan alas kaki grosir langsung dari produsen lokal dan distributor tangan pertama di Bogor.',
     width: 500,
     height: 500,
     aspectRatio: '1/1',
@@ -205,28 +205,61 @@ export const services: ServiceItem[] = [
 export const steps: StepItem[] = [
   {
     number: '01',
-    badge: 'Kirim List',
-    title: 'Kirim List Belanja via WhatsApp',
-    description: 'Kirim foto referensi, jumlah seri, dan target harga yang Anda inginkan kepada admin kami.',
+    badge: 'Hubungi Admin',
+    title: 'Hubungi Admin PT MITRA BELANJA JAKARTA',
+    description: 'Hubungi tim admin resmi kami melalui kontak WhatsApp yang tersedia untuk memulai konsultasi perbelanjaan grosir Anda.',
   },
   {
     number: '02',
-    badge: 'Cek Fisik',
-    title: 'Cek Toko & Live Video Call WhatsApp',
-    description: 'Tim kami datangi toko fisik, fotokan stok nyata, dan video call untuk persetujuan barang langsung.',
+    badge: 'Detail Belanja',
+    title: 'Beritahu Admin Detail Kebutuhan Barang Perbelanjaan Anda',
+    description: 'Berikan rincian produk seperti foto referensi, jenis bahan, jumlah kodi/seri, atau nama toko langganan yang Anda tuju.',
   },
   {
     number: '03',
-    badge: 'Pembayaran',
-    title: 'Konfirmasi Nota Asli & Pembayaran',
-    description: 'Setelah Anda setuju dengan barang dan rincian total biayanya, transfer dilakukan ke rekening resmi PT kami.',
+    badge: 'Agency Pendamping',
+    title: 'Admin Menghubungkan Anda dengan Agency Pendamping',
+    description: 'Admin akan menghubungkan Anda dengan agency kami yang akan memandu dan mengawal seluruh proses perbelanjaan Anda.',
   },
   {
     number: '04',
-    badge: 'Kirim Kargo',
-    title: 'Packing Kuat & Pengiriman Kargo',
-    description: 'Barang dibeli, dipacking aman berlapis karung anti air, lalu nomor resi kargo kami kirimkan ke WhatsApp Anda.',
+    badge: 'Rekening Resmi PT',
+    title: 'Kirim Total Dana Belanja ke Rekening Resmi Perusahaan',
+    description: 'Kirim total dana yang akan dibelanjakan hanya melalui rekening resmi PT MITRA BELANJA JAKARTA demi keamanan penuh.',
   },
+  {
+    number: '05',
+    badge: 'Live Video Call',
+    title: 'Video Call Selama Belanja di Toko atau Gudang Supplier',
+    description: 'Agency kami akan melakukan video call dengan Anda selama proses belanja barang di toko atau gudang supplier, sehingga Anda bisa melihat langsung detail barang yang akan dibelanjakan.',
+  },
+  {
+    number: '06',
+    badge: 'Packing & Resi',
+    title: 'Pengurusan Belanja, Packing, Sampai Serah Terima Resi Ekspedisi',
+    description: 'Agency kami akan mengurus perbelanjaan, packing, sampai serah terima resi di ekspedisi pengiriman tujuan kota Anda.',
+  },
+  {
+    number: '07',
+    badge: 'Pantau Pengiriman',
+    title: 'Pengawasan Pengiriman Sampai Kota Tujuan',
+    description: 'Kami akan mengawasi proses pengiriman barang Anda sampai kota tujuan, terhubung dengan pihak ekspedisi/cargo agar bisa selalu update informasi jadwal berangkat dan tiba barang.',
+  },
+  {
+    number: '08',
+    badge: 'Garansi Tanggung Jawab',
+    title: 'Tanggung Jawab Penuh Saat Proses Belanja & Packing',
+    description: 'Kami bertanggung jawab penuh atas kerugian apabila selama proses perbelanjaan dan packing terjadi kehilangan atau kerusakan barang.',
+  },
+];
+
+export const shippingDisclaimer = 'Kami tidak bertanggung jawab atas kerusakan atau kehilangan barang selama proses pengiriman karena itu adalah tanggung jawab pihak ekspedisi/cargo.';
+
+export const howItWorksPillars = [
+  { title: 'Aman Terpercaya', desc: 'Rekening resmi PT' },
+  { title: 'Harga Terbaik', desc: 'Nota asli tanpa markup' },
+  { title: 'Proses Cepat & Mudah', desc: 'Koordinasi via WhatsApp' },
+  { title: 'Pelayanan Profesional', desc: 'Agency siaga di pasar' },
 ];
 
 export interface CategoryItem {
@@ -292,7 +325,7 @@ export const faqs: FAQItem[] = [
   },
   {
     question: 'Berapa tarif jasa belanja di PT Mitra Belanja Jakarta?',
-    answer: 'Tarif dihitung transparan di awal: sistem komisi persentase dari nilai belanja atau biaya flat per koli kardus. Tanpa markup harga toko, dan nota asli selalu disertakan ke dalam paket.',
+    answer: 'Tarif jasa belanja adalah 10% bersih dari total perbelanjaan, plus biaya packing ball barang dan kirim ke ekspedisi atau cargo ditanggung oleh customer. Tanpa markup harga toko, dan nota fisik asli dari toko selalu disertakan.',
   },
   {
     question: 'Apakah ada minimal belanja untuk menggunakan jasa ini?',

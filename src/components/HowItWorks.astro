@@ -1,271 +1,200 @@
 ---
-import { MessageSquare, Video, Receipt, Truck, CheckCircle2 } from '@lucide/astro';
+import { 
+  Headphones, 
+  ShoppingCart, 
+  Users, 
+  Landmark, 
+  Video, 
+  Package, 
+  Truck, 
+  ShieldCheck, 
+  Info, 
+  Tag, 
+  Clock, 
+  CheckCircle2 
+} from '@lucide/astro';
 import WhatsAppIcon from './WhatsAppIcon.astro';
-import { steps, siteConfig, getWhatsAppUrl } from '../data/content';
+import { steps, shippingDisclaimer, siteConfig, getWhatsAppUrl } from '../data/content';
 
 const waUrl = getWhatsAppUrl(siteConfig.howItWorksWaMessage);
 
 const stepIcons = [
-  MessageSquare,
+  Headphones,
+  ShoppingCart,
+  Users,
+  Landmark,
   Video,
-  Receipt,
-  Truck
+  Package,
+  Truck,
+  ShieldCheck
 ];
 
-const stepColors = [
-  { bg: 'bg-blue-600', ring: 'ring-blue-100', text: 'text-blue-700', badge: 'bg-blue-50 border-blue-200' },
-  { bg: 'bg-emerald-600', ring: 'ring-emerald-100', text: 'text-emerald-700', badge: 'bg-emerald-50 border-emerald-200' },
-  { bg: 'bg-amber-500', ring: 'ring-amber-100', text: 'text-amber-800', badge: 'bg-amber-50 border-amber-200' },
-  { bg: 'bg-blue-700', ring: 'ring-blue-100', text: 'text-blue-700', badge: 'bg-blue-50 border-blue-200' }
+const pillars = [
+  { icon: ShieldCheck, title: 'Aman Terpercaya', desc: 'Rekening Resmi PT' },
+  { icon: Tag, title: 'Harga Terbaik', desc: 'Nota Asli Tanpa Markup' },
+  { icon: Clock, title: 'Proses Cepat & Mudah', desc: 'Koordinasi via WhatsApp' },
+  { icon: Headphones, title: 'Pelayanan Profesional', desc: 'Agency Siap di Lapangan' }
 ];
 ---
 
-<section id="cara-kerja" class="pt-14 sm:pt-18 md:pt-22 pb-0 bg-white relative">
-  <div class="max-w-5xl mx-auto px-4 sm:px-6 relative z-10">
+<section id="cara-kerja" class="pt-14 sm:pt-18 md:pt-22 pb-0 bg-gradient-to-b from-white via-blue-50/40 to-slate-50/70 relative overflow-hidden">
+  <!-- Modern Logistics Blueprint Micro-Dot Matrix -->
+  <div 
+    class="absolute inset-0 pointer-events-none opacity-[0.25]"
+    style="background-image: radial-gradient(#2563eb 1.2px, transparent 1.2px); background-size: 26px 26px;"
+    aria-hidden="true"
+  ></div>
+
+  <!-- Soft Ambient Atmospheric Flow Glows -->
+  <div class="absolute -top-16 -left-20 w-96 h-96 rounded-full bg-blue-400/15 blur-[100px] pointer-events-none"></div>
+  <div class="absolute top-1/3 -right-20 w-96 h-96 rounded-full bg-amber-300/15 blur-[110px] pointer-events-none"></div>
+  <div class="absolute bottom-24 left-1/2 -translate-x-1/2 w-[600px] h-60 rounded-full bg-blue-300/10 blur-[100px] pointer-events-none"></div>
+
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 relative z-10">
     
     <!-- Section Header -->
     <div class="text-center max-w-2xl mx-auto mb-12 sm:mb-16 reveal-on-scroll">
-      <p class="text-xs font-bold uppercase tracking-wider text-blue-700 mb-2.5">
-        Alur Praktis 4 Langkah
-      </p>
+      <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-blue-50 border border-blue-200/80 text-blue-800 text-xs font-bold mb-3 shadow-2xs">
+        <span class="w-2 h-2 rounded-full bg-blue-600"></span>
+        <span>SOP Belanja Resmi Terpercaya</span>
+      </div>
       <h2 class="font-heading text-2xl sm:text-3xl md:text-[34px] font-extrabold text-slate-900 tracking-[-0.025em] leading-[1.25] mb-3">
-        Cara Belanja Grosir dari Ponsel Anda
+        Cara Kerja Jasa Belanja Grosir
       </h2>
       <p class="text-sm sm:text-base md:text-[16.5px] text-slate-600 leading-[1.65] font-normal max-w-xl sm:max-w-2xl mx-auto">
-        Proses transparan dan mudah dipantau dari awal pencarian hingga kargo tiba di toko Anda.
+        8 alur transparan dan terstruktur dari konsultasi awal hingga pengiriman kargo tiba dengan aman di kota Anda.
       </p>
     </div>
 
-    <!-- Lively 4-Step Interactive Storyflow Dossier Track (Flowing Vortex Card Silhouettes) -->
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-5 sm:gap-6 mb-12 sm:mb-16">
-      <!-- Step 1: WhatsApp Chat Brief Dossier Card (Top-Left Flowing Curve) -->
-      <div class="p-6 sm:p-7 rounded-tl-[3.75rem] rounded-tr-xl rounded-br-xl rounded-bl-xl bg-white border border-blue-200/80 shadow-2xs hover:shadow-md transition-all duration-300 card-hover-lift flex flex-col justify-between group reveal-on-scroll stagger-1 relative overflow-hidden">
-        <div class="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-blue-500 to-blue-600"></div>
-        <div>
-          <!-- Header Row -->
-          <div class="flex items-center justify-between mb-4">
-            <div class="flex items-center gap-2.5">
-              <div class="w-10 h-10 rounded-xl bg-blue-600 text-white flex items-center justify-center shrink-0 shadow-xs group-hover:scale-105 transition-transform duration-300">
-                <MessageSquare class="w-5 h-5 text-white" />
-              </div>
-              <div>
-                <span class="text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded bg-blue-50 border border-blue-200/70 text-blue-700 block w-fit">
-                  {steps[0].badge}
+    <!-- 8-Step Dual Column Grid: Left (1-4) & Right (5-8 + Notice) mirroring flyer layout -->
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-5 sm:gap-6 mb-12 sm:mb-14">
+      
+      <!-- Left Column: Steps 1 to 4 -->
+      <div class="space-y-4 sm:space-y-4.5">
+        {steps.slice(0, 4).map((step, index) => {
+          const IconComp = stepIcons[index];
+          const stepNum = index + 1;
+          const staggerClass = `stagger-${stepNum}`;
+          
+          return (
+            <div 
+              class={`p-5 sm:p-5.5 rounded-2xl bg-white border border-slate-200/90 shadow-2xs hover:shadow-md hover:border-blue-300 transition-all duration-300 card-hover-lift flex items-start gap-3.5 sm:gap-4 group reveal-on-scroll ${staggerClass} relative overflow-hidden`}
+            >
+              <!-- Left Stacked Indicators: Step Number + Circular Icon -->
+              <div class="flex items-center gap-2 shrink-0 pt-0.5">
+                <span class="w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-gradient-to-br from-amber-500 to-orange-500 text-white font-extrabold text-xs sm:text-sm flex items-center justify-center shadow-xs">
+                  {stepNum}
                 </span>
-                <span class="text-[11px] font-semibold text-slate-400">Tahap Awal</span>
+                <div class="w-10 h-10 sm:w-11 sm:h-11 rounded-full bg-blue-600 text-white flex items-center justify-center shadow-xs group-hover:bg-blue-700 group-hover:scale-105 transition-all duration-300">
+                  <IconComp class="w-5 h-5 text-white" />
+                </div>
+              </div>
+
+              <!-- Content Body -->
+              <div class="flex-1 min-w-0">
+                <div class="flex items-center justify-between mb-1">
+                  <span class="text-[10.5px] font-bold uppercase tracking-wider text-blue-700 bg-blue-50 px-2 py-0.5 rounded border border-blue-200/60">
+                    {step.badge}
+                  </span>
+                  <span class="text-xs font-mono text-slate-300 group-hover:text-blue-500 transition-colors font-bold">
+                    #{step.number}
+                  </span>
+                </div>
+                <h3 class="font-heading text-sm sm:text-[15px] font-bold text-slate-900 group-hover:text-blue-700 transition-colors leading-snug mb-1">
+                  {step.title}
+                </h3>
+                <p class="text-xs sm:text-[13px] text-slate-600 leading-relaxed font-normal">
+                  {step.description}
+                </p>
               </div>
             </div>
-            <span class="font-heading text-2xl font-black text-blue-600/20 group-hover:text-blue-600/40 transition-colors">
-              01
-            </span>
-          </div>
+          );
+        })}
+      </div>
 
-          <h3 class="font-heading text-base sm:text-lg font-bold text-slate-900 tracking-[-0.015em] mb-2 group-hover:text-blue-600 transition-colors leading-snug">
-            {steps[0].title}
-          </h3>
-          <p class="text-xs sm:text-[13px] text-slate-600 leading-[1.6] font-normal mb-4">
-            {steps[0].description}
-          </p>
+      <!-- Right Column: Steps 5 to 8 + Shipping Disclaimer Callout -->
+      <div class="space-y-4 sm:space-y-4.5">
+        {steps.slice(4, 8).map((step, index) => {
+          const stepIndex = index + 4;
+          const IconComp = stepIcons[stepIndex];
+          const stepNum = stepIndex + 1;
+          const staggerClass = `stagger-${(stepNum % 4) + 1}`;
+          
+          return (
+            <div 
+              class={`p-5 sm:p-5.5 rounded-2xl bg-white border border-slate-200/90 shadow-2xs hover:shadow-md hover:border-blue-300 transition-all duration-300 card-hover-lift flex items-start gap-3.5 sm:gap-4 group reveal-on-scroll ${staggerClass} relative overflow-hidden`}
+            >
+              <!-- Left Stacked Indicators: Step Number + Circular Icon -->
+              <div class="flex items-center gap-2 shrink-0 pt-0.5">
+                <span class="w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-gradient-to-br from-amber-500 to-orange-500 text-white font-extrabold text-xs sm:text-sm flex items-center justify-center shadow-xs">
+                  {stepNum}
+                </span>
+                <div class="w-10 h-10 sm:w-11 sm:h-11 rounded-full bg-blue-600 text-white flex items-center justify-center shadow-xs group-hover:bg-blue-700 group-hover:scale-105 transition-all duration-300">
+                  <IconComp class="w-5 h-5 text-white" />
+                </div>
+              </div>
 
-          <!-- Unique Artifact 1: WhatsApp Chat Preview Bubble -->
-          <div class="rounded-xl bg-slate-50 border border-slate-200/80 p-3 text-left">
-            <div class="flex items-center justify-between text-[10.5px] font-bold text-emerald-700 mb-2">
-              <span class="flex items-center gap-1.5">
-                <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
-                <span>Format Konsultasi Chat</span>
-              </span>
-              <span class="text-slate-400 font-normal">WhatsApp Ready</span>
+              <!-- Content Body -->
+              <div class="flex-1 min-w-0">
+                <div class="flex items-center justify-between mb-1">
+                  <span class="text-[10.5px] font-bold uppercase tracking-wider text-blue-700 bg-blue-50 px-2 py-0.5 rounded border border-blue-200/60">
+                    {step.badge}
+                  </span>
+                  <span class="text-xs font-mono text-slate-300 group-hover:text-blue-500 transition-colors font-bold">
+                    #{step.number}
+                  </span>
+                </div>
+                <h3 class="font-heading text-sm sm:text-[15px] font-bold text-slate-900 group-hover:text-blue-700 transition-colors leading-snug mb-1">
+                  {step.title}
+                </h3>
+                <p class="text-xs sm:text-[13px] text-slate-600 leading-relaxed font-normal">
+                  {step.description}
+                </p>
+              </div>
             </div>
-            <div class="bg-white rounded-lg p-2.5 border border-slate-200/60 shadow-2xs text-xs space-y-1">
-              <p class="text-slate-800 font-medium leading-relaxed text-[11.5px]">
-                &ldquo;Halo Admin Mitra Belanja, tolong carikan bahan katun toyobo fodu 5 roll & seragam kodi di Blok B ya...&rdquo;
+          );
+        })}
+
+        <!-- Notice / Disclaimer Callout (Directly paired with Step 8, like the flyer) -->
+        <div class="p-4 sm:p-4.5 rounded-2xl bg-blue-50/70 border border-blue-200/90 shadow-2xs flex items-start gap-3 reveal-on-scroll">
+          <div class="w-8 h-8 rounded-full bg-blue-600 text-white flex items-center justify-center shrink-0 shadow-xs mt-0.5">
+            <Info class="w-4 h-4 text-white" />
+          </div>
+          <div class="text-xs sm:text-[12.5px] text-blue-950 leading-relaxed">
+            <strong class="font-bold text-blue-900 block mb-0.5">Ketentuan Batas Tanggung Jawab Ekspedisi:</strong>
+            <p class="text-slate-700">
+              {shippingDisclaimer}
+            </p>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- 4 Trust Pillars Banner Bar (Matching Flyer's Bottom Ribbon) -->
+    <div class="rounded-2xl bg-gradient-to-r from-blue-700 via-blue-800 to-indigo-900 text-white p-5 sm:p-7 shadow-md mb-12 sm:mb-16 reveal-on-scroll">
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 text-center divide-y md:divide-y-0 md:divide-x divide-white/15">
+        {pillars.map((item, idx) => {
+          const PillarIcon = item.icon;
+          return (
+            <div class={`flex flex-col items-center justify-center px-3 ${idx > 0 ? 'pt-3 md:pt-0' : ''}`}>
+              <div class="w-10 h-10 rounded-xl bg-white/10 backdrop-blur-md border border-white/20 flex items-center justify-center mb-2 shadow-xs">
+                <PillarIcon class="w-5 h-5 text-amber-300" />
+              </div>
+              <h4 class="font-heading text-xs sm:text-sm font-bold tracking-tight uppercase text-white mb-0.5">
+                {item.title}
+              </h4>
+              <p class="text-[11px] sm:text-xs text-blue-100 font-normal">
+                {item.desc}
               </p>
-              <div class="flex items-center justify-between text-[10px] text-slate-400 pt-1 border-t border-slate-100">
-                <span>Foto Sampel / Link Terlampir</span>
-                <span class="font-semibold text-emerald-600">&check;&check; Terbaca</span>
-              </div>
             </div>
-          </div>
-        </div>
-
-        <div class="mt-4 pt-3 border-t border-slate-100 flex items-center justify-between text-xs font-semibold text-blue-600">
-          <span>Langkah 1 dari 4: Sourcing List</span>
-          <span class="text-[11px] font-mono text-slate-400">Tahap 1</span>
-        </div>
-      </div>
-
-      <!-- Step 2: Live Video Call Viewfinder Dossier Card (Top-Right Flowing Curve) -->
-      <div class="p-6 sm:p-7 rounded-tr-[3.75rem] rounded-tl-xl rounded-bl-xl rounded-br-xl bg-white border border-emerald-200/80 shadow-2xs hover:shadow-md transition-all duration-300 card-hover-lift flex flex-col justify-between group reveal-on-scroll stagger-2 relative overflow-hidden">
-        <div class="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-emerald-500 to-teal-500"></div>
-        <div>
-          <!-- Header Row -->
-          <div class="flex items-center justify-between mb-4">
-            <div class="flex items-center gap-2.5">
-              <div class="w-10 h-10 rounded-xl bg-emerald-600 text-white flex items-center justify-center shrink-0 shadow-xs group-hover:scale-105 transition-transform duration-300">
-                <Video class="w-5 h-5 text-white" />
-              </div>
-              <div>
-                <span class="text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded bg-emerald-50 border border-emerald-200/70 text-emerald-800 block w-fit">
-                  {steps[1].badge}
-                </span>
-                <span class="text-[11px] font-semibold text-slate-400">Verifikasi Fisik</span>
-              </div>
-            </div>
-            <span class="font-heading text-2xl font-black text-emerald-600/20 group-hover:text-emerald-600/40 transition-colors">
-              02
-            </span>
-          </div>
-
-          <h3 class="font-heading text-base sm:text-lg font-bold text-slate-900 tracking-[-0.015em] mb-2 group-hover:text-emerald-700 transition-colors leading-snug">
-            {steps[1].title}
-          </h3>
-          <p class="text-xs sm:text-[13px] text-slate-600 leading-[1.6] font-normal mb-4">
-            {steps[1].description}
-          </p>
-
-          <!-- Unique Artifact 2: Video Call Viewfinder Frame -->
-          <div class="rounded-xl bg-slate-900 text-white p-3 text-left shadow-2xs">
-            <div class="flex items-center justify-between text-[10.5px] font-mono text-emerald-400 mb-2">
-              <span class="flex items-center gap-1.5">
-                <span class="w-2 h-2 rounded-full bg-rose-500"></span>
-                <span class="text-rose-400 font-bold uppercase tracking-wider">LIVE CALL AKTIF</span>
-              </span>
-              <span class="text-slate-400">HD 1080p</span>
-            </div>
-            <div class="bg-slate-800/90 rounded-lg p-2.5 border border-slate-700/80 text-xs space-y-1.5">
-              <div class="flex items-center justify-between">
-                <span class="text-[11px] font-bold text-slate-200">Sentra Grosir Tanah Abang</span>
-                <span class="text-[10px] bg-emerald-500/20 text-emerald-300 px-1.5 py-0.5 rounded font-bold">Terhubung</span>
-              </div>
-              <p class="text-[11px] text-slate-300 leading-tight">
-                Cek warna asli, serat kain, dan seri motif langsung dari layar smartphone Anda.
-              </p>
-            </div>
-          </div>
-        </div>
-
-        <div class="mt-4 pt-3 border-t border-slate-100 flex items-center justify-between text-xs font-semibold text-emerald-700">
-          <span>Langkah 2 dari 4: Inspeksi Real-Time</span>
-          <span class="text-[11px] font-mono text-slate-400">Tahap 2</span>
-        </div>
-      </div>
-
-      <!-- Step 3: Paper Invoice & Transparency Docket Card (Bottom-Left Flowing Curve) -->
-      <div class="p-6 sm:p-7 rounded-bl-[3.75rem] rounded-tl-xl rounded-tr-xl rounded-br-xl bg-white border border-amber-200/80 shadow-2xs hover:shadow-md transition-all duration-300 card-hover-lift flex flex-col justify-between group reveal-on-scroll stagger-3 relative overflow-hidden">
-        <div class="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-amber-400 to-amber-600"></div>
-        <div>
-          <!-- Header Row -->
-          <div class="flex items-center justify-between mb-4">
-            <div class="flex items-center gap-2.5">
-              <div class="w-10 h-10 rounded-xl bg-amber-500 text-white flex items-center justify-center shrink-0 shadow-xs group-hover:scale-105 transition-transform duration-300">
-                <Receipt class="w-5 h-5 text-white" />
-              </div>
-              <div>
-                <span class="text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded bg-amber-50 border border-amber-200/70 text-amber-800 block w-fit">
-                  {steps[2].badge}
-                </span>
-                <span class="text-[11px] font-semibold text-slate-400">Harga Modal Asli</span>
-              </div>
-            </div>
-            <span class="font-heading text-2xl font-black text-amber-500/20 group-hover:text-amber-500/40 transition-colors">
-              03
-            </span>
-          </div>
-
-          <h3 class="font-heading text-base sm:text-lg font-bold text-slate-900 tracking-[-0.015em] mb-2 group-hover:text-amber-700 transition-colors leading-snug">
-            {steps[2].title}
-          </h3>
-          <p class="text-xs sm:text-[13px] text-slate-600 leading-[1.6] font-normal mb-4">
-            {steps[2].description}
-          </p>
-
-          <!-- Unique Artifact 3: Physical Invoice Receipt Docket -->
-          <div class="rounded-xl bg-amber-50/60 border border-dashed border-amber-300/80 p-3 text-left">
-            <div class="flex items-center justify-between text-[10.5px] font-bold text-amber-900 mb-2">
-              <span class="flex items-center gap-1.5">
-                <Receipt class="w-3.5 h-3.5 text-amber-700" />
-                <span>NOTA FISIK TOKO ASLI</span>
-              </span>
-              <span class="font-mono text-[10px] bg-amber-200/70 text-amber-900 px-1.5 py-0.5 rounded font-bold">0% MARKUP</span>
-            </div>
-            <div class="bg-white rounded-lg p-2.5 border border-amber-200/60 shadow-2xs font-mono text-xs space-y-1">
-              <div class="flex justify-between text-slate-600 border-b border-dashed border-slate-200 pb-1">
-                <span class="text-[11px]">Nominal Belanja Toko:</span>
-                <span class="font-bold text-slate-900 text-[11px]">Sesuai Bon Toko</span>
-              </div>
-              <div class="flex justify-between items-center pt-0.5 text-[10.5px]">
-                <span class="text-slate-500">Bukti Fisik:</span>
-                <span class="text-amber-800 font-bold font-sans">Disertakan di Dalam Dus</span>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="mt-4 pt-3 border-t border-slate-100 flex items-center justify-between text-xs font-semibold text-amber-800">
-          <span>Langkah 3 dari 4: Konfirmasi Terbuka</span>
-          <span class="text-[11px] font-mono text-slate-400">Tahap 3</span>
-        </div>
-      </div>
-
-      <!-- Step 4: Cargo Freight & Waybill Dossier Card (Bottom-Right Flowing Curve) -->
-      <div class="p-6 sm:p-7 rounded-br-[3.75rem] rounded-tl-xl rounded-tr-xl rounded-bl-xl bg-white border border-blue-300/90 shadow-2xs hover:shadow-md transition-all duration-300 card-hover-lift flex flex-col justify-between group reveal-on-scroll stagger-4 relative overflow-hidden">
-        <div class="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-blue-600 to-indigo-600"></div>
-        <div>
-          <!-- Header Row -->
-          <div class="flex items-center justify-between mb-4">
-            <div class="flex items-center gap-2.5">
-              <div class="w-10 h-10 rounded-xl bg-blue-700 text-white flex items-center justify-center shrink-0 shadow-xs group-hover:scale-105 transition-transform duration-300">
-                <Truck class="w-5 h-5 text-white" />
-              </div>
-              <div>
-                <span class="text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded bg-blue-50 border border-blue-200/70 text-blue-700 block w-fit">
-                  {steps[3].badge}
-                </span>
-                <span class="text-[11px] font-semibold text-slate-400">Ekspedisi Logistik</span>
-              </div>
-            </div>
-            <span class="font-heading text-2xl font-black text-blue-700/20 group-hover:text-blue-700/40 transition-colors">
-              04
-            </span>
-          </div>
-
-          <h3 class="font-heading text-base sm:text-lg font-bold text-slate-900 tracking-[-0.015em] mb-2 group-hover:text-blue-700 transition-colors leading-snug">
-            {steps[3].title}
-          </h3>
-          <p class="text-xs sm:text-[13px] text-slate-600 leading-[1.6] font-normal mb-4">
-            {steps[3].description}
-          </p>
-
-          <!-- Unique Artifact 4: Cargo Manifest Waybill Mockup -->
-          <div class="rounded-xl bg-blue-50/70 border border-blue-200/80 p-3 text-left">
-            <div class="flex items-center justify-between text-[10.5px] font-bold text-blue-900 mb-2">
-              <span class="flex items-center gap-1.5">
-                <Truck class="w-3.5 h-3.5 text-blue-700" />
-                <span>MANIFEST RESI KARGO</span>
-              </span>
-              <span class="font-mono text-[10px] bg-blue-200/70 text-blue-900 px-1.5 py-0.5 rounded font-bold">SE-INDONESIA</span>
-            </div>
-            <div class="bg-white rounded-lg p-2.5 border border-blue-200/60 shadow-2xs text-xs space-y-1">
-              <div class="flex justify-between items-center text-[11px]">
-                <span class="font-bold text-slate-900">Packing Karung/Dus + Segel</span>
-                <span class="text-[10px] text-emerald-700 bg-emerald-50 px-1.5 py-0.5 rounded font-bold">Anti Air</span>
-              </div>
-              <div class="flex justify-between text-[10.5px] text-slate-500 pt-1 border-t border-slate-100 font-mono">
-                <span>Ekspedisi Pilihan Anda</span>
-                <span class="text-blue-700 font-semibold">Foto Resi via WA</span>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="mt-4 pt-3 border-t border-slate-100 flex items-center justify-between text-xs font-semibold text-blue-700">
-          <span>Langkah 4 dari 4: Pengiriman Tuntas</span>
-          <span class="text-[11px] font-mono text-slate-400">Tahap 4</span>
-        </div>
+          );
+        })}
       </div>
     </div>
 
-    <!-- Inline Action Box at Timeline End (Cathedral Arch Silhouette) -->
+    <!-- Inline Action Box at Timeline End -->
     <div class="bg-gradient-to-r from-blue-50/80 via-white to-emerald-50/70 rounded-t-[3rem] rounded-b-xl border border-blue-200/80 p-6 sm:p-8 flex flex-col sm:flex-row items-center justify-between gap-6 shadow-xs hover:shadow-md reveal-on-scroll card-hover-lift mb-14 sm:mb-20">
       <div class="text-left">
         <div class="inline-flex items-center gap-1.5 text-xs font-bold text-emerald-800 bg-emerald-100/70 px-2.5 py-0.5 rounded-md mb-2 border border-emerald-300/60">

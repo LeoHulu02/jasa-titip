@@ -65,7 +65,19 @@ const categoryMeta = [
 ];
 ---
 
-<section id="kategori" class="pt-14 sm:pt-18 md:pt-22 pb-0 bg-white relative">
+<section id="kategori" class="pt-14 sm:pt-18 md:pt-22 pb-0 bg-gradient-to-b from-slate-50/70 via-indigo-50/20 to-blue-50/35 relative overflow-hidden">
+  <!-- Subtle Multi-Chromatic Commerce Dot Matrix Pattern -->
+  <div 
+    class="absolute inset-0 pointer-events-none opacity-[0.3]"
+    style="background-image: radial-gradient(rgba(99, 102, 241, 0.12) 1.2px, transparent 1.2px), radial-gradient(rgba(245, 158, 11, 0.1) 1.2px, transparent 1.2px); background-size: 32px 32px; background-position: 0 0, 16px 16px;"
+    aria-hidden="true"
+  ></div>
+
+  <!-- Soft Chromatic Ambient Halos (Echoing the Category Color Accents) -->
+  <div class="absolute -top-16 -right-16 w-96 h-96 rounded-full bg-indigo-300/15 blur-[100px] pointer-events-none"></div>
+  <div class="absolute top-1/2 -left-20 w-80 h-80 rounded-full bg-emerald-300/15 blur-[100px] pointer-events-none"></div>
+  <div class="absolute bottom-20 right-10 w-80 h-80 rounded-full bg-amber-300/15 blur-[100px] pointer-events-none"></div>
+
   <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
     
     <!-- Section Header -->
