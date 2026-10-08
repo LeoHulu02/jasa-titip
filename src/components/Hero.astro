@@ -44,9 +44,15 @@ const waUrl = getWhatsAppUrl(siteConfig.heroWaMessage);
           </h1>
 
           <!-- Balanced Lead Description -->
-          <p class="text-sm sm:text-base md:text-[17px] text-slate-700 leading-[1.65] font-medium mb-7 sm:mb-8 max-w-2xl">
-            Kami carikan stok, cek fisik lewat video call, belikan dengan nota asli toko, dan satukan ke kargo kota Anda. Cukup kirim list belanja via WhatsApp.
-          </p>
+          <div class="mb-7 sm:mb-8 max-w-2xl space-y-3">
+            <p class="text-sm sm:text-base md:text-[17px] text-slate-700 leading-[1.7] font-medium">
+              Khusus untuk Anda <strong class="font-extrabold text-orange-600">para pedagang</strong> di berbagai daerah, kami hadir untuk memudahkan urusan perbelanjaan usaha Anda di pusat grosir, supplier, gudang dan pabrik Jakarta.
+            </p>
+            <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-xl bg-orange-100/80 border border-orange-200 text-orange-900 text-xs sm:text-sm font-extrabold shadow-2xs">
+              <span class="w-2 h-2 rounded-full bg-orange-500 animate-pulse"></span>
+              <span>&ldquo;Belanja Mudah dan Aman Terjamin&rdquo;</span>
+            </div>
+          </div>
 
           <!-- Action Buttons -->
           <div class="flex flex-col sm:flex-row items-stretch sm:items-center justify-center lg:justify-start gap-3 sm:gap-3.5 w-full sm:w-auto mb-8">
@@ -117,8 +123,8 @@ const waUrl = getWhatsAppUrl(siteConfig.heroWaMessage);
               />
             </div>
 
-            <!-- Floating Tactile Badge 1: Live Video Call (Left) -->
-            <div class="absolute top-24 -left-2 sm:-left-6 z-20 animate-float-slow">
+            <!-- Floating Tactile Badge 1: Live Video Call (Left) - Positioned at torso level to NEVER cover face -->
+            <div class="absolute bottom-24 -left-1 sm:-left-5 lg:-left-7 z-20 animate-float-slow">
               <div class="flex items-center gap-2.5 px-3.5 py-2.5 rounded-2xl bg-white/95 backdrop-blur-md text-slate-900 shadow-xl border border-slate-100/90 text-xs font-bold">
                 <div class="w-8 h-8 rounded-xl bg-emerald-500 text-white flex items-center justify-center shadow-xs">
                   <Video class="w-4 h-4 text-white" />
@@ -130,8 +136,8 @@ const waUrl = getWhatsAppUrl(siteConfig.heroWaMessage);
               </div>
             </div>
 
-            <!-- Floating Tactile Badge 2: Nota Asli Fisik (Right) -->
-            <div class="absolute bottom-16 -right-2 sm:-right-6 z-20">
+            <!-- Floating Tactile Badge 2: Nota Asli Fisik (Right) - Positioned at box level -->
+            <div class="absolute bottom-6 -right-1 sm:-right-5 lg:-right-7 z-20">
               <div class="flex items-center gap-2.5 px-3.5 py-2.5 rounded-2xl bg-white/95 backdrop-blur-md text-slate-900 shadow-xl border border-slate-100/90 text-xs font-bold">
                 <div class="w-8 h-8 rounded-xl bg-blue-600 text-white flex items-center justify-center shadow-xs">
                   <ShieldCheck class="w-4 h-4 text-white" />
