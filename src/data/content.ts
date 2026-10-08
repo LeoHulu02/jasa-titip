@@ -173,7 +173,7 @@ export const services: ServiceItem[] = [
   {
     id: 'price-check',
     title: 'Live Video Call & Cek Fisik Langsung',
-    description: 'Pantau langsung warna asli, serat kain, dan seri motif bersama tim kami via WhatsApp sebelum bayar.',
+    description: 'Pantau dan lihat langsung kondisi barang secara nyata, via WhatsApp video call oleh team agency kami',
     tag: 'Cek Fisik & Video Call',
   },
   {

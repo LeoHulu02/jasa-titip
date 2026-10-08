@@ -9,6 +9,7 @@ import {
   Truck, 
   ShieldCheck, 
   Info, 
+  AlertTriangle,
   Tag, 
   Clock, 
   CheckCircle2 
@@ -155,14 +156,17 @@ const pillars = [
           );
         })}
 
-        <!-- Notice / Disclaimer Callout (Directly paired with Step 8, like the flyer) -->
-        <div class="p-4 sm:p-4.5 rounded-2xl bg-blue-50/70 border border-blue-200/90 shadow-2xs flex items-start gap-3 reveal-on-scroll">
-          <div class="w-8 h-8 rounded-full bg-blue-600 text-white flex items-center justify-center shrink-0 shadow-xs mt-0.5">
-            <Info class="w-4 h-4 text-white" />
+        <!-- Notice / Disclaimer Callout (Ketentuan Batas Tanggung Jawab Ekspedisi) -->
+        <div class="p-4 sm:p-5 rounded-2xl bg-rose-50/95 border-2 border-rose-300 shadow-sm flex items-start gap-3.5 reveal-on-scroll relative overflow-hidden">
+          <div class="w-9 h-9 rounded-xl bg-rose-600 text-white flex items-center justify-center shrink-0 shadow-xs mt-0.5">
+            <AlertTriangle class="w-5 h-5 text-white" />
           </div>
-          <div class="text-xs sm:text-[12.5px] text-blue-950 leading-relaxed">
-            <strong class="font-bold text-blue-900 block mb-0.5">Ketentuan Batas Tanggung Jawab Ekspedisi:</strong>
-            <p class="text-slate-700">
+          <div class="text-xs sm:text-[13px] leading-relaxed w-full">
+            <div class="flex items-center gap-2 mb-1 flex-wrap">
+              <strong class="font-extrabold text-rose-900 text-xs sm:text-sm tracking-tight">Ketentuan Batas Tanggung Jawab Ekspedisi:</strong>
+              <span class="text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded bg-rose-200 text-rose-800 border border-rose-300">Penting Dipahami</span>
+            </div>
+            <p class="font-bold text-rose-700">
               {shippingDisclaimer}
             </p>
           </div>
