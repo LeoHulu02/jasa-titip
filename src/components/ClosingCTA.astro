@@ -6,7 +6,17 @@ import { siteConfig, getWhatsAppUrl } from '../data/content';
 const waUrl = getWhatsAppUrl(siteConfig.closingWaMessage);
 ---
 
-<section id="kontak" class="py-14 sm:py-18 md:py-22 bg-slate-900 text-white relative">
+<section id="kontak" class="py-14 sm:py-18 md:py-22 bg-gradient-to-b from-[#0F172A] via-blue-950/90 to-slate-900 text-white relative overflow-hidden">
+  <!-- Radiant Ambient Backlight Halo behind CTA -->
+  <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[520px] h-[300px] bg-gradient-to-tr from-emerald-500/15 via-blue-600/20 to-sky-400/10 rounded-full blur-[100px] pointer-events-none"></div>
+
+  <!-- Cosmic Micro-Pattern Accent -->
+  <div 
+    class="absolute inset-0 pointer-events-none opacity-[0.2]"
+    style="background-image: radial-gradient(rgba(56, 189, 248, 0.15) 1px, transparent 1px); background-size: 24px 24px;"
+    aria-hidden="true"
+  ></div>
+
   <div class="max-w-4xl mx-auto px-4 sm:px-6 relative z-10 text-center reveal-on-scroll">
     
     <p class="text-xs font-bold uppercase tracking-wider text-emerald-400 mb-3">
@@ -34,17 +44,17 @@ const waUrl = getWhatsAppUrl(siteConfig.closingWaMessage);
       </a>
     </div>
 
-    <!-- Assurance Points in Crisp Surface Cards -->
+    <!-- Assurance Points in Crisp Glassmorphic Surface Cards -->
     <div class="grid grid-cols-1 sm:grid-cols-3 gap-2.5 sm:gap-3 max-w-3xl mx-auto">
-      <div class="p-3 sm:p-3.5 rounded-xl bg-slate-800/80 border border-slate-700/80 flex items-center justify-center gap-2 text-xs sm:text-[13px] font-medium text-white shadow-2xs">
+      <div class="p-3 sm:p-3.5 rounded-xl bg-white/10 backdrop-blur-md border border-white/15 flex items-center justify-center gap-2 text-xs sm:text-[13px] font-medium text-white shadow-2xs">
         <CheckCircle2 class="w-4 h-4 text-emerald-400 shrink-0" />
         <span>Tanpa Biaya Pendaftaran</span>
       </div>
-      <div class="p-3 sm:p-3.5 rounded-xl bg-slate-800/80 border border-slate-700/80 flex items-center justify-center gap-2 text-xs sm:text-[13px] font-medium text-white shadow-2xs">
+      <div class="p-3 sm:p-3.5 rounded-xl bg-white/10 backdrop-blur-md border border-white/15 flex items-center justify-center gap-2 text-xs sm:text-[13px] font-medium text-white shadow-2xs">
         <CheckCircle2 class="w-4 h-4 text-emerald-400 shrink-0" />
         <span>Estimasi Biaya Jelas di Awal</span>
       </div>
-      <div class="p-3 sm:p-3.5 rounded-xl bg-slate-800/80 border border-slate-700/80 flex items-center justify-center gap-2 text-xs sm:text-[13px] font-medium text-white shadow-2xs">
+      <div class="p-3 sm:p-3.5 rounded-xl bg-white/10 backdrop-blur-md border border-white/15 flex items-center justify-center gap-2 text-xs sm:text-[13px] font-medium text-white shadow-2xs">
         <CheckCircle2 class="w-4 h-4 text-emerald-400 shrink-0" />
         <span>Nota Asli dari Toko Fisik</span>
       </div>

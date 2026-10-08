@@ -35,9 +35,9 @@
     padding-bottom: env(safe-area-inset-bottom, 0px);
   }
 
-  /* Prevent bottom nav from covering content */
+  /* Main content wrapper sits flush with footer (mobile safe area handled in footer) */
   .main-content-wrapper {
-    padding-bottom: calc(4.75rem + env(safe-area-inset-bottom, 0px));
+    padding-bottom: 0px;
   }
 
   @media (min-width: 768px) {

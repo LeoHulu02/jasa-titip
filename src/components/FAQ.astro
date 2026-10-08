@@ -6,10 +6,17 @@ import { faqs, siteConfig, getWhatsAppUrl } from '../data/content';
 const waUrl = getWhatsAppUrl('Halo Admin Mitra Belanja, saya ingin menanyakan perihal layanan belanja di pasar grosir Jakarta.');
 ---
 
-<section id="faq" class="pt-14 sm:pt-18 md:pt-22 pb-0 bg-gradient-to-b from-slate-50/90 via-white to-slate-50/50 relative overflow-hidden">
+<section id="faq" class="pt-14 sm:pt-18 md:pt-22 pb-0 bg-gradient-to-b from-slate-100 via-teal-50/40 to-slate-100/90 relative overflow-hidden">
+  <!-- Cool Slate-Teal Micro Dot Matrix -->
+  <div 
+    class="absolute inset-0 pointer-events-none opacity-[0.3]"
+    style="background-image: radial-gradient(rgba(13, 148, 136, 0.15) 1.2px, transparent 1.2px); background-size: 28px 28px;"
+    aria-hidden="true"
+  ></div>
+
   <!-- Subtle Soft Ambient Accent behind Sticky Support Column -->
-  <div class="absolute top-16 left-8 w-80 h-80 rounded-full bg-emerald-200/15 blur-[90px] pointer-events-none"></div>
-  <div class="absolute bottom-24 right-10 w-96 h-96 rounded-full bg-blue-200/15 blur-[100px] pointer-events-none"></div>
+  <div class="absolute top-16 left-8 w-80 h-80 rounded-full bg-emerald-300/20 blur-[100px] pointer-events-none"></div>
+  <div class="absolute bottom-24 right-10 w-96 h-96 rounded-full bg-teal-300/20 blur-[100px] pointer-events-none"></div>
 
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
     
@@ -29,7 +36,7 @@ const waUrl = getWhatsAppUrl('Halo Admin Mitra Belanja, saya ingin menanyakan pe
         </p>
 
         <!-- Direct Support Box -->
-        <div class="p-5 sm:p-6 rounded-2xl bg-slate-50 border border-slate-200 shadow-2xs">
+        <div class="p-5 sm:p-6 rounded-2xl bg-white border border-slate-200/90 shadow-sm">
           <div class="flex items-center gap-2 text-xs font-bold text-slate-900 mb-2">
             <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
             <span>Admin Lapangan Siaga</span>
@@ -53,7 +60,7 @@ const waUrl = getWhatsAppUrl('Halo Admin Mitra Belanja, saya ingin menanyakan pe
       <div class="lg:col-span-8 space-y-3 sm:space-y-3.5">
         {faqs.map((faq, index) => (
           <details 
-            class={`group bg-slate-50/70 hover:bg-white rounded-2xl border border-slate-200/90 overflow-hidden transition-all duration-200 open:border-blue-500 open:bg-white open:shadow-xs reveal-on-scroll stagger-${(index % 4) + 1}`}
+            class={`group bg-white hover:bg-white/95 rounded-2xl border border-slate-200/90 shadow-2xs hover:shadow-xs overflow-hidden transition-all duration-200 open:border-blue-500 open:bg-white open:shadow-sm reveal-on-scroll stagger-${(index % 4) + 1}`}
           >
             <summary 
               class="flex items-center justify-between p-4 sm:p-5 cursor-pointer list-none select-none text-left font-bold text-slate-900 group-hover:text-blue-600 transition-colors text-sm sm:text-base focus-visible:outline-none"

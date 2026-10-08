@@ -26,7 +26,7 @@ const waUrl = getWhatsAppUrl(siteConfig.heroWaMessage);
   </div>
 
   <!-- 2. Content & Human Showcase Section (Split Layout) -->
-  <div id="hero-penjelasan" class="relative pt-10 sm:pt-14 md:pt-18 pb-0 bg-gradient-to-b from-slate-100/70 via-slate-50 to-blue-50/40 overflow-hidden">
+  <div id="hero-penjelasan" class="relative pt-10 sm:pt-14 md:pt-18 pb-8 sm:pb-12 md:pb-14 bg-gradient-to-b from-slate-100/70 via-slate-50 to-white overflow-hidden">
     <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       
       <!-- Split Hero Grid: Content (Left) & Human Showcase (Right) -->
@@ -261,45 +261,5 @@ const waUrl = getWhatsAppUrl(siteConfig.heroWaMessage);
 
     </div>
 
-    <!-- Divider 1: Dynamic Asymmetric Diagonal Slant with Speed Contour Lines -->
-    <div class="relative w-full overflow-hidden leading-none pt-6 sm:pt-10 -mb-px">
-      <svg 
-        class="relative block w-full h-14 sm:h-18 md:h-22" 
-        viewBox="0 0 1200 120" 
-        preserveAspectRatio="none"
-        aria-hidden="true"
-      >
-        <!-- Translucent speed underlay -->
-        <path 
-          d="M0,15 Q300,50 600,65 T1200,105 L1200,120 L0,120 Z" 
-          fill="rgba(37, 99, 235, 0.08)"
-        ></path>
-
-        <!-- Main white fill merging seamlessly into Section 2 -->
-        <path 
-          d="M0,35 Q300,70 600,82 T1200,115 L1200,120 L0,120 Z" 
-          fill="#FFFFFF"
-        ></path>
-
-        <!-- Primary velocity contour stroke -->
-        <path 
-          d="M0,35 Q300,70 600,82 T1200,115" 
-          fill="none" 
-          stroke="#2563EB" 
-          stroke-width="3" 
-          stroke-linecap="round"
-        ></path>
-
-        <!-- Secondary floating dashed speed line -->
-        <path 
-          d="M0,22 Q300,57 600,69 T1200,102" 
-          fill="none" 
-          stroke="#60A5FA" 
-          stroke-width="1.5" 
-          stroke-dasharray="8 6" 
-          stroke-opacity="0.6"
-        ></path>
-      </svg>
-    </div>
   </div>
 </section>
