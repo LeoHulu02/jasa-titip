@@ -131,13 +131,13 @@ export const marketPhotos: MarketPhoto[] = [
   },
   {
     id: 'pasar-bogor-sepatu-sandal',
-    src: '/image-7.jpeg',
+    src: '/pasar-bogor.jpeg',
     title: 'Pasar Grosir Kebon Kembang Bogor',
     location: 'Pasar Kebon Kembang, Kota Bogor',
     tag: 'Sentra Sepatu & Sandal Bogor',
     description: 'Pusat belanja aneka sepatu pria/wanita, sandal, selop, dan alas kaki grosir langsung dari produsen lokal dan distributor tangan pertama di Bogor.',
-    width: 500,
-    height: 500,
+    width: 1254,
+    height: 1254,
     aspectRatio: '1/1',
   },
 ];
